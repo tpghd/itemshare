@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>칼로 마케팅 인사이트 보고서 · 2026.05.26</title>
+<title>헬스케어팀 MKT 데이터 분석 · 2026.05.26</title>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 60px; }
 body {
   font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
   background: #F2F4F6;
@@ -28,6 +29,26 @@ body {
 }
 .nav-brand { font-size: 15px; font-weight: 700; color: #191F28; }
 .nav-date { font-size: 13px; color: #B0B8C1; }
+.nav-section-links {
+  display: flex;
+  gap: 2px;
+  margin-left: 20px;
+  border-left: 1px solid #E5E8EB;
+  padding-left: 20px;
+}
+.nav-section-link {
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6B7684;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-section-link:hover { background: #F2F4F6; color: #191F28; }
+.nav-section-link.active { background: #EAF2FF; color: #3182F6; font-weight: 600; }
+
 .nav-tabs { display: flex; gap: 4px; margin-left: auto; }
 .nav-tab {
   padding: 8px 20px;
@@ -45,79 +66,146 @@ body {
 
 /* ─── HERO ─── */
 .hero {
-  background: #191F28;
-  padding: 88px 80px 72px;
-  color: #fff;
-}
-.hero-eyebrow {
-  display: inline-block;
-  background: rgba(49,130,246,0.15);
-  color: #4D9FFF;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 6px;
-  margin-bottom: 24px;
-}
-.hero-title {
-  font-size: 44px;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  letter-spacing: -0.02em;
-}
-.hero-sub {
-  font-size: 17px;
-  color: #8B95A1;
-  margin-bottom: 56px;
-  max-width: 560px;
-  line-height: 1.7;
-}
-.hero-kpis {
-  display: flex;
-  gap: 0;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
+  position: relative;
   overflow: hidden;
-  width: fit-content;
-}
-.hero-kpi {
-  padding: 24px 40px;
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-.hero-kpi:last-child { border-right: none; }
-.hero-kpi-num {
-  font-size: 30px;
-  font-weight: 800;
+  background: #0D1117;
+  padding: 80px;
   color: #fff;
-  margin-bottom: 4px;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 52px;
 }
-.hero-kpi-label { font-size: 12px; color: #6B7684; font-weight: 500; }
+.hero-glow-1 {
+  position: absolute;
+  width: 1400px; height: 1400px;
+  background: radial-gradient(circle, rgba(49,130,246,0.45) 0%, rgba(49,130,246,0.15) 40%, transparent 65%);
+  top: -600px; right: -400px;
+  pointer-events: none;
+}
+.hero-glow-2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(5,192,114,0.10) 0%, transparent 65%);
+  bottom: -100px; left: 200px;
+  pointer-events: none;
+}
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+.hero-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(49,130,246,0.12);
+  border: 1px solid rgba(49,130,246,0.25);
+  color: #4D9FFF;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.hero-brand-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #3182F6;
+  box-shadow: 0 0 0 3px rgba(49,130,246,0.25);
+}
+.hero-date {
+  font-size: 13px;
+  color: #3B4455;
+  font-weight: 500;
+}
+.hero-main { position: relative; }
+.hero-title {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin-bottom: 22px;
+}
+.hero-title-accent { color: #3182F6; }
+.hero-sub {
+  font-size: 19px;
+  color: #5C6B7A;
+  line-height: 1.75;
+  max-width: 560px;
+}
+.hero-kpi-strip {
+  display: flex;
+  align-items: stretch;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  width: fit-content;
+  position: relative;
+}
+.hero-kpi-item {
+  padding: 28px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+.hero-kpi-item + .hero-kpi-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: rgba(255,255,255,0.07);
+}
+.hero-kpi-num {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.hero-kpi-num span {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3182F6;
+  margin-left: 3px;
+}
+.hero-kpi-label {
+  font-size: 13px;
+  color: #3B4455;
+  font-weight: 500;
+}
 
 /* ─── SECTION ─── */
-.section { padding: 88px 80px; }
+.section {
+  padding: 64px 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .section.white { background: #fff; }
 .section.gray { background: #F2F4F6; }
 
 .sec-eyebrow {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #3182F6;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .sec-title {
-  font-size: 30px;
-  font-weight: 800;
+  font-size: 38px;
+  font-weight: 900;
   color: #191F28;
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
 }
 .sec-sub {
-  font-size: 15px;
+  font-size: 17px;
   color: #6B7684;
   margin-bottom: 40px;
 }
@@ -125,61 +213,214 @@ body {
 /* ─── SOURCE CARDS ─── */
 .source-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  flex: 1;
 }
 .source-card {
   background: #F7F8FA;
-  border-radius: 16px;
-  padding: 28px 24px;
+  border-radius: 20px;
+  padding: 40px 36px;
   border: 1px solid #E5E8EB;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .source-icon {
-  width: 44px; height: 44px;
-  border-radius: 12px;
+  width: 52px; height: 52px;
+  border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 26px;
+  margin-bottom: 28px;
 }
 .icon-blue { background: #EAF2FF; }
 .icon-green { background: #E8F9EE; }
 .icon-purple { background: #F0EBFF; }
 .icon-orange { background: #FFF3E0; }
-.source-num { font-size: 26px; font-weight: 800; color: #191F28; margin-bottom: 4px; }
-.source-name { font-size: 14px; font-weight: 700; color: #191F28; margin-bottom: 8px; }
-.source-desc { font-size: 12px; color: #6B7684; line-height: 1.6; }
+.source-num { font-size: 36px; font-weight: 900; color: #191F28; margin-bottom: 6px; letter-spacing: -0.02em; }
+.source-name { font-size: 18px; font-weight: 700; color: #191F28; margin-bottom: 12px; }
+.source-desc { font-size: 14px; color: #6B7684; line-height: 1.7; }
+.source-findings {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #E5E8EB;
+}
+.source-findings-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #B0B8C1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.finding-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #4E5968;
+}
+.finding-chip:last-child { margin-bottom: 0; }
+.finding-chip::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3182F6;
+  margin-top: 6px;
+}
+.finding-tag {
+  display: inline-block;
+  background: #EAF2FF;
+  color: #3182F6;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+.method-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 16px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid #D1D6DB;
+  background: #fff;
+  color: #6B7684;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.method-btn:hover { border-color: #3182F6; color: #3182F6; background: #F5F9FF; }
+.method-btn svg { flex-shrink: 0; }
+
+/* ─── MODAL ─── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 44px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalIn 0.2s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-close {
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #F2F4F6;
+  color: #6B7684;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.modal-close:hover { background: #E5E8EB; }
+.modal-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #B0B8C1;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.modal-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #191F28;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+.modal-step {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.modal-step:last-child { margin-bottom: 0; }
+.step-num {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: #EAF2FF;
+  color: #3182F6;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.step-body {}
+.step-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #191F28;
+  margin-bottom: 3px;
+}
+.step-desc {
+  font-size: 13px;
+  color: #6B7684;
+  line-height: 1.65;
+}
 
 /* ─── CUSTOMER CHARTS ─── */
 .chart-row { display: grid; grid-template-columns: 3fr 2fr; gap: 20px; margin-bottom: 20px; }
 .chart-card {
   background: #fff;
-  border-radius: 16px;
-  padding: 28px;
+  border-radius: 20px;
+  padding: 36px;
   border: 1px solid #E5E8EB;
 }
-.chart-card-title { font-size: 14px; font-weight: 700; color: #191F28; margin-bottom: 20px; }
-.chart-wrap { position: relative; height: 260px; }
+.chart-card-title { font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 24px; }
+.chart-wrap { position: relative; height: 320px; }
 
 /* ─── TABLE ─── */
 .table-card {
   background: #fff;
-  border-radius: 16px;
-  padding: 28px;
+  border-radius: 20px;
+  padding: 36px;
   border: 1px solid #E5E8EB;
 }
-.table-card-title { font-size: 14px; font-weight: 700; color: #191F28; margin-bottom: 20px; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table-card-title { font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 24px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th {
   text-align: left;
-  padding: 10px 14px;
+  padding: 12px 16px;
   background: #F7F8FA;
   color: #6B7684;
   font-weight: 600;
   border-bottom: 2px solid #E5E8EB;
-  font-size: 12px;
+  font-size: 13px;
 }
 td {
-  padding: 11px 14px;
+  padding: 14px 16px;
   border-bottom: 1px solid #F2F4F6;
   color: #191F28;
   vertical-align: top;
@@ -187,6 +428,11 @@ td {
 tr:last-child td { border-bottom: none; }
 .tr-highlight { background: #F0F6FF; }
 .tr-highlight td { font-weight: 600; color: #1A5ED8; }
+.tr-group-label td { background: #F2F4F6; font-size: 11px; font-weight: 700; color: #8B95A1; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 16px; border-bottom: none; }
+.cross-chip { display: inline-block; padding: 3px 10px; margin: 2px 3px; background: #EFF3FF; border-radius: 20px; font-size: 12px; color: #1A5ED8; font-weight: 500; white-space: nowrap; }
+.cross-chip-hot { display: inline-block; padding: 3px 10px; margin: 2px 3px; background: #1A5ED8; border-radius: 20px; font-size: 12px; color: #fff; font-weight: 700; white-space: nowrap; box-shadow: 0 2px 6px rgba(26,94,216,0.35); }
+.cross-chip-ems { display: inline-block; padding: 3px 10px; margin: 2px 3px; background: #E6F7EE; border: 1.5px solid #34A853; border-radius: 20px; font-size: 12px; color: #1A7A3A; font-weight: 700; white-space: nowrap; box-shadow: 0 2px 5px rgba(52,168,83,0.25); }
+.cross-chip-sleep { display: inline-block; padding: 3px 10px; margin: 2px 3px; background: #F3EEFF; border: 1.5px solid #7C4DFF; border-radius: 20px; font-size: 12px; color: #5B21B6; font-weight: 700; white-space: nowrap; box-shadow: 0 2px 5px rgba(124,77,255,0.25); }
 
 /* ─── HYPOTHESIS CARDS ─── */
 .hyp-intro {
@@ -222,39 +468,89 @@ tr:last-child td { border-bottom: none; }
   border: 1px solid #E5E8EB;
   overflow: hidden;
   transition: border-color 0.25s, box-shadow 0.25s;
-  cursor: pointer;
+  cursor: default;
 }
-.hyp-card:hover { border-color: #AEC8F5; }
-.hyp-card.open { border-color: #3182F6; box-shadow: 0 0 0 3px rgba(49,130,246,0.08); }
+.hyp-card:hover { border-color: #AEC8F5; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.hyp-detail-btn { margin-left: auto; flex-shrink: 0; padding: 8px 18px; border-radius: 20px; border: 1.5px solid #3182F6; background: #fff; color: #3182F6; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.18s, color 0.18s; white-space: nowrap; }
+.hyp-detail-btn:hover { background: #3182F6; color: #fff; }
+.modal-hyp-box { max-width: 720px; max-height: 82vh; overflow-y: auto; }
 
 .hyp-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 24px 28px;
+  gap: 20px;
+  padding: 28px 32px;
   user-select: none;
 }
 .hyp-num {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: #B0B8C1;
   letter-spacing: 0.05em;
-  min-width: 30px;
+  min-width: 34px;
 }
 .score-badge {
-  width: 52px; height: 52px;
-  border-radius: 14px;
+  width: 60px; height: 60px;
+  border-radius: 16px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 900;
+  font-size: 20px; font-weight: 900;
   flex-shrink: 0;
   letter-spacing: -0.02em;
 }
 .score-green { background: #E8F9EE; color: #12B05E; }
 .score-yellow { background: #FFF8E1; color: #D48B00; }
 
+/* ─── DASHBOARD ─── */
+.dash-brand-tabs { display: flex; gap: 8px; margin-bottom: 24px; }
+.dash-brand-tab {
+  padding: 10px 28px; border-radius: 10px; font-size: 15px; font-weight: 700;
+  border: 2px solid #E5E8EB; background: #fff; color: #6B7684; cursor: pointer; transition: all 0.15s;
+}
+.dash-brand-tab.active { background: #191F28; border-color: #191F28; color: #fff; }
+.dash-tab-bar { display: flex; gap: 0; border-bottom: 2px solid #E5E8EB; margin-bottom: 28px; }
+.dash-tab {
+  padding: 12px 22px; font-size: 14px; font-weight: 500; color: #6B7684;
+  border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent;
+  margin-bottom: -2px; transition: all 0.15s; font-family: inherit;
+}
+.dash-tab:hover { color: #191F28; }
+.dash-tab.active { color: #3182F6; border-bottom-color: #3182F6; font-weight: 700; }
+.dash-panel { display: none; }
+.dash-panel.active { display: block; }
+.dash-kpi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 24px; }
+.dash-kpi { background:#fff; border:1px solid #E5E8EB; border-radius:14px; padding:20px 24px; }
+.dash-kpi-label { font-size:12px; color:#6B7684; font-weight:600; margin-bottom:8px; }
+.dash-kpi-value { font-size:26px; font-weight:900; color:#191F28; letter-spacing:-0.02em; }
+.dash-kpi-sub { font-size:12px; color:#B0B8C1; margin-top:4px; }
+.dash-chart-row { display:grid; grid-template-columns:3fr 2fr; gap:20px; margin-bottom:20px; }
+.dash-chart-row.half { grid-template-columns:1fr 1fr; }
+.dash-card { background:#fff; border:1px solid #E5E8EB; border-radius:16px; padding:28px; }
+.dash-card-title { font-size:15px; font-weight:700; color:#191F28; margin-bottom:20px; }
+.dash-chart-wrap { position:relative; height:300px; }
+.dash-chart-wrap.sm { height:220px; }
+.dash-filter-bar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.dash-filter-btn {
+  padding:6px 14px; font-size:13px; border-radius:20px; border:1.5px solid #E5E8EB;
+  background:#fff; color:#6B7684; cursor:pointer; font-family:inherit; font-weight:500; transition:all 0.15s;
+}
+.dash-filter-btn:hover { border-color:#3182F6; color:#3182F6; }
+.dash-filter-btn.active { background:#3182F6; border-color:#3182F6; color:#fff; font-weight:700; }
+.dash-tbl { width:100%; border-collapse:collapse; font-size:13px; }
+.dash-tbl th { text-align:left; padding:10px 14px; background:#F7F8FA; color:#6B7684; font-weight:600; border-bottom:2px solid #E5E8EB; font-size:12px; }
+.dash-tbl td { padding:10px 14px; border-bottom:1px solid #F2F4F6; color:#191F28; }
+.dash-tbl tr:last-child td { border-bottom:none; }
+.dash-tbl tr:hover td { background:#FAFBFC; }
+.dash-tbl .num { font-weight:700; color:#3182F6; }
+.dash-seq-row { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+.dash-seq-label { width:160px; font-size:13px; font-weight:500; flex-shrink:0; text-align:right; }
+.dash-seq-bar-wrap { flex:1; background:#F2F4F6; border-radius:4px; height:26px; position:relative; overflow:hidden; }
+.dash-seq-bar { height:100%; background:#3182F6; border-radius:4px; display:flex; align-items:center; padding-left:8px; min-width:2px; }
+.dash-seq-bar-text { font-size:12px; color:#fff; font-weight:600; white-space:nowrap; }
+.dash-seq-pct { width:48px; font-size:12px; color:#6B7684; flex-shrink:0; }
+
 .hyp-info { flex: 1; min-width: 0; }
-.hyp-title { font-size: 17px; font-weight: 700; color: #191F28; margin-bottom: 5px; }
-.hyp-liner { font-size: 13px; color: #6B7684; }
+.hyp-title { font-size: 19px; font-weight: 700; color: #191F28; margin-bottom: 6px; }
+.hyp-liner { font-size: 14px; color: #6B7684; }
 
 .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
 .tag {
@@ -284,62 +580,62 @@ tr:last-child td { border-bottom: none; }
 }
 .hyp-card.open .hyp-body { max-height: 2000px; }
 .hyp-body-inner {
-  padding: 0 28px 28px;
+  padding: 0 32px 32px;
   border-top: 1px solid #F2F4F6;
-  padding-top: 24px;
+  padding-top: 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .body-block-label {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: #B0B8C1;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .chip {
   background: #F0F6FF;
   border: 1px solid #BBDEFB;
-  border-radius: 8px;
-  padding: 9px 14px;
-  font-size: 13px;
-  line-height: 1.4;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 .chip strong { color: #1A5ED8; font-weight: 700; }
 
 .quote-card {
   background: #F7F8FA;
-  border-left: 3px solid #3182F6;
-  border-radius: 0 10px 10px 0;
-  padding: 14px 16px;
-  font-size: 14px;
+  border-left: 4px solid #3182F6;
+  border-radius: 0 12px 12px 0;
+  padding: 18px 20px;
+  font-size: 15px;
   color: #3F4759;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-.action-list { display: flex; flex-direction: column; gap: 9px; }
+.action-list { display: flex; flex-direction: column; gap: 11px; }
 .action-item {
   display: flex;
-  gap: 10px;
-  font-size: 14px;
+  gap: 12px;
+  font-size: 15px;
   color: #3F4759;
-  line-height: 1.5;
+  line-height: 1.6;
 }
-.action-arrow { color: #3182F6; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.action-arrow { color: #3182F6; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
 
 .caution {
   background: #FFF8E1;
   border: 1px solid #FFE082;
-  border-radius: 10px;
-  padding: 13px 16px;
-  font-size: 13px;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 14px;
   color: #6D4C00;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .concept-notice {
@@ -369,101 +665,195 @@ tr:last-child td { border-bottom: none; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1100px) {
-  .section { padding: 72px 48px; }
-  .hero { padding: 72px 48px 60px; }
-  .source-grid { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 60px 48px; }
+  .hero { padding: 60px 48px; }
   .chart-row { grid-template-columns: 1fr; }
+  .hero-title { font-size: 52px; }
 }
 @media (max-width: 720px) {
   .top-nav { padding: 0 24px; }
-  .section { padding: 56px 24px; }
-  .hero { padding: 56px 24px 48px; }
-  .hero-title { font-size: 30px; }
-  .hero-kpis { flex-wrap: wrap; }
-  .hero-kpi { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .nav-section-links { display: none; }
+  .section { padding: 48px 24px; }
+  .hero { padding: 48px 24px; }
+  .hero-title { font-size: 36px; }
+  .hero-kpi-strip { flex-wrap: wrap; width: 100%; }
+  .hero-kpi-item { padding: 20px 28px; }
   .source-grid { grid-template-columns: 1fr; }
   .hyp-intro { grid-template-columns: 1fr; }
   .hyp-header { padding: 20px; gap: 12px; }
-  .hyp-title { font-size: 15px; }
+  .hyp-title { font-size: 16px; }
   .tag-row { display: none; }
 }
+
+/* ─── DASHBOARD EXTRA ─── */
+.d-rank-row { display:flex; align-items:center; gap:12px; margin-bottom:8px; padding:4px 0; }
+.d-rank-label { width:160px; font-size:13px; font-weight:500; flex-shrink:0; color:#191F28; }
+.d-rank-bar-wrap { flex:1; background:#F2F4F6; border-radius:4px; height:22px; overflow:hidden; }
+.d-rank-bar { height:100%; border-radius:4px; transition:width 0.4s; }
+.d-rank-val { width:60px; font-size:13px; font-weight:700; text-align:right; flex-shrink:0; }
+.d-seq-empty { color:#6B7684; font-size:13px; padding:20px 0; }
+.d-heatmap-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.d-heatmap-table { border-collapse:collapse; font-size:12px; min-width:100%; }
+.d-heatmap-table th { padding:8px 10px; background:#F8F9FA; color:#6B7684; font-weight:600; white-space:nowrap; border:1px solid #E5E8EB; }
+.d-heatmap-table td { padding:6px 8px; text-align:center; border:1px solid #E5E8EB; min-width:44px; font-size:12px; font-weight:500; }
+.d-card-gap { margin-bottom:20px; }
+.d-section-title { font-size:13px; font-weight:700; color:#191F28; margin-bottom:12px; }
+.d-cross-tbl { width:100%; border-collapse:collapse; font-size:13px; }
+.d-cross-tbl th { padding:10px 14px; background:#F7F8FA; color:#6B7684; font-weight:600; border-bottom:2px solid #E5E8EB; font-size:12px; }
+.d-cross-tbl td { padding:10px 14px; border-bottom:1px solid #F2F4F6; text-align:center; }
+.d-cross-tbl tr:last-child td { border-bottom:none; }
+.d-freq-tbl { width:100%; border-collapse:collapse; font-size:13px; margin-top:16px; }
+.d-freq-tbl th { text-align:left; padding:8px 12px; background:#F7F8FA; color:#6B7684; font-size:12px; font-weight:600; border-bottom:2px solid #E5E8EB; }
+.d-freq-tbl td { padding:8px 12px; border-bottom:1px solid #F2F4F6; }
+.d-opt-tbl { width:100%; border-collapse:collapse; font-size:13px; }
+.d-opt-tbl th { text-align:left; padding:10px 12px; background:#F7F8FA; color:#6B7684; font-size:12px; font-weight:600; border-bottom:2px solid #E5E8EB; }
+.d-opt-tbl td { padding:10px 12px; border-bottom:1px solid #F2F4F6; }
+.d-monthly-tbl { border-collapse:collapse; font-size:12px; min-width:100%; }
+.d-monthly-tbl th { padding:8px 10px; background:#F7F8FA; color:#6B7684; font-weight:600; border-bottom:2px solid #E5E8EB; white-space:nowrap; font-size:12px; }
+.d-monthly-tbl td { padding:8px 10px; text-align:center; border-bottom:1px solid #F2F4F6; white-space:nowrap; }
+
+/* ─── KEYWORD VIEW ─── */
+.kw-brand-tab {
+  padding: 8px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  border: none; background: none; color: #6B7684; cursor: pointer; transition: all 0.2s;
+}
+.kw-brand-tab.active { background: #191F28; color: #fff; }
+.kw-chip {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 9px 12px; border-radius: 10px; border: 1.5px solid #E5E8EB;
+  background: #F7F8FA; color: #4E5968; font-size: 13px; font-weight: 500;
+  font-family: inherit; cursor: pointer; transition: all 0.15s; text-align: left;
+}
+.kw-chip:hover:not(:disabled) { border-color: #3182F6; background: #EAF2FF; color: #3182F6; }
+.kw-chip.active { border-color: #3182F6; background: #EAF2FF; color: #3182F6; font-weight: 700; }
+.kw-chip:disabled { opacity: 0.38; cursor: not-allowed; }
+.kw-chip-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 </style>
 </head>
 <body>
 
 <!-- ─── NAV ─── -->
-<nav class="top-nav">
+<nav class="top-nav" id="top-nav">
   <span class="nav-brand">마케팅 인사이트</span>
   <span class="nav-date">2026.05.26</span>
+  <div class="nav-section-links">
+    <a class="nav-section-link" href="#hero">개요</a>
+    <a class="nav-section-link" href="#sources">데이터 소스</a>
+    <a class="nav-section-link" href="#customers">고객 현황</a>
+    <a class="nav-section-link" href="#hypotheses">가설 7가지</a>
+  </div>
   <div class="nav-tabs">
-    <button class="nav-tab active">칼로</button>
-    <button class="nav-tab disabled">패칫 · 준비중</button>
+    <button class="nav-tab active" onclick="switchMainTab('calo',this)">칼로</button>
+    <button class="nav-tab" onclick="switchMainTab('pachet',this)">패칫</button>
+    <button class="nav-tab" onclick="switchMainTab('dashboard',this)">대시보드</button>
+    <button class="nav-tab" onclick="switchMainTab('keyword',this)">키워드</button>
   </div>
 </nav>
 
 <!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="hero-eyebrow">Calo Marketing Insight Report</div>
-  <h1 class="hero-title">칼로 마케팅<br>인사이트 보고서</h1>
-  <p class="hero-sub">13,100명 고객 데이터와 경쟁사 리뷰 1,035건을 교차 분석해 도출한 마케팅 가설입니다.</p>
-  <div class="hero-kpis">
-    <div class="hero-kpi">
-      <div class="hero-kpi-num">13,100명</div>
-      <div class="hero-kpi-label">분석 고객 수</div>
+<div id="ppt-view">
+<div id="ppt-calo">
+<section class="hero" id="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-top">
+    <div class="hero-brand-pill">
+      <span class="hero-brand-dot"></span>
+      칼로
     </div>
-    <div class="hero-kpi">
-      <div class="hero-kpi-num">7개</div>
-      <div class="hero-kpi-label">유효 가설</div>
-    </div>
-    <div class="hero-kpi">
-      <div class="hero-kpi-num">12.0%</div>
-      <div class="hero-kpi-label">전체 재구매율</div>
-    </div>
-    <div class="hero-kpi">
-      <div class="hero-kpi-num">1,035건</div>
-      <div class="hero-kpi-label">경쟁사 리뷰 분석</div>
-    </div>
+    <span class="hero-date">Marketing Insight Report</span>
   </div>
+
+  <div class="hero-main">
+    <h1 class="hero-title">칼로 인사이트 도출<br><span class="hero-title-accent">2026.05</span></h1>
+    <p class="hero-sub">최근 6개월 주문, 전체 고객, 키워드 데이터를<br>기반으로 교차분석을 진행</p>
+  </div>
+
+  <p style="font-size:14px; color:#3B4455; line-height:1.8; position:relative;">
+    *2026.05.26일 기준 최근 6개월 주문 데이터 기준<br>
+    *실시간 업데이트가 아니며, 임시로 제작된 페이지입니다.
+  </p>
 </section>
 
 <!-- ─── 01 DATA SOURCES ─── -->
-<section class="section white">
+<section class="section white" id="sources">
   <div class="sec-eyebrow">Data Source</div>
-  <h2 class="sec-title">어떤 데이터를 봤나요</h2>
-  <p class="sec-sub">4가지 소스를 교차 분석해 가설을 도출했습니다.</p>
+  <h2 class="sec-title">활용 데이터 목록</h2>
+  <p class="sec-sub">현재 가용가능한 외부 & 내부 데이터를 활용하여<br>마케팅 인사이트를 도출하고 수립가능한 가설을 추출</p>
   <div class="source-grid">
     <div class="source-card">
-      <div class="source-icon icon-red">📋</div>
-      <div class="source-num">1,035건</div>
-      <div class="source-name">경쟁사 리뷰 분석</div>
-      <div class="source-desc">에르고바디 쉐이피EMS벨트 리뷰 전수 분류. 강도 불만·광고 불신·선물 구매 등 세부 유형 코딩 완료.</div>
-    </div>
-    <div class="source-card">
       <div class="source-icon icon-blue">👥</div>
-      <div class="source-num">13,100명</div>
-      <div class="source-name">칼로 고객 데이터</div>
-      <div class="source-desc">최근 3개월 주문 데이터. 제품별 구매 현황, 재구매율, 크로스바이 전환 매트릭스 포함.</div>
+      <div class="source-num">32,331명</div>
+      <div class="source-name">고객 데이터</div>
+      <div class="source-desc">최근 6개월 주문 데이터. 제품별 구매 현황, 재구매율, 크로스바이 전환 매트릭스 포함.</div>
+      <div class="source-findings">
+        <div class="source-findings-label">이 데이터에서 발견한 것</div>
+        <div class="finding-chip">트위스터 7,776명 — 전 제품군으로 이어지는 입문 허브<span class="finding-tag">H-04 근거</span></div>
+        <div class="finding-chip">스트랩 재구매율 11.8% — 포트폴리오 최고, 효과 경험자 실재<span class="finding-tag">H-02 근거</span></div>
+        <div class="finding-chip">이지슬립→스트랩 7.9% 크로스바이 — 수면·관절 동일 고객군 확인, 현재 데이터 미약<span class="finding-tag">H-03 근거</span></div>
+      </div>
+      <button class="method-btn" onclick="openModal('modal-customer')">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        분석 방법 보기
+      </button>
     </div>
     <div class="source-card">
-      <div class="source-icon icon-green">🔍</div>
-      <div class="source-num">24개월</div>
+      <div class="source-icon icon-green">⭐</div>
+      <div class="source-num">12,646건</div>
+      <div class="source-name">자체 리뷰 분석</div>
+      <div class="source-desc">2024.06 ~ 2026.05 칼로 전 제품 구매 리뷰 전수 수집. 제품별 만족·불만족 패턴 및 반복 언급 키워드 코딩 완료.</div>
+      <div class="source-findings">
+        <div class="source-findings-label">이 데이터에서 발견한 것</div>
+        <div class="finding-chip">리뷰 속 패션·코디 언급 다수 — 당연했는데 놓쳐온 패션 소구 각도 발견<span class="finding-tag">H-08 근거</span></div>
+        <div class="finding-chip">트위스터에서 다양한 제품으로 이동 — 입문 제품 역할 리뷰로 확인<span class="finding-tag">H-04 근거</span></div>
+        <div class="finding-chip">이지슬립 & 스트랩 구매 패턴 발견 — 동일 고객층의 니즈 일치성 추측<span class="finding-tag">H-03 근거</span></div>
+      </div>
+      <button class="method-btn" onclick="openModal('modal-review')">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        분석 방법 보기
+      </button>
+    </div>
+    <div class="source-card">
+      <div class="source-icon icon-purple">🔍</div>
+      <div class="source-num">1,062개</div>
       <div class="source-name">네이버 키워드 분석</div>
-      <div class="source-desc">DataLab 트렌드 + 검색광고 API 절대 검색량. 경쟁사·자사 씨앗 3-Track 군집화 완료.</div>
+      <div class="source-desc">유입 키워드 41개 → 1,062개 연관 키워드 군집화. DataLab 24개월 트렌드 + 검색광고 API 실검색량 절대값 환산.</div>
+      <div class="source-findings">
+        <div class="source-findings-label">이 데이터에서 발견한 것</div>
+        <div class="finding-chip">이지슬립 탐색자, 척추·하체 기기 연관 검색 — 수면을 통한 효과 연결 가능성<span class="finding-tag">H-03 근거</span></div>
+        <div class="finding-chip">EMS 카테고리 구조적 성장, 에르고바디 선점 — 직접 경쟁 대신 차별 각도 필요<span class="finding-tag">H-01 근거</span></div>
+        <div class="finding-chip">팔찌 니즈, 관절·혈액순환 중장년 남성으로 수렴 — 계절 무관 연중 수요<span class="finding-tag">H-08 근거</span></div>
+      </div>
+      <button class="method-btn" onclick="openModal('modal-keyword')">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        분석 방법 보기
+      </button>
     </div>
     <div class="source-card">
-      <div class="source-icon icon-orange">🛒</div>
-      <div class="source-num">주요 키워드</div>
-      <div class="source-name">쇼핑 포지션 검증</div>
-      <div class="source-desc">네이버 쇼핑 실제 노출 순위 확인. 자사 미노출 키워드 및 경쟁사 장악 카테고리 파악.</div>
+      <div class="source-icon icon-orange">🏆</div>
+      <div class="source-num">1,035건</div>
+      <div class="source-name">경쟁사 포지션 분석</div>
+      <div class="source-desc">에르고바디 쉐이피EMS벨트 리뷰 전수 분류. 강도 불만·광고 불신·선물 구매 등 세부 유형 코딩 완료.</div>
+      <div class="source-findings">
+        <div class="source-findings-label">이 데이터에서 발견한 것</div>
+        <div class="finding-chip">EMS 강도 약함 215건 (20.8%) — 이탈 경험자가 이미 형성돼 있음<span class="finding-tag">H-01 근거</span></div>
+        <div class="finding-chip">광고 불신 "그냥 온열" 65건 — EMS 자극에 대한 불신 존재<span class="finding-tag">H-06 근거</span></div>
+        <div class="finding-chip">선물 구매 140건 (13.5%) — EMS 카테고리 내 선물 수요 실재<span class="finding-tag">H-07 근거</span></div>
+      </div>
+      <button class="method-btn" onclick="openModal('modal-review')">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        분석 방법 보기
+      </button>
     </div>
   </div>
 </section>
 
 <!-- ─── 02 CUSTOMER OVERVIEW ─── -->
-<section class="section gray">
+<section class="section gray" id="customers">
   <div class="sec-eyebrow">Customer Overview</div>
   <h2 class="sec-title">칼로 고객 현황</h2>
-  <p class="sec-sub">최근 3개월 구매 고객 13,100명 기준</p>
+  <p class="sec-sub">최근 6개월 구매 고객 32,331명 기준</p>
 
   <div class="chart-row">
     <div class="chart-card">
@@ -471,8 +861,9 @@ tr:last-child td { border-bottom: none; }
       <div class="chart-wrap"><canvas id="productChart"></canvas></div>
     </div>
     <div class="chart-card">
-      <div class="chart-card-title">스트랩 구매 연령 분포</div>
-      <div class="chart-wrap"><canvas id="ageChart"></canvas></div>
+      <div class="chart-card-title">제품별 재구매 고객 수 순위</div>
+      <div class="chart-wrap"><canvas id="repeatChart"></canvas></div>
+      <div style="margin-top:10px;font-size:12px;color:#B0B8C1;">* 리바이크의 경우 재구매 수치 오류 발생으로 제외됨</div>
     </div>
   </div>
 
@@ -481,30 +872,41 @@ tr:last-child td { border-bottom: none; }
     <table>
       <thead>
         <tr>
-          <th>첫 구매 제품</th>
-          <th>다음 구매 1위</th>
-          <th>비율</th>
-          <th>다음 구매 2위</th>
-          <th>비율</th>
-          <th>다음 구매 3위</th>
-          <th>비율</th>
+          <th style="width:140px">첫 구매 제품</th>
+          <th>이후 구매 패턴</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="tr-highlight">
-          <td>트위스터</td><td>스트랩</td><td>18.4%</td><td>슬림코어 벨트</td><td>18.4%</td><td>슬림메이커</td><td>16.2%</td>
+        <tr class="tr-group-label"><td colspan="2">EMS 상품군</td></tr>
+        <tr>
+          <td>슬림메이커</td>
+          <td><span class="cross-chip-hot">딥샷 젤 52.1%</span><span class="cross-chip">트위스터 10.8%</span><span class="cross-chip">스트랩 10.6%</span><span class="cross-chip-ems">슬림코어 벨트 6.4%</span><span class="cross-chip-ems">레깅스 3.6%</span></td>
         </tr>
         <tr>
-          <td>슬림메이커</td><td>딥샷 젤</td><td>52.1%</td><td>트위스터</td><td>10.8%</td><td>스트랩</td><td>10.6%</td>
+          <td>슬림코어 벨트</td>
+          <td><span class="cross-chip-hot">딥샷 젤 54.6%</span><span class="cross-chip">스트랩 9.2%</span><span class="cross-chip">이지슬립 8.0%</span><span class="cross-chip">트위스터 7.6%</span><span class="cross-chip-ems">슬림메이커 4.6%</span><span class="cross-chip-ems">레깅스 3.8%</span></td>
         </tr>
         <tr>
-          <td>슬림코어 벨트</td><td>딥샷 젤</td><td>54.6%</td><td>스트랩</td><td>9.2%</td><td>이지슬립</td><td>8.0%</td>
+          <td>레깅스</td>
+          <td><span class="cross-chip-hot">딥샷 젤 25.8%</span><span class="cross-chip-ems">슬림코어 벨트 22.6%</span><span class="cross-chip-ems">슬림메이커 20.4%</span><span class="cross-chip">트위스터 10.8%</span><span class="cross-chip">스트랩 7.5%</span></td>
         </tr>
-        <tr class="tr-highlight">
-          <td>이지슬립</td><td>스트랩</td><td>42.9%</td><td>슬림코어 벨트</td><td>32.1%</td><td>—</td><td>—</td>
+        <tr class="tr-group-label"><td colspan="2">입문 허브</td></tr>
+        <tr>
+          <td>트위스터</td>
+          <td><span class="cross-chip">스트랩 18.4%</span><span class="cross-chip">슬림코어 벨트 18.4%</span><span class="cross-chip">슬림메이커 16.2%</span><span class="cross-chip">이지슬립 5.6%</span><span class="cross-chip">레깅스 3.7%</span></td>
+        </tr>
+        <tr class="tr-group-label"><td colspan="2">팔찌 · 수면</td></tr>
+        <tr>
+          <td>스트랩</td>
+          <td><span class="cross-chip">트위스터 5.8%</span><span class="cross-chip">슬림메이커 3.4%</span><span class="cross-chip">인솔 2.8%</span><span class="cross-chip">슬림코어 벨트 2.6%</span><span class="cross-chip-sleep">이지슬립 1.7%</span></td>
         </tr>
         <tr>
-          <td>스트랩</td><td>트위스터</td><td>5.8%</td><td>슬림메이커</td><td>3.4%</td><td>이지슬립</td><td>1.7%</td>
+          <td>이지슬립</td>
+          <td><span class="cross-chip-sleep">스트랩 42.9%</span><span class="cross-chip">슬림코어 벨트 32.1%</span><span class="cross-chip">트위스터 3.6%</span><span class="cross-chip">딥샷 젤 3.6%</span><span class="cross-chip-sleep">필로우 3.6%</span></td>
+        </tr>
+        <tr>
+          <td>네오디뮴 필로우</td>
+          <td><span class="cross-chip-sleep">스트랩 20.8%</span><span class="cross-chip">슬림메이커 16.7%</span><span class="cross-chip-sleep">이지슬립 12.5%</span><span class="cross-chip">인솔 12.5%</span></td>
         </tr>
       </tbody>
     </table>
@@ -512,9 +914,9 @@ tr:last-child td { border-bottom: none; }
 </section>
 
 <!-- ─── 03 HYPOTHESES ─── -->
-<section class="section white">
+<section class="section white" id="hypotheses">
   <div class="sec-eyebrow">Marketing Hypotheses</div>
-  <h2 class="sec-title">데이터 기반 마케팅 가설 7가지</h2>
+  <h2 class="sec-title">분석 기반 인사이트 가설</h2>
   <p class="sec-sub">채점 기준: 데이터 근거(30) + 실행 가능성(25) + 전환 규모(25) + 위험도(20). 50점 이하 기각.</p>
 
   <div class="hyp-intro">
@@ -535,7 +937,7 @@ tr:last-child td { border-bottom: none; }
   <div class="hyp-list">
 
     <!-- H-01 -->
-    <div class="hyp-card" onclick="toggleHyp(this)">
+    <div class="hyp-card">
       <div class="hyp-header">
         <div class="hyp-num">H-01</div>
         <div class="score-badge score-green">76</div>
@@ -546,41 +948,12 @@ tr:last-child td { border-bottom: none; }
         <div class="tag-row">
           <span class="tag tag-blue">슬림코어 벨트</span>
         </div>
-        <div class="chevron">▾</div>
-      </div>
-      <div class="hyp-body">
-        <div class="hyp-body-inner">
-          <div>
-            <div class="body-block-label">근거 데이터</div>
-            <div class="chips">
-              <div class="chip">에르고바디 강도 불만 <strong>215건 (20.8%)</strong><br><small style="color:#6B7684">"그냥 온열이에요", "진동만 느껴져요"</small></div>
-              <div class="chip">에르고바디 광고 불신 <strong>65건</strong><br><small style="color:#6B7684">"광고 믿었다가 실망", "돈 낭비"</small></div>
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">소구 각도</div>
-            <div class="action-list">
-              <div class="action-item"><span class="action-arrow">→</span><span><strong>타사 대비 5단계 더 강한 EMS</strong> — 강도 차별화 수치 직접 소구</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>착용 3분, 복부 근육 수축이 육안으로 보이는 영상 증거 제시</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>에르고바디 이탈 고객의 재탐색 시점 포착 — Meta/틱톡 타겟팅</span></div>
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">크리에이티브 스토리 구조</div>
-            <div class="quote-card">
-              <strong>[공감]</strong> "에르고바디 써봤는데 그냥 온열기더라고요"<br>
-              <strong>[전환]</strong> "근육이 실제로 수축되는 EMS는 따로 있더라"<br>
-              <strong>[증명]</strong> 착용 3분 복근 수축 영상 + 강도 5단계→10단계 체감 비교<br>
-              <strong>[결과]</strong> "이게 진짜 EMS구나 — 다음 날 복근이 뭉쳤어요"
-            </div>
-          </div>
-          <div class="caution">⚠️ EMS슬림벨트 키워드 발란스핏 1~4위 장악 → 검색 광고보다 Meta/틱톡 콘텐츠 광고 우선 집행 권장</div>
-        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-h01')">자세히 보기 →</button>
       </div>
     </div>
 
     <!-- H-02 -->
-    <div class="hyp-card" onclick="toggleHyp(this)">
+    <div class="hyp-card">
       <div class="hyp-header">
         <div class="hyp-num">H-02</div>
         <div class="score-badge score-green">70</div>
@@ -592,44 +965,12 @@ tr:last-child td { border-bottom: none; }
           <span class="tag tag-blue">네오디뮴 스트랩</span>
           <span class="tag tag-red">즉시 실행</span>
         </div>
-        <div class="chevron">▾</div>
-      </div>
-      <div class="hyp-body">
-        <div class="hyp-body-inner">
-          <div>
-            <div class="body-block-label">근거 데이터</div>
-            <div class="chips">
-              <div class="chip">구매동기 관절통증 1위 <strong>1,852건</strong></div>
-              <div class="chip">구매동기 패션 2위 <strong>1,273건</strong></div>
-              <div class="chip">재구매율 <strong>10.2%</strong> — 포트폴리오 최고</div>
-              <div class="chip">스트랩 구매층 50대 <strong>44.5%</strong> 압도적 최다</div>
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">핵심 이슈</div>
-            <div class="caution">
-              ⚠️ <strong>약사법·과장광고 위반 소지</strong><br>
-              "관절통증 완화", "관절염 효과" 등 직접 표현은 불가. 관절 니즈 소비자를 포착하기 위한 별도 메시지 개발이 필요한 상황.
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">검토 희망 사항</div>
-            <div class="action-list">
-              <div class="action-item"><span class="action-arrow">→</span><span><strong>오십견·무릎통증 등 병명 직접 언급 가능 여부</strong> 법적 검토 필요</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>가능 시: "오십견으로 어깨가 뻐근할 때 차는 팔찌" 상황 묘사 소구</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>불가 시: "착용하는 동안 관절이 편안하다는 후기 ○○건" 간접 소구로 전환</span></div>
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">타겟 프로필</div>
-            <div class="quote-card">50대 남성 주 구매층 (44.5%). 골프·등산·장거리 보행 등 관절 부담이 큰 활동을 즐기는 계층. 치료가 아닌 <strong>일상 관리·예방</strong> 니즈가 핵심.</div>
-          </div>
-        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-h02')">자세히 보기 →</button>
       </div>
     </div>
 
     <!-- H-03 -->
-    <div class="hyp-card" onclick="toggleHyp(this)">
+    <div class="hyp-card">
       <div class="hyp-header">
         <div class="hyp-num">H-03</div>
         <div class="score-badge score-green">72</div>
@@ -641,47 +982,12 @@ tr:last-child td { border-bottom: none; }
           <span class="tag tag-blue">CES 이지슬립</span>
           <span class="tag tag-blue">스트랩</span>
         </div>
-        <div class="chevron">▾</div>
-      </div>
-      <div class="hyp-body">
-        <div class="hyp-body-inner">
-          <div>
-            <div class="body-block-label">근거 데이터</div>
-            <div class="chips">
-              <div class="chip">이지슬립 구매 후 다음 제품 → 스트랩 <strong>42.9%</strong><br><small style="color:#6B7684">수면·관절 동일 고객군 확인</small></div>
-              <div class="chip">스트랩 · 이지슬립 <strong>50대 구매층 완전 일치</strong></div>
-              <div class="chip">CES수면기기 국내 가정용 <strong>쇼핑 공백</strong></div>
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">소구 전환 방향</div>
-            <table>
-              <thead><tr><th>현재 소구</th><th>전환 방향</th></tr></thead>
-              <tbody>
-                <tr><td>"CES 기기"</td><td>"관절이 아파 뒤척이는 밤을 위한 수면 기기"</td></tr>
-                <tr><td>"뇌파 안정"</td><td>"자고 나면 피부가 다르다 / 피로가 풀린다"</td></tr>
-                <tr><td>단순 수면 개선</td><td>수면 → <strong>피부 회복 / 피로 해소 / 집중력</strong> 결과값 소구</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <div class="body-block-label">기획상품 각도</div>
-            <div class="quote-card"><strong>"관절로 잠 못 자는 분을 위한 세트"</strong><br>스트랩(관절 케어) + 이지슬립(수면 회복). 동일 50대 고객군 내 자연스러운 니즈 연결. 이지슬립→스트랩 42.9% 이동선이 세트 수요 근거.</div>
-          </div>
-          <div>
-            <div class="body-block-label">최신 트렌드 연결</div>
-            <div class="action-list">
-              <div class="action-item"><span class="action-arrow">→</span><span>수면 부족 → 피부 재생 방해 → 칙칙함·트러블 (패칫 드림잇 인사이트 교차 적용)</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>수면의 질 = 다음 날 피로 회복·집중력·컨디션으로 소구</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>갱년기 불면·새벽 각성 키워드 DataLab 검색량 확인 선행 필요</span></div>
-            </div>
-          </div>
-        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-h03')">자세히 보기 →</button>
       </div>
     </div>
 
     <!-- H-04 -->
-    <div class="hyp-card" onclick="toggleHyp(this)">
+    <div class="hyp-card">
       <div class="hyp-header">
         <div class="hyp-num">H-04</div>
         <div class="score-badge score-green">71</div>
@@ -693,39 +999,12 @@ tr:last-child td { border-bottom: none; }
           <span class="tag tag-blue">트위스터</span>
           <span class="tag tag-orange">컨셉 도출 필요</span>
         </div>
-        <div class="chevron">▾</div>
-      </div>
-      <div class="hyp-body">
-        <div class="hyp-body-inner">
-          <div>
-            <div class="body-block-label">근거 데이터 — 트위스터 구매 후 다음 구매</div>
-            <div class="chips">
-              <div class="chip">트위스터 구매 고객 <strong>5,389명</strong></div>
-              <div class="chip">→ 스트랩 <strong>18.4%</strong></div>
-              <div class="chip">→ 슬림코어 벨트 <strong>18.4%</strong></div>
-              <div class="chip">→ 슬림메이커 <strong>16.2%</strong></div>
-              <div class="chip">→ 이지슬립 <strong>5.6%</strong></div>
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">기획상품 후보</div>
-            <table>
-              <thead><tr><th>세트명</th><th>구성</th><th>타겟</th><th>상태</th></tr></thead>
-              <tbody>
-                <tr><td>복부 집중 세트</td><td>트위스터 + 슬림코어 벨트</td><td>뱃살 집중 30–40대</td><td><span class="tag tag-orange">컨셉 도출 필요</span></td></tr>
-                <tr><td>운동+이완 세트</td><td>트위스터 + 슬림메이커</td><td>운동 후 회복 원하는 30대</td><td><span class="tag tag-orange">컨셉 도출 필요</span></td></tr>
-                <tr><td>스타터팩</td><td>트위스터 + 딥샷 젤</td><td>첫 구매자 소모품 동봉</td><td><span class="tag tag-orange">컨셉 도출 필요</span></td></tr>
-                <tr><td>관절+수면 세트</td><td>스트랩 + 이지슬립</td><td>50대 관절·수면 이중 니즈</td><td><span class="tag tag-orange">컨셉 도출 필요</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="concept-notice">💡 각 기획상품 항목별 컨셉 도출 필요 — 단가·소구 포인트·타겟 메시지 별도 설계</div>
-        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-h04')">자세히 보기 →</button>
       </div>
     </div>
 
     <!-- H-05 -->
-    <div class="hyp-card" onclick="toggleHyp(this)">
+    <div class="hyp-card">
       <div class="hyp-header">
         <div class="hyp-num">H-05</div>
         <div class="score-badge score-green">70</div>
@@ -737,36 +1016,12 @@ tr:last-child td { border-bottom: none; }
           <span class="tag tag-blue">슬림코어 벨트</span>
           <span class="tag tag-blue">슬림메이커</span>
         </div>
-        <div class="chevron">▾</div>
-      </div>
-      <div class="hyp-body">
-        <div class="hyp-body-inner">
-          <div>
-            <div class="body-block-label">핵심 인사이트</div>
-            <div class="quote-card">EMS 기기의 온열(이완) + 자극(수축) = 마사지 효과 + 운동 효과가 동시에 발생. 슬림메이커·슬림코어 벨트 모두 해당.<br><br>상세페이지에는 마사지 소구가 크지 않지만, 리뷰에서 마사지 관련 언급이 꽤 나타남 → <strong>소구 갭 존재</strong>.</div>
-          </div>
-          <div>
-            <div class="body-block-label">근거 데이터</div>
-            <div class="chips">
-              <div class="chip">에르고바디 베네핏 1위 "온열·마사지 효과" <strong>185건</strong></div>
-              <div class="chip">에르고바디 불만 "온열뿐" → 칼로의 EMS+온열 이중 구조가 차별점</div>
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">소구 방향</div>
-            <div class="action-list">
-              <div class="action-item"><span class="action-arrow">→</span><span>EMS 제품군 공통 메시지: <strong>"마사지하면서 운동도 되는 기기"</strong></span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>슬림코어 벨트: "복부를 온열로 풀면서 EMS로 동시 수축"</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>슬림메이커: "운동 전 워밍업 + 운동 후 마사지 회복" 양방향 포지셔닝</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>리뷰 마사지 언급 UGC 발굴 → 상세페이지 반영</span></div>
-            </div>
-          </div>
-        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-h05')">자세히 보기 →</button>
       </div>
     </div>
 
     <!-- H-08 -->
-    <div class="hyp-card" onclick="toggleHyp(this)">
+    <div class="hyp-card">
       <div class="hyp-header">
         <div class="hyp-num">H-08</div>
         <div class="score-badge score-yellow">65</div>
@@ -777,39 +1032,12 @@ tr:last-child td { border-bottom: none; }
         <div class="tag-row">
           <span class="tag tag-blue">네오디뮴 스트랩</span>
         </div>
-        <div class="chevron">▾</div>
-      </div>
-      <div class="hyp-body">
-        <div class="hyp-body-inner">
-          <div>
-            <div class="body-block-label">근거 데이터</div>
-            <div class="chips">
-              <div class="chip">구매동기 패션 2위 <strong>1,273건</strong><br><small style="color:#6B7684">관절통증 다음으로 많은 구매 동기</small></div>
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">구전 흐름 분석</div>
-            <div class="quote-card">
-              착용 노출 <strong>(디자인이 눈에 띔)</strong><br>
-              → 궁금함 발생 → "저거 뭐에요?" 질문<br>
-              → 탐색 → 구매<br><br>
-              디자인이 <strong>구전의 첫 번째 트리거</strong>. 메인 소구는 건강·기능이지만, 시각적 메리트가 탐색을 시작시킴.
-            </div>
-          </div>
-          <div>
-            <div class="body-block-label">소구 전략</div>
-            <div class="action-list">
-              <div class="action-item"><span class="action-arrow">→</span><span>포지셔닝: <strong>"패션 건강 팔찌"</strong> — 건강이 메인, 디자인은 타겟별 얹기</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>골프·등산족 → 활동 중 착용 라이프스타일 컷 추가</span></div>
-              <div class="action-item"><span class="action-arrow">→</span><span>A/B 테스트: 기능 소구 vs 라이프스타일 착샷 추가 — CTR·ROAS 비교</span></div>
-            </div>
-          </div>
-        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-h08')">자세히 보기 →</button>
       </div>
     </div>
 
     <!-- H-09 -->
-    <div class="hyp-card" onclick="toggleHyp(this)">
+    <div class="hyp-card">
       <div class="hyp-header">
         <div class="hyp-num">H-09</div>
         <div class="score-badge score-yellow">65</div>
@@ -823,42 +1051,927 @@ tr:last-child td { border-bottom: none; }
           <span class="tag tag-blue">레깅스</span>
           <span class="tag tag-orange">컨셉 도출 필요</span>
         </div>
-        <div class="chevron">▾</div>
-      </div>
-      <div class="hyp-body">
-        <div class="hyp-body-inner">
-          <div>
-            <div class="body-block-label">EMS 제품 간 크로스바이 데이터</div>
-            <table>
-              <thead><tr><th>보유 제품</th><th>다음 구매</th><th>비율</th><th>해석</th></tr></thead>
-              <tbody>
-                <tr class="tr-highlight"><td>딥샷 젤 보유</td><td>슬림메이커</td><td>47.4%</td><td>딥샷이 EMS 세트의 허브</td></tr>
-                <tr><td>딥샷 젤 보유</td><td>슬림코어 벨트</td><td>15.7%</td><td>복부 EMS 연결</td></tr>
-                <tr><td>딥샷 젤 보유</td><td>레깅스</td><td>6.1%</td><td>하체 EMS 연결</td></tr>
-                <tr class="tr-highlight"><td>슬림메이커 보유</td><td>슬림코어 벨트</td><td>6.4%</td><td>복부 상하 EMS 조합</td></tr>
-                <tr><td>슬림코어 벨트 보유</td><td>슬림메이커</td><td>4.6%</td><td>양방향 이동 확인</td></tr>
-                <tr><td>슬림코어 벨트 보유</td><td>레깅스</td><td>3.8%</td><td>상하체 풀세트 지향</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <div class="body-block-label">기획상품 후보</div>
-            <table>
-              <thead><tr><th>세트명</th><th>구성</th><th>소구 포인트</th><th>상태</th></tr></thead>
-              <tbody>
-                <tr><td>상체 집중 세트</td><td>슬림코어 벨트 + 슬림메이커</td><td>복부 자극 + 마사지 이완</td><td><span class="tag tag-orange">컨셉 도출 필요</span></td></tr>
-                <tr><td>전신 EMS 세트</td><td>슬림코어 벨트 + 레깅스</td><td>상하체 동시 EMS</td><td><span class="tag tag-orange">컨셉 도출 필요</span></td></tr>
-                <tr><td>EMS 스타터 세트</td><td>슬림메이커 + 딥샷 젤</td><td>기기+소모품 첫 구매 패키지</td><td><span class="tag tag-orange">컨셉 도출 필요</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="concept-notice">💡 각 세트 항목별 컨셉 도출 필요 — 단가·마진 설계·소구 메시지 별도 기획</div>
-        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-h09')">자세히 보기 →</button>
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- ─── 칼로 가설 MODALS ─── -->
+<div class="modal-overlay" id="modal-h01" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <button class="modal-close" onclick="closeModal('modal-h01')">×</button>
+    <div class="modal-eyebrow">H-01 · 76점</div>
+    <div class="modal-title">슬림벨트 — EMS 강도<br>실체 스토리 소구</div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">근거</div>
+      <div class="step-body">
+        <div class="step-label">핵심 데이터</div>
+        <div class="chips" style="margin-top:8px">
+          <div class="chip">에르고바디 강도 불만 <strong>215건 (20.8%)</strong><br><small style="color:#6B7684">"그냥 온열이에요", "진동만 느껴져요"</small></div>
+          <div class="chip">에르고바디 광고 불신 <strong>65건</strong><br><small style="color:#6B7684">"광고 믿었다가 실망", "돈 낭비"</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">소구</div>
+      <div class="step-body">
+        <div class="step-label">소구 각도</div>
+        <div class="action-list" style="margin-top:8px">
+          <div class="action-item"><span class="action-arrow">→</span><span><strong>타사 대비 5단계 더 강한 EMS</strong> — 강도 차별화 수치 직접 소구</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>착용 3분, 복부 근육 수축이 육안으로 보이는 영상 증거 제시</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>에르고바디 이탈 고객의 재탐색 시점 포착 — Meta/틱톡 타겟팅</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">스토리</div>
+      <div class="step-body">
+        <div class="step-label">크리에이티브 구조</div>
+        <div class="quote-card" style="margin-top:8px">
+          <strong>[공감]</strong> "에르고바디 써봤는데 그냥 온열기더라고요"<br>
+          <strong>[전환]</strong> "근육이 실제로 수축되는 EMS는 따로 있더라"<br>
+          <strong>[증명]</strong> 착용 3분 복근 수축 영상 + 강도 5단계→10단계 체감 비교<br>
+          <strong>[결과]</strong> "이게 진짜 EMS구나 — 다음 날 복근이 뭉쳤어요"
+        </div>
+      </div>
+    </div>
+    <div class="caution" style="margin-top:16px">⚠️ EMS슬림벨트 키워드 발란스핏 1~4위 장악 → 검색 광고보다 Meta/틱톡 콘텐츠 광고 우선 집행 권장</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-h02" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <button class="modal-close" onclick="closeModal('modal-h02')">×</button>
+    <div class="modal-eyebrow">H-02 · 70점</div>
+    <div class="modal-title">스트랩 — 관절 소구<br>메시지 개발 필요</div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">근거</div>
+      <div class="step-body">
+        <div class="step-label">핵심 데이터</div>
+        <div class="chips" style="margin-top:8px">
+          <div class="chip">구매동기 관절통증 1위 <strong>1,852건</strong></div>
+          <div class="chip">구매동기 패션 2위 <strong>1,273건</strong></div>
+          <div class="chip">재구매율 <strong>10.2%</strong> — 포트폴리오 최고</div>
+          <div class="chip">스트랩 구매층 50대 <strong>44.5%</strong> 압도적 최다</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#E53E3E;color:#fff">⚠️</div>
+      <div class="step-body">
+        <div class="step-label">핵심 이슈</div>
+        <div class="caution" style="margin-top:8px">⚠️ <strong>약사법·과장광고 위반 소지</strong><br>"관절통증 완화", "관절염 효과" 등 직접 표현 불가. 관절 니즈 소비자 포착을 위한 별도 메시지 개발 필요.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">방향</div>
+      <div class="step-body">
+        <div class="step-label">검토 방향</div>
+        <div class="action-list" style="margin-top:8px">
+          <div class="action-item"><span class="action-arrow">→</span><span><strong>오십견·무릎통증 등 병명 직접 언급 가능 여부</strong> 법적 검토 필요</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>가능 시: "오십견으로 어깨가 뻐근할 때 차는 팔찌" 상황 묘사 소구</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>불가 시: "착용하는 동안 관절이 편안하다는 후기 ○○건" 간접 소구 전환</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">타겟</div>
+      <div class="step-body">
+        <div class="step-label">타겟 프로필</div>
+        <div class="quote-card" style="margin-top:8px">50대 남성 주 구매층 (44.5%). 골프·등산·장거리 보행 등 관절 부담이 큰 활동 계층. 치료가 아닌 <strong>일상 관리·예방</strong> 니즈가 핵심.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-h03" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <button class="modal-close" onclick="closeModal('modal-h03')">×</button>
+    <div class="modal-eyebrow">H-03 · 72점</div>
+    <div class="modal-title">이지슬립 — 수면 결과값 소구<br>+ 스트랩 크로스셀</div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">근거</div>
+      <div class="step-body">
+        <div class="step-label">핵심 데이터</div>
+        <div class="chips" style="margin-top:8px">
+          <div class="chip">이지슬립 → 스트랩 <strong>42.9%</strong><br><small style="color:#6B7684">수면·관절 동일 고객군 확인</small></div>
+          <div class="chip">스트랩·이지슬립 <strong>50대 구매층 완전 일치</strong></div>
+          <div class="chip">CES수면기기 국내 가정용 <strong>쇼핑 공백</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">전환</div>
+      <div class="step-body">
+        <div class="step-label">소구 전환 방향</div>
+        <table style="margin-top:8px">
+          <thead><tr><th>현재 소구</th><th>전환 방향</th></tr></thead>
+          <tbody>
+            <tr><td>"CES 기기"</td><td>"관절이 아파 뒤척이는 밤을 위한 수면 기기"</td></tr>
+            <tr><td>"뇌파 안정"</td><td>"자고 나면 피부가 다르다 / 피로가 풀린다"</td></tr>
+            <tr><td>단순 수면 개선</td><td>수면 → <strong>피부 회복 / 피로 해소 / 집중력</strong> 결과값 소구</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">기획</div>
+      <div class="step-body">
+        <div class="step-label">기획상품 각도</div>
+        <div class="quote-card" style="margin-top:8px"><strong>"관절로 잠 못 자는 분을 위한 세트"</strong><br>스트랩(관절 케어) + 이지슬립(수면 회복). 동일 50대 고객군 내 자연스러운 니즈 연결.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">트렌드</div>
+      <div class="step-body">
+        <div class="step-label">최신 트렌드 연결</div>
+        <div class="action-list" style="margin-top:8px">
+          <div class="action-item"><span class="action-arrow">→</span><span>수면 부족 → 피부 재생 방해 → 칙칙함·트러블 (패칫 드림잇 인사이트 교차)</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>수면의 질 = 다음 날 피로 회복·집중력·컨디션으로 소구</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>갱년기 불면·새벽 각성 키워드 DataLab 검색량 확인 선행 필요</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-h04" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <button class="modal-close" onclick="closeModal('modal-h04')">×</button>
+    <div class="modal-eyebrow">H-04 · 71점</div>
+    <div class="modal-title">트위스터 → 크로스셀 퍼널<br>+ 기획상품</div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">근거</div>
+      <div class="step-body">
+        <div class="step-label">트위스터 구매 후 다음 구매</div>
+        <div class="chips" style="margin-top:8px">
+          <div class="chip">구매 고객 <strong>5,389명</strong></div>
+          <div class="chip">→ 스트랩 <strong>18.4%</strong></div>
+          <div class="chip">→ 슬림코어 벨트 <strong>18.4%</strong></div>
+          <div class="chip">→ 슬림메이커 <strong>16.2%</strong></div>
+          <div class="chip">→ 이지슬립 <strong>5.6%</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">기획</div>
+      <div class="step-body">
+        <div class="step-label">기획상품 후보</div>
+        <table style="margin-top:8px">
+          <thead><tr><th>세트명</th><th>구성</th><th>타겟</th></tr></thead>
+          <tbody>
+            <tr><td>복부 집중 세트</td><td>트위스터 + 슬림코어 벨트</td><td>뱃살 집중 30–40대</td></tr>
+            <tr><td>운동+이완 세트</td><td>트위스터 + 슬림메이커</td><td>운동 후 회복 원하는 30대</td></tr>
+            <tr><td>스타터팩</td><td>트위스터 + 딥샷 젤</td><td>첫 구매자 소모품 동봉</td></tr>
+            <tr><td>관절+수면 세트</td><td>스트랩 + 이지슬립</td><td>50대 관절·수면 이중 니즈</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="concept-notice" style="margin-top:16px">💡 각 기획상품 항목별 컨셉 도출 필요 — 단가·소구 포인트·타겟 메시지 별도 설계</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-h05" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <button class="modal-close" onclick="closeModal('modal-h05')">×</button>
+    <div class="modal-eyebrow">H-05 · 70점</div>
+    <div class="modal-title">EMS 제품군 — "마사지하면서<br>운동도 되는" 포지셔닝</div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">인사이트</div>
+      <div class="step-body">
+        <div class="step-label">핵심 인사이트</div>
+        <div class="quote-card" style="margin-top:8px">EMS 기기의 온열(이완) + 자극(수축) = 마사지 효과 + 운동 효과 동시 발생. 슬림메이커·슬림코어 벨트 모두 해당.<br><br>상세페이지에는 마사지 소구가 크지 않지만 리뷰에서 관련 언급이 나타남 → <strong>소구 갭 존재</strong>.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">근거</div>
+      <div class="step-body">
+        <div class="step-label">근거 데이터</div>
+        <div class="chips" style="margin-top:8px">
+          <div class="chip">에르고바디 베네핏 1위 "온열·마사지 효과" <strong>185건</strong></div>
+          <div class="chip">에르고바디 불만 "온열뿐" → 칼로의 EMS+온열 이중 구조가 차별점</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">방향</div>
+      <div class="step-body">
+        <div class="step-label">소구 방향</div>
+        <div class="action-list" style="margin-top:8px">
+          <div class="action-item"><span class="action-arrow">→</span><span>EMS 공통 메시지: <strong>"마사지하면서 운동도 되는 기기"</strong></span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>슬림코어 벨트: "복부를 온열로 풀면서 EMS로 동시 수축"</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>슬림메이커: "운동 전 워밍업 + 운동 후 마사지 회복" 양방향 포지셔닝</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>리뷰 마사지 언급 UGC 발굴 → 상세페이지 반영</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-h08" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <button class="modal-close" onclick="closeModal('modal-h08')">×</button>
+    <div class="modal-eyebrow">H-08 · 65점</div>
+    <div class="modal-title">스트랩 — "패션 건강 팔찌"<br>포지셔닝</div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">근거</div>
+      <div class="step-body">
+        <div class="step-label">핵심 데이터</div>
+        <div class="chips" style="margin-top:8px">
+          <div class="chip">구매동기 패션 2위 <strong>1,273건</strong><br><small style="color:#6B7684">관절통증 다음으로 많은 구매 동기</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">구전</div>
+      <div class="step-body">
+        <div class="step-label">구전 흐름 분석</div>
+        <div class="quote-card" style="margin-top:8px">착용 노출 <strong>(디자인이 눈에 띔)</strong><br>→ 궁금함 발생 → "저거 뭐에요?" 질문<br>→ 탐색 → 구매<br><br>디자인이 <strong>구전의 첫 번째 트리거</strong>. 메인 소구는 건강·기능이지만, 시각적 메리트가 탐색을 시작시킴.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">전략</div>
+      <div class="step-body">
+        <div class="step-label">소구 전략</div>
+        <div class="action-list" style="margin-top:8px">
+          <div class="action-item"><span class="action-arrow">→</span><span>포지셔닝: <strong>"패션 건강 팔찌"</strong> — 건강이 메인, 디자인은 타겟별 얹기</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>골프·등산족 → 활동 중 착용 라이프스타일 컷 추가</span></div>
+          <div class="action-item"><span class="action-arrow">→</span><span>A/B 테스트: 기능 소구 vs 라이프스타일 착샷 추가 — CTR·ROAS 비교</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-h09" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <button class="modal-close" onclick="closeModal('modal-h09')">×</button>
+    <div class="modal-eyebrow">H-09 · 65점</div>
+    <div class="modal-title">EMS 제품군<br>세트 기획상품</div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">근거</div>
+      <div class="step-body">
+        <div class="step-label">EMS 제품 간 크로스바이 데이터</div>
+        <table style="margin-top:8px">
+          <thead><tr><th>첫 구매</th><th>다음 구매</th><th>비율</th><th>해석</th></tr></thead>
+          <tbody>
+            <tr class="tr-highlight"><td>딥샷 젤</td><td>슬림메이커</td><td>47.4%</td><td>딥샷이 EMS 허브</td></tr>
+            <tr><td>딥샷 젤</td><td>슬림코어 벨트</td><td>15.7%</td><td>복부 EMS 연결</td></tr>
+            <tr><td>딥샷 젤</td><td>레깅스</td><td>6.1%</td><td>하체 EMS 연결</td></tr>
+            <tr class="tr-highlight"><td>슬림메이커</td><td>슬림코어 벨트</td><td>6.4%</td><td>복부 상하 EMS 조합</td></tr>
+            <tr><td>슬림코어 벨트</td><td>슬림메이커</td><td>4.6%</td><td>양방향 이동 확인</td></tr>
+            <tr><td>슬림코어 벨트</td><td>레깅스</td><td>3.8%</td><td>상하체 풀세트 지향</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num" style="background:#3182F6;color:#fff">기획</div>
+      <div class="step-body">
+        <div class="step-label">기획상품 후보</div>
+        <table style="margin-top:8px">
+          <thead><tr><th>세트명</th><th>구성</th><th>소구 포인트</th></tr></thead>
+          <tbody>
+            <tr><td>상체 집중 세트</td><td>슬림코어 벨트 + 슬림메이커</td><td>복부 자극 + 마사지 이완</td></tr>
+            <tr><td>전신 EMS 세트</td><td>슬림코어 벨트 + 레깅스</td><td>상하체 동시 EMS</td></tr>
+            <tr><td>EMS 스타터 세트</td><td>슬림메이커 + 딥샷 젤</td><td>기기+소모품 첫 구매 패키지</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="concept-notice" style="margin-top:16px">💡 각 세트 항목별 컨셉 도출 필요 — 단가·마진 설계·소구 메시지 별도 기획</div>
+  </div>
+</div>
+</div><!-- /#ppt-calo -->
+
+<!-- ─── 패칫 PPT ─── -->
+<div id="ppt-pachet" style="display:none">
+
+<!-- 패칫 히어로 -->
+<section class="hero" id="p-hero">
+  <div class="hero-glow-1" style="background:radial-gradient(circle,rgba(5,192,114,0.18) 0%,transparent 65%)"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-top">
+    <div class="hero-brand-pill">
+      <span class="hero-brand-dot" style="background:#05C072"></span>
+      패칫
+    </div>
+    <span class="hero-date">Marketing Insight Report</span>
+  </div>
+
+  <div class="hero-main">
+    <h1 class="hero-title">패칫 인사이트 도출<br><span class="hero-title-accent" style="color:#05C072">2026.05</span></h1>
+    <p class="hero-sub">최근 개월 주문, 전체 고객, 키워드 데이터를<br>기반으로 교차분석을 진행</p>
+  </div>
+
+  <p style="font-size:14px; color:#3B4455; line-height:1.8; position:relative;">
+    *2026.05.26일 기준 최근 6개월 주문 데이터 기준<br>
+    *실시간 업데이트가 아니며, 임시로 제작된 페이지입니다.
+  </p>
+</section>
+
+<!-- ─── 01 DATA SOURCES ─── -->
+<section class="section white" id="p-sources">
+  <div class="sec-eyebrow">Data Source</div>
+  <h2 class="sec-title">어떤 데이터를 봤나요</h2>
+  <p class="sec-sub">각 데이터에서 발견한 것이 가설의 근거가 됩니다.</p>
+  <div class="source-grid">
+    <div class="source-card">
+      <div class="source-icon icon-blue">👥</div>
+      <div class="source-num">49,821명</div>
+      <div class="source-name">패칫 고객 데이터</div>
+      <div class="source-desc">최근 6개월 주문 데이터. 제품별 구매 현황, 재구매율, 크로스바이 전환 매트릭스 포함.</div>
+      <div class="source-findings">
+        <div class="source-findings-label">이 데이터에서 발견한 것</div>
+        <div class="finding-chip">슬림잇 47,523명 — 압도적 주력 제품, 전체의 95%<span class="finding-tag">H-01·03 근거</span></div>
+        <div class="finding-chip">드림잇 재구매율 4.3% — 슬림잇(13.1%) 대비 낮음, 수면→피부 소구 강화 여지<span class="finding-tag">H-02 근거</span></div>
+        <div class="finding-chip">회원 매칭률 68.0% — 칼로(78.4%) 대비 10%p 낮아 CRM 개선 선행 필요<span class="finding-tag">인프라 과제</span></div>
+      </div>
+      <button class="method-btn" onclick="openModal('modal-p-customer')">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        분석 방법 보기
+      </button>
+    </div>
+    <div class="source-card">
+      <div class="source-icon icon-red">⭐</div>
+      <div class="source-num">1,524건</div>
+      <div class="source-name">자체 리뷰 분석</div>
+      <div class="source-desc">슬림잇 구매 리뷰 전수 수집 후 유형 코딩 완료. 1점 리뷰 217건(14.2%) 심층 분석. 효과없음 103건·열감 패턴 추출.</div>
+      <div class="source-findings">
+        <div class="source-findings-label">이 데이터에서 발견한 것</div>
+        <div class="finding-chip">붓기 니즈 언급 33건 — 살/붓기 구분 못하는 소비자 실재<span class="finding-tag">H-01 근거</span></div>
+        <div class="finding-chip">팔뚝·종아리 부위 언급 다수 — 부위별 소재 공백 확인<span class="finding-tag">H-03 근거</span></div>
+        <div class="finding-chip">1점 리뷰 "효과없음" 103건 — 기대 불일치 패턴 관리 필요<span class="finding-tag">방어 과제</span></div>
+      </div>
+      <button class="method-btn" onclick="openModal('modal-p-review')">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        분석 방법 보기
+      </button>
+    </div>
+    <div class="source-card">
+      <div class="source-icon icon-green">🔍</div>
+      <div class="source-num">24개월</div>
+      <div class="source-name">네이버 키워드 분석</div>
+      <div class="source-desc">DataLab 트렌드 + 쇼핑인사이트 절대 검색량. 패칫 카테고리 주요 키워드 공백·성장률 분석.</div>
+      <div class="source-findings">
+        <div class="source-findings-label">이 데이터에서 발견한 것</div>
+        <div class="finding-chip">글루타치온패치 +2,767% YoY — 드림잇 수면→피부 소구 진입 시점<span class="finding-tag">H-02 근거</span></div>
+        <div class="finding-chip">팔뚝살패치 1,310건 — 쇼핑 결과 공백, 선점 가능<span class="finding-tag">H-03 근거</span></div>
+        <div class="finding-chip">종아리보톡스 9,720건 — 시술 탐색자, 라인잇 진입 여지<span class="finding-tag">H-04 근거</span></div>
+      </div>
+      <button class="method-btn" onclick="openModal('modal-p-keyword')">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        분석 방법 보기
+      </button>
+    </div>
+    <div class="source-card">
+      <div class="source-icon icon-orange">🏆</div>
+      <div class="source-num">경쟁사</div>
+      <div class="source-name">경쟁사 포지션 분석</div>
+      <div class="source-desc">링탭 굿나잇패치 리뷰 분석 + 허밍테라피 비교 구매 패턴. 피봇 전략 및 카테고리 동향 파악.</div>
+      <div class="source-findings">
+        <div class="source-findings-label">이 데이터에서 발견한 것</div>
+        <div class="finding-chip">링탭 멜라토닌→글루타치온 피봇 — 동일 소비자를 피부 니즈로 포착<span class="finding-tag">H-02 근거</span></div>
+        <div class="finding-chip">허밍테라피 비교 검색 유입 — "패칫 vs 허밍" 비교 콘텐츠 공백<span class="finding-tag">방어 각도</span></div>
+      </div>
+      <button class="method-btn" onclick="openModal('modal-p-competitor')">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        분석 방법 보기
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 02 CUSTOMER OVERVIEW ─── -->
+<section class="section gray" id="p-customers">
+  <div class="sec-eyebrow">Customer Overview</div>
+  <h2 class="sec-title">패칫 고객 현황</h2>
+  <p class="sec-sub">최근 6개월 구매 고객 49,821명 기준</p>
+
+  <div class="chart-row">
+    <div class="chart-card">
+      <div class="chart-card-title">제품별 고객 수</div>
+      <div class="chart-wrap"><canvas id="p-productChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-title">슬림잇 구매 연령 분포</div>
+      <div class="chart-wrap"><canvas id="p-ageChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-card-title">회원 매칭률 현황 — CRM 개선 선행 과제</div>
+    <div class="chips" style="margin-bottom:16px">
+      <div class="chip">패칫 매칭률 <strong>68.0%</strong><br><small style="color:#6B7684">칼로 78.4% 대비 10%p 낮음</small></div>
+      <div class="chip">비회원 구매 <strong>~16,000명</strong><br><small style="color:#6B7684">CRM 도달 불가 상태</small></div>
+      <div class="chip">회원 전환 강화 시 <strong>+5,000명</strong> 추가 도달<br><small style="color:#6B7684">재구매 루프의 선행 과제</small></div>
+    </div>
+    <div class="caution">고객 수는 패칫(49,821명)이 칼로(32,266명)보다 <strong>1.5배 많지만</strong> 비회원 비중이 높아 CRM 효율이 낮습니다. 재구매율(14.5%)도 칼로(20.6%)보다 6%p 낮은 구조 — 회원 전환 강화가 재구매 루프의 선행 과제입니다.</div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-card-title">주요 크로스바이 패턴 — 구매 후 다음 구매 제품</div>
+    <table>
+      <thead>
+        <tr>
+          <th>첫 구매 제품</th>
+          <th>다음 구매 1위</th>
+          <th>비율</th>
+          <th>다음 구매 2위</th>
+          <th>비율</th>
+          <th>재구매율</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tr-highlight">
+          <td>슬림잇</td><td>슬림잇 (동일)</td><td>92.0%</td><td>패칫 세트</td><td>5.3%</td><td>13.1%</td>
+        </tr>
+        <tr>
+          <td>드림잇</td><td>슬림잇</td><td>74.5%</td><td>에너짓</td><td>13.0%</td><td>4.3%</td>
+        </tr>
+        <tr>
+          <td>에너짓</td><td>슬림잇</td><td>78.2%</td><td>드림잇</td><td>10.4%</td><td>3.4%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ─── 03 HYPOTHESES ─── -->
+<section class="section white" id="p-hypotheses">
+  <div class="sec-eyebrow">Marketing Hypotheses</div>
+  <h2 class="sec-title">데이터 기반 마케팅 가설 5가지</h2>
+  <p class="sec-sub">채점 기준: 데이터 근거(30) + 실행 가능성(25) + 전환 규모(25) + 위험도(20). 70점 미만 기각.</p>
+
+  <div class="hyp-intro">
+    <div class="score-summary-card">
+      <div class="score-dot dot-green"></div>
+      <div class="score-summary-text"><strong>70점 이상 4개</strong> — 즉시 실행 검토 대상</div>
+    </div>
+    <div class="score-summary-card">
+      <div class="score-dot dot-yellow"></div>
+      <div class="score-summary-text"><strong>65점 이상 1개</strong> — 컨셉 개발 후 실행</div>
+    </div>
+    <div class="score-summary-card">
+      <div class="score-dot" style="background:#E5E8EB"></div>
+      <div class="score-summary-text"><strong>6개 기각</strong> (H-05·07·08·09·10·11) — 우선순위 낮음</div>
+    </div>
+  </div>
+
+  <div class="hyp-list">
+
+    <!-- H-01 -->
+    <div class="hyp-card">
+      <div class="hyp-header">
+        <div class="hyp-num">H-01</div>
+        <div class="score-badge score-green">76</div>
+        <div class="hyp-info">
+          <div class="hyp-title">슬림잇 × 라인잇 — "살이냐 붓기냐" 소비자 언어 소구</div>
+          <div class="hyp-liner">두 제품의 역할을 일상 언어로 분리, 라인잇 진입 장벽 낮추기</div>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-blue">슬림잇</span>
+          <span class="tag tag-blue">라인잇</span>
+          <span class="tag tag-green">크로스셀</span>
+        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-ph01')">자세히 보기 →</button>
+      </div>
+    </div>
+
+    <!-- H-02 -->
+    <div class="hyp-card">
+      <div class="hyp-header">
+        <div class="hyp-num">H-02</div>
+        <div class="score-badge score-green">74</div>
+        <div class="hyp-info">
+          <div class="hyp-title">드림잇 — 수면이 피부를 만든다 소구</div>
+          <div class="hyp-liner">"수면 부족 → 피부 악화" 인과관계로 전환, 피부 관심 여성층 신규 유입</div>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-blue">드림잇</span>
+          <span class="tag tag-green">신규유입</span>
+          <span class="tag tag-red">즉시 실행</span>
+        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-ph02')">자세히 보기 →</button>
+      </div>
+    </div>
+
+    <!-- H-03 -->
+    <div class="hyp-card">
+      <div class="hyp-header">
+        <div class="hyp-num">H-03</div>
+        <div class="score-badge score-green">72</div>
+        <div class="hyp-info">
+          <div class="hyp-title">팔뚝살 × 종아리 — 부위별 광고 소재 전략</div>
+          <div class="hyp-liner">팔뚝(슬림잇) / 종아리(라인잇) 각각 별도 소재, 두 키워드 모두 쇼핑 공백 존재</div>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-blue">슬림잇</span>
+          <span class="tag tag-blue">라인잇</span>
+          <span class="tag tag-red">즉시 실행</span>
+        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-ph03')">자세히 보기 →</button>
+      </div>
+    </div>
+
+    <!-- H-04 -->
+    <div class="hyp-card">
+      <div class="hyp-header">
+        <div class="hyp-num">H-04</div>
+        <div class="score-badge score-green">72</div>
+        <div class="hyp-info">
+          <div class="hyp-title">라인잇 — 시술 전 준비 or 시술 후 관리템 소구</div>
+          <div class="hyp-liner">종아리보톡스 탐색자에게 "먼저 해보세요" 또는 "시술 후 붓기 케어"로 프레임</div>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-blue">라인잇</span>
+          <span class="tag tag-green">블로그SEO</span>
+          <span class="tag tag-orange">표현 주의</span>
+        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-ph04')">자세히 보기 →</button>
+      </div>
+    </div>
+
+    <!-- H-06 -->
+    <div class="hyp-card">
+      <div class="hyp-header">
+        <div class="hyp-num">H-06</div>
+        <div class="score-badge score-yellow">71</div>
+        <div class="hyp-info">
+          <div class="hyp-title">에너짓 — "집중력"보다 와닿는 소비자 언어 발굴</div>
+          <div class="hyp-liner">"집중력패치"는 카테고리명, 실제 소비자 감각·상황으로 소구 전환 필요</div>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-blue">에너짓</span>
+          <span class="tag tag-orange">검증 필요</span>
+        </div>
+        <button class="hyp-detail-btn" onclick="openModal('modal-ph06')">자세히 보기 →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── 패칫 가설 모달 ─── -->
+
+<div class="modal-overlay" id="modal-ph01" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <div class="modal-header">
+      <div class="modal-title">H-01 슬림잇 × 라인잇 — "살이냐 붓기냐" 소비자 언어 소구</div>
+      <button class="modal-close" onclick="closeModal('modal-ph01')">✕</button>
+    </div>
+    <div>
+      <div class="body-block-label">근거 데이터</div>
+      <div class="chips">
+        <div class="chip">슬림잇 리뷰 붓기 니즈 <strong>33건</strong><br><small style="color:#6B7684">"붓기인지 살인지 모르겠어요"</small></div>
+        <div class="chip">슬림잇+라인잇 동시구매 <strong>30명</strong></div>
+        <div class="chip">슬림잇→라인잇 자발 전환 <strong>22건</strong></div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="body-block-label">소비자 진단 소구 각도</div>
+      <div class="quote-card">
+        <strong>[살인지 붓기인지 구분법]</strong><br>
+        아침에 생겼다가 저녁에 빠지면 <strong>붓기 → 라인잇</strong><br>
+        꼬집어도 잡히면 <strong>살 → 슬림잇</strong><br><br>
+        아침 라인잇 + 낮 슬림잇 — "2제품 데일리 루틴" 크리에이티브
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="body-block-label">실행 방향</div>
+      <div class="action-list">
+        <div class="action-item"><span class="action-arrow">→</span><span>상세페이지: 살/붓기 진단 소구 추가 + 라인잇 크로스셀 배너</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇 구매자 CRM — "혹시 붓기도 고민이셨나요?" 라인잇 안내</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>Meta 광고: 진단형 카피 + 아침/낮 루틴 2컷 크리에이티브</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-ph02" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <div class="modal-header">
+      <div class="modal-title">H-02 드림잇 — 수면이 피부를 만든다 소구</div>
+      <button class="modal-close" onclick="closeModal('modal-ph02')">✕</button>
+    </div>
+    <div>
+      <div class="body-block-label">근거 데이터</div>
+      <div class="chips">
+        <div class="chip">드림잇 구매자 여성 <strong>69.6%</strong></div>
+        <div class="chip">글루타치온패치 <strong>+2,767%</strong> YoY<br><small style="color:#6B7684">동일 여성 소비자 포착 경쟁 중</small></div>
+        <div class="chip">기미제거패치 <strong>+1,511%</strong> YoY</div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="body-block-label">경쟁사 동향</div>
+      <div class="quote-card">링탭이 멜라토닌(수면) → 글루타치온(피부) 패치로 피봇 중. <strong>같은 소비자를 피부 니즈로 재포착하는 전략</strong>과 동일 구조. 드림잇도 동일 각도 선제 소구 가능.</div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="body-block-label">소구 전환 방향</div>
+      <div class="action-list">
+        <div class="action-item"><span class="action-arrow">→</span><span>"밤사이 피부 회복, 드림잇이 황금 수면 시간을 만들어요"</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>"글루타치온 먹어도 피부 그대로라면? 수면부터 고쳐야 해요" — 역접 소구</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>선행 과제: 드림잇 상품명·태그에 "수면패치" 추가 후 쇼핑 노출 확인</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-ph03" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <div class="modal-header">
+      <div class="modal-title">H-03 팔뚝살 × 종아리 — 부위별 광고 소재 전략</div>
+      <button class="modal-close" onclick="closeModal('modal-ph03')">✕</button>
+    </div>
+    <div>
+      <div class="body-block-label">키워드 공백 근거</div>
+      <div class="chips">
+        <div class="chip">팔뚝살패치 <strong>1,310건</strong> — 쇼핑 공백<br><small style="color:#6B7684">압박복·해외직구만 상위, 패치 브랜드 없음</small></div>
+        <div class="chip">종아리보톡스 <strong>9,720건</strong></div>
+        <div class="chip">다리붓기빼는법 <strong>4,380건</strong></div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="body-block-label">즉시 실행 항목</div>
+      <div class="action-list">
+        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇 상품명·태그: <strong>"팔뚝살패치"</strong> 즉시 추가</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>라인잇 태그: <strong>"종아리관리, 다리붓기"</strong> 추가</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>"팔뚝(슬림잇) + 종아리(라인잇)" 부위별 패칫 루틴 광고 크리에이티브</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-ph04" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <div class="modal-header">
+      <div class="modal-title">H-04 라인잇 — 시술 전 준비 or 시술 후 관리템 소구</div>
+      <button class="modal-close" onclick="closeModal('modal-ph04')">✕</button>
+    </div>
+    <div>
+      <div class="body-block-label">근거 데이터</div>
+      <div class="chips">
+        <div class="chip">종아리보톡스 <strong>9,720건</strong></div>
+        <div class="chip">종아리보톡스후기 <strong>3,380건</strong></div>
+        <div class="chip">엔더몰로지 <strong>3,980건</strong><br><small style="color:#6B7684">시술 탐색 → 라인잇 쇼핑 미노출</small></div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="body-block-label">소구 앵글 2가지</div>
+      <div class="action-list">
+        <div class="action-item"><span class="action-arrow">→</span><span><strong>[앵글A]</strong> "보톡스 예약 전에 이거 먼저 써봤어요" — 시술 결정 전 탐색자 타겟</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span><strong>[앵글B]</strong> "시술 후 붓기 관리, 라인잇으로 시작하세요" — 시술 완료 후 관리 검색자</span></div>
+      </div>
+    </div>
+    <div class="caution" style="margin-top:16px">⚠️ "의학적 효능" 표현 금지 → "케어", "관리 루틴" 수준으로 유지</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-ph06" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box modal-hyp-box">
+    <div class="modal-header">
+      <div class="modal-title">H-06 에너짓 — "집중력"보다 와닿는 소비자 언어 발굴</div>
+      <button class="modal-close" onclick="closeModal('modal-ph06')">✕</button>
+    </div>
+    <div>
+      <div class="body-block-label">근거 데이터</div>
+      <div class="chips">
+        <div class="chip">에너짓 카테고리 검색량 <strong>하락 중</strong></div>
+        <div class="chip">마그네슘패치 <strong>연중 안정 수요</strong><br><small style="color:#6B7684">대체 키워드 포지션 가능</small></div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="body-block-label">소비자 실제 언어</div>
+      <div class="quote-card">"점심 먹고 눈이 감겨요", "2시에 책상에서 졸아요" — 집중력이 아닌 <strong>시간+상황</strong>으로 말하는 소비자</div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="body-block-label">소구 전환 방향</div>
+      <div class="action-list">
+        <div class="action-item"><span class="action-arrow">→</span><span>"오후 2시, 눈이 감길 때 붙이는 에너짓" — 시간+상황 결합 소구</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>"커피 대신 붙이는 집중력 패치" — 대체재 포지셔닝</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>선행 과제: 점심후졸음·식곤증·브레인포그 키워드 DataLab 조회 후 방향 확정</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /#ppt-pachet -->
+
+</div><!-- /#ppt-view -->
+
+<!-- ─── DASHBOARD VIEW ─── -->
+<div id="dashboard-view" style="display:none; background:#F2F4F6; min-height:calc(100vh - 60px); padding:60px 80px 80px;">
+  <div style="max-width:1200px; margin:0 auto;">
+  <div class="sec-eyebrow" style="margin-bottom:8px">Full Dashboard</div>
+  <h2 class="sec-title" style="margin-bottom:32px">고객 분석 대시보드</h2>
+
+  <div class="dash-brand-tabs">
+    <button class="dash-brand-tab active" onclick="switchDashBrand('calo',this)">칼로</button>
+    <button class="dash-brand-tab" onclick="switchDashBrand('pachet',this)">패칫</button>
+  </div>
+
+  <div id="db-kpi-area"></div>
+
+  <div class="dash-tab-bar" id="db-tab-bar">
+    <button class="dash-tab active" onclick="switchDashTab('demo',this)">인구통계</button>
+    <button class="dash-tab" onclick="switchDashTab('product',this)">제품별</button>
+    <button class="dash-tab db-opt-tab" onclick="switchDashTab('options',this)" style="display:none">옵션 분석</button>
+    <button class="dash-tab" onclick="switchDashTab('repurchase',this)">재구매</button>
+    <button class="dash-tab" onclick="switchDashTab('amount',this)">구매금액</button>
+    <button class="dash-tab" onclick="switchDashTab('timeseries',this)">시계열</button>
+  </div>
+
+  <!-- 인구통계 -->
+  <div class="dash-panel active" id="dash-panel-demo">
+    <div class="dash-chart-row d-card-gap">
+      <div class="dash-card">
+        <div class="dash-card-title">연령대별 고객 수</div>
+        <div class="dash-chart-wrap"><canvas id="db-ageCountChart"></canvas></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">연령대별 매출</div>
+        <div class="dash-chart-wrap"><canvas id="db-ageRevenueChart"></canvas></div>
+      </div>
+    </div>
+    <div class="dash-chart-row half d-card-gap">
+      <div class="dash-card">
+        <div class="dash-card-title">성별 비율</div>
+        <div class="dash-chart-wrap sm"><canvas id="db-genderChart"></canvas></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">연령 × 성별 교차표</div>
+        <div id="db-crossTable"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제품별 -->
+  <div class="dash-panel" id="dash-panel-product">
+    <div class="dash-filter-bar" id="db-prodFilter"></div>
+    <div class="dash-chart-row half d-card-gap">
+      <div class="dash-card">
+        <div class="dash-card-title" id="db-prodAgeTitle">연령대 분포</div>
+        <div class="dash-chart-wrap"><canvas id="db-prodAgeChart"></canvas></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title" id="db-prodGenderTitle">성별 비율</div>
+        <div class="dash-chart-wrap sm"><canvas id="db-prodGenderChart"></canvas></div>
+      </div>
+    </div>
+    <div class="dash-card d-card-gap">
+      <div class="dash-card-title">제품별 구매자 수 순위</div>
+      <div id="db-prodRankBars"></div>
+    </div>
+  </div>
+
+  <!-- 옵션 분석 (패칫 전용) -->
+  <div class="dash-panel" id="dash-panel-options">
+    <div class="dash-filter-bar" id="db-optFilter"></div>
+    <div class="dash-chart-row half d-card-gap">
+      <div class="dash-card">
+        <div class="dash-card-title" id="db-optChartTitle">옵션별 주문 비율</div>
+        <div class="dash-chart-wrap"><canvas id="db-optDonutChart"></canvas></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title" id="db-optTableTitle">옵션별 주문 현황</div>
+        <div id="db-optTable"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 재구매 -->
+  <div class="dash-panel" id="dash-panel-repurchase">
+    <div class="dash-chart-row half d-card-gap">
+      <div class="dash-card">
+        <div class="dash-card-title">구매 빈도 분포</div>
+        <div class="dash-chart-wrap"><canvas id="db-freqDonutChart"></canvas></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">구매 횟수별 현황</div>
+        <div id="db-freqTable"></div>
+      </div>
+    </div>
+    <div class="dash-chart-row half d-card-gap">
+      <div class="dash-card">
+        <div class="dash-card-title">제품별 재구매율</div>
+        <div class="dash-chart-wrap" style="height:320px"><canvas id="db-repeatRateChart"></canvas></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">구매 유형별 연령 분포</div>
+        <div class="dash-chart-wrap"><canvas id="db-typeAgeChart"></canvas></div>
+      </div>
+    </div>
+    <div class="dash-card d-card-gap">
+      <div class="dash-card-title">다음 구매 시퀀스 <span style="font-size:13px;font-weight:400;color:#6B7684;margin-left:8px">첫 구매 후 다음 구매 제품 순위</span></div>
+      <div class="dash-filter-bar" id="db-seqFilter"></div>
+      <div id="db-seqViz"></div>
+    </div>
+    <div class="dash-card d-card-gap">
+      <div class="dash-card-title">전환 히트맵 <span style="font-size:13px;font-weight:400;color:#6B7684;margin-left:8px">첫 구매 → 재구매 비율(%)</span></div>
+      <div class="d-heatmap-wrap" id="db-transitionHeatmap"></div>
+    </div>
+    <div class="dash-card d-card-gap">
+      <div class="dash-card-title">크로스 구매 히트맵 <span style="font-size:13px;font-weight:400;color:#6B7684;margin-left:8px">동시 구매 고객 수</span></div>
+      <div class="d-heatmap-wrap" id="db-crossHeatmap"></div>
+    </div>
+    <div class="dash-card d-card-gap">
+      <div class="dash-card-title">인기 구매 경로</div>
+      <div class="dash-filter-bar" id="db-pathLengthTabs"></div>
+      <div id="db-topPathsList"></div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card-title">구매 경로 탐색기</div>
+      <div id="db-pathExplorer"></div>
+    </div>
+  </div>
+
+  <!-- 구매금액 -->
+  <div class="dash-panel" id="dash-panel-amount">
+    <div class="dash-card">
+      <div class="dash-card-title">구매금액 분포</div>
+      <div class="dash-chart-wrap" style="height:340px"><canvas id="db-amountChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 시계열 -->
+  <div class="dash-panel" id="dash-panel-timeseries">
+    <div class="dash-filter-bar" id="db-tsFilter"></div>
+    <div class="dash-card d-card-gap">
+      <div class="dash-card-title">월별 제품별 구매 추이</div>
+      <div class="dash-chart-wrap" style="height:360px"><canvas id="db-tsLineChart"></canvas></div>
+    </div>
+    <div class="dash-chart-row half d-card-gap">
+      <div class="dash-card">
+        <div class="dash-card-title">월별 신규 vs 재방문 고객</div>
+        <div class="dash-chart-wrap"><canvas id="db-newReturnChart"></canvas></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">월별 재방문율</div>
+        <div class="dash-chart-wrap"><canvas id="db-returnRateChart"></canvas></div>
+      </div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card-title">월별 제품별 재구매율</div>
+      <div style="overflow-x:auto"><div id="db-monthlyRepeatTable"></div></div>
+    </div>
+  </div>
+
+  </div><!-- /inner -->
+</div><!-- /#dashboard-view -->
+
+<!-- ─── KEYWORD VIEW ─── -->
+<div id="keyword-view" style="display:none; background:#F2F4F6; min-height:calc(100vh - 60px); padding:60px 80px 80px;">
+  <div style="max-width:1400px; margin:0 auto;">
+
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:40px;">
+      <div>
+        <div class="sec-eyebrow">Keyword Trends</div>
+        <h2 class="sec-title" style="margin-bottom:6px;">검색량 트렌드</h2>
+        <p style="font-size:14px; color:#6B7684;">주차별 추정 절대 검색량 · DataLab 주간 지수 × 검색광고 API 전월 검색량 환산</p>
+      </div>
+      <div style="display:flex; gap:6px; margin-top:8px;">
+        <button class="kw-brand-tab active" onclick="kwSwitchBrand('calo',this)">칼로</button>
+        <button class="kw-brand-tab" onclick="kwSwitchBrand('pachet',this)">패칫</button>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:260px 1fr; gap:24px; align-items:start;">
+
+      <!-- 키워드 리스트 사이드바 -->
+      <div style="background:#fff; border-radius:16px; padding:24px; border:1px solid #E5E8EB; position:sticky; top:80px;">
+        <div style="font-size:14px; font-weight:700; color:#191F28; margin-bottom:2px;">키워드 선택</div>
+        <div style="font-size:12px; color:#B0B8C1; margin-bottom:14px;">최대 5개 동시 비교 · 검색량 순</div>
+        <div id="kw-keyword-list" style="max-height:calc(100vh - 260px); overflow-y:auto;">
+          <div style="color:#B0B8C1; font-size:13px; padding:8px 0;">불러오는 중…</div>
+        </div>
+      </div>
+
+      <!-- 차트 영역 -->
+      <div>
+        <!-- 선택된 키워드 칩 -->
+        <div id="kw-selected-bar" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; min-height:38px;"></div>
+
+        <!-- 라인 차트 카드 -->
+        <div style="background:#fff; border-radius:16px; padding:32px; border:1px solid #E5E8EB;">
+          <div style="font-size:15px; font-weight:700; color:#191F28; margin-bottom:4px;">주차별 추정 검색량</div>
+          <div style="font-size:12px; color:#B0B8C1; margin-bottom:24px;">기준: 네이버 검색 (PC + 모바일) · 2024.06 ~ 2026.05</div>
+          <div style="height:420px; position:relative;">
+            <canvas id="kw-line-chart"></canvas>
+            <div id="kw-empty" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#B0B8C1;pointer-events:none;">
+              <div style="font-size:32px;">📈</div>
+              <div style="font-size:14px; font-weight:500;">왼쪽에서 키워드를 클릭해 추가하세요</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- /#keyword-view -->
 
 <!-- ─── FOOTER ─── -->
 <footer class="footer">
@@ -869,12 +1982,1019 @@ tr:last-child td { border-bottom: none; }
   <div>Claude (claude-sonnet-4-6)</div>
 </footer>
 
+<!-- ─── MODALS ─── -->
+<div class="modal-overlay" id="modal-review" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-review')">×</button>
+    <div class="modal-eyebrow">분석 방법</div>
+    <div class="modal-title">경쟁사 리뷰를<br>어떻게 분석했나요</div>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-label">리뷰 전수 수집</div>
+        <div class="step-desc">네이버 쇼핑에서 에르고바디 쉐이피EMS벨트 구매 리뷰 1,035건 전수 수집.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-label">유형별 코딩 분류</div>
+        <div class="step-desc">베네핏·불만·구매 동기·사용 맥락 4가지 유형으로 코딩. 복수 유형 포함 리뷰는 전체 태깅.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-label">불만 키워드 군집화</div>
+        <div class="step-desc">EMS 강도 약함 / 광고 불신 / 사이즈·착용감 / 효과 의문 4개 군집 도출. 강도 불만 215건(20.8%)으로 최다.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-label">구매 동기 태깅</div>
+        <div class="step-desc">선물 구매(140건, 13.5%) / 관절·허리 통증 해소 / 다이어트 목적 별도 태깅 및 소구 기회로 분류.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-label">인사이트 도출</div>
+        <div class="step-desc">빈도순 정렬 후 "에르고바디가 못 채우는 것" 기준으로 기회 영역 정의. 강도 불만 → H-01, 광고 불신 → H-06, 선물 수요 → H-07 연결.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-customer" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-customer')">×</button>
+    <div class="modal-eyebrow">분석 방법</div>
+    <div class="modal-title">칼로 고객 데이터를<br>어떻게 분석했나요</div>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-label">원천 데이터 추출</div>
+        <div class="step-desc">카페24에서 최근 6개월 주문 데이터(23,355건) + 회원 데이터(259,014명) CSV 추출.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-label">전처리 및 매칭</div>
+        <div class="step-desc">환불 건 제외 후 유효 주문 53,057건 확보. 전화번호 기준 주문↔회원 매칭 → 고유 고객 32,331명 확정.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-label">제품명 정규화</div>
+        <div class="step-desc">프로모션 접두어 제거 후 11개 카테고리 분류. 예: "단독특가 네오디뮴 스트랩 3600" → 스트랩.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-label">재구매 분석</div>
+        <div class="step-desc">6개월 내 2회 이상 구매 = 재구매 정의. 제품별 재구매율 산출. 스트랩 10.2%로 포트폴리오 최고.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-label">크로스바이 매트릭스</div>
+        <div class="step-desc">제품 A 구매 고객의 제품 B 전환율 계산. 이지슬립→스트랩 7.9% 등 제품 간 이동 패턴 시각화.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-keyword" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-keyword')">×</button>
+    <div class="modal-eyebrow">분석 방법</div>
+    <div class="modal-title">네이버 키워드를<br>어떻게 분석했나요</div>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-label">씨앗 키워드 설정 (Step 1)</div>
+        <div class="step-desc">팔찌·EMS벨트·이지슬립 3개 Track 구성. 자사 브랜드명·경쟁사 제품명·소비자 탐색어 혼합 41개 설정.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-label">연관 키워드 확장 (Step 2)</div>
+        <div class="step-desc">검색광고 API로 연관 키워드 1,062개 수집. 절대 검색량 기준 상위 214개 추려 분석 대상 확정.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-label">트렌드 데이터 수집 (Step 3)</div>
+        <div class="step-desc">DataLab API로 주요 키워드 24개월 주간 트렌드 수집. 계절성·성장 추세·급등 시점 파악 및 니즈 지속성 검증.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-label">니즈 군집화 (Step 3)</div>
+        <div class="step-desc">소비자 탐색 패턴 기준 키워드 군집화. 중장년 웰니스·복부 슬리밍·구매 전 신뢰 탐색·복합 신체 피로 4개 레이어 도출.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-label">경쟁사 포지션 교차 확인 (Step 4)</div>
+        <div class="step-desc">주요 키워드별 경쟁사 점령 현황 교차 분석. 자사 진입 가능 공백 영역 식별 및 우선순위 액션 도출.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-shopping" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-shopping')">×</button>
+    <div class="modal-eyebrow">분석 방법</div>
+    <div class="modal-title">쇼핑 포지션을<br>어떻게 검증했나요</div>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-label">검증 키워드 선정</div>
+        <div class="step-desc">자사 제품 직접 연관 키워드 우선 선정. 카테고리 키워드(EMS복부벨트)와 브랜드 키워드(슬림코어벨트) 분리 검증.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-label">실제 노출 순위 확인</div>
+        <div class="step-desc">네이버 쇼핑 직접 검색으로 자사 노출 여부·순위 기록. 에르고바디·발란스핏·핏유어코어 등 경쟁사 점유 순위 병행 기록.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-label">3단계 분류</div>
+        <div class="step-desc">✅ 장악(1~2위) / ✅ 일부 노출(3위 이하) / ❌ 미노출(경쟁사 독식·카테고리 미스매치) 3단계 분류 및 현황표 작성.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-label">전략 방향 도출</div>
+        <div class="step-desc">미노출 키워드 기준 시장 공백 파악. EMS복부벨트·뱃살EMS 에르고바디 독식 → 검색 대신 Meta·콘텐츠 우선 전략 도출.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 패칫 MODALS ─── -->
+<div class="modal-overlay" id="modal-p-customer" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-p-customer')">×</button>
+    <div class="modal-eyebrow">분석 방법</div>
+    <div class="modal-title">패칫 고객 데이터를<br>어떻게 분석했나요</div>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-label">원천 데이터 추출</div>
+        <div class="step-desc">카페24에서 최근 6개월 주문·회원 데이터 CSV 추출. 유효 주문 87,911건 / 고유 고객 49,821명 기준.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-label">전처리 및 매칭</div>
+        <div class="step-desc">환불 건 제외 후 유효 주문 확보. 전화번호 기준 주문↔회원 매칭으로 매칭률 68.0% 확정. 비매칭 ~16,000명 CRM 미도달 분류.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-label">제품명 정규화</div>
+        <div class="step-desc">프로모션 접두어 제거 후 슬림잇·드림잇·라인잇·에너짓·패칫 세트 5개 카테고리 분류.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-label">재구매 분석</div>
+        <div class="step-desc">6개월 내 2회 이상 구매 = 재구매 기준 정의. 슬림잇 13.1% / 드림잇 4.3% / 에너짓 3.4% 산출.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-label">크로스바이 매트릭스</div>
+        <div class="step-desc">제품 A → 제품 B 구매 전환율 제품별 계산. 드림잇→슬림잇 74.5%, 에너짓→슬림잇 78.2% — 슬림잇이 전체 크로스바이 허브.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-p-review" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-p-review')">×</button>
+    <div class="modal-eyebrow">분석 방법</div>
+    <div class="modal-title">슬림잇 리뷰를<br>어떻게 분석했나요</div>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-label">리뷰 전수 수집</div>
+        <div class="step-desc">네이버 쇼핑 슬림잇 구매 리뷰 1,524건 전수 수집. 1점~5점 전 평점 포함, 최신순 수집.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-label">유형별 코딩 분류</div>
+        <div class="step-desc">베네핏·불만·구매동기·사용맥락 4유형 코딩. 복수 유형 포함 시 중복 태깅.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-label">1점 리뷰 심층 분석</div>
+        <div class="step-desc">1점 리뷰 217건(14.2%) 별도 추출 후 불만 유형 군집화. 효과없음 103건 최다, 열감·사이즈 패턴 추출.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-label">니즈 키워드 추출</div>
+        <div class="step-desc">붓기 언급 33건, 팔뚝·종아리 부위 언급 별도 집계. "붓기인지 살인지 모르겠어요"류 표현 → H-01 소구 각도 근거.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-label">인사이트 도출</div>
+        <div class="step-desc">빈도순 정렬 후 소비자 니즈 공백 기준 가설 연결. 붓기 니즈 → H-01, 부위 소재 공백 → H-03, 불만 방어 → 1점 리뷰 대응.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-p-keyword" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-p-keyword')">×</button>
+    <div class="modal-eyebrow">분석 방법</div>
+    <div class="modal-title">네이버 키워드를<br>어떻게 분석했나요</div>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-label">씨앗 키워드 설정</div>
+        <div class="step-desc">슬림잇·드림잇·라인잇·에너짓 4개 Track 분리. 자사 브랜드명·경쟁사 제품명·소비자 탐색어(팔뚝살패치·수면패치 등) 혼합 설정.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-label">연관 키워드 확장</div>
+        <div class="step-desc">검색광고 API로 씨앗 키워드 연관어 수집. 절대 검색량 기준 상위 키워드 추출 후 분석 대상 확정.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-label">트렌드 데이터 수집</div>
+        <div class="step-desc">DataLab API로 주요 키워드 24개월 검색 트렌드 수집. 글루타치온패치 +2,767%, 기미제거패치 +1,511% 등 피부 패치 카테고리 급성장 확인.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-label">쇼핑 공백 검증</div>
+        <div class="step-desc">네이버 쇼핑 직접 검색으로 자사 노출 여부 확인. 팔뚝살패치(1,310건) 쇼핑 공백, 종아리보톡스(9,720건) 관련 패치 미노출 발견.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-label">인사이트 도출</div>
+        <div class="step-desc">성장·공백 키워드를 가설과 연결. 글루타치온패치 급성장 → H-02, 팔뚝살패치 공백 → H-03, 종아리보톡스 탐색자 → H-04.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-p-competitor" onclick="closeModalOnOverlay(event, this)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-p-competitor')">×</button>
+    <div class="modal-eyebrow">분석 방법</div>
+    <div class="modal-title">경쟁사를<br>어떻게 분석했나요</div>
+    <div class="modal-step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-label">분석 대상 선정</div>
+        <div class="step-desc">비교 검색 발생 경쟁사 링탭(굿나잇패치)·허밍테라피를 주요 분석 대상 선정.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-label">링탭 리뷰 수집 및 분석</div>
+        <div class="step-desc">링탭 굿나잇패치 리뷰 수집 후 소비자 언어·구매 동기 분류. 수면 외 피부 케어 니즈 혼재 확인.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-label">링탭 피봇 전략 추적</div>
+        <div class="step-desc">링탭 멜라토닌(수면) → 글루타치온(피부 미백) 라인 확장 전략 추적. 동일 여성 소비자를 피부 니즈로 재포착하는 구조 → 드림잇 H-02 적용.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-label">허밍테라피 비교 패턴 확인</div>
+        <div class="step-desc">허밍테라피 비교 검색어 검색량·쇼핑 노출 확인. 비교 콘텐츠 공백 존재 → 비교 블로그·콘텐츠 선제 확보 가능.</div>
+      </div>
+    </div>
+    <div class="modal-step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-label">포지셔닝 시사점 도출</div>
+        <div class="step-desc">경쟁사 분석 결과 자사 기회 영역 전환. 링탭 피봇 구조 → H-02 드림잇 수면→피부 소구, 비교 콘텐츠 공백 → SEO 선점.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOnOverlay(e, overlay) {
+  if (e.target === overlay) {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(m => {
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+
 function toggleHyp(card) {
   const isOpen = card.classList.contains('open');
   document.querySelectorAll('.hyp-card').forEach(c => c.classList.remove('open'));
   if (!isOpen) card.classList.add('open');
 }
+
+// 스크롤 위치에 따라 nav 섹션 링크 활성화
+let currentBrand = 'calo';
+const BRAND_SECTIONS = {
+  calo:   ['hero','sources','customers','hypotheses'],
+  pachet: ['p-hero','p-sources','p-customers','p-hypotheses'],
+};
+const BRAND_NAV_LABELS = {
+  calo:   ['개요','데이터 소스','고객 현황','가설 7가지'],
+  pachet: ['개요','데이터 소스','고객 현황','가설 5가지'],
+};
+
+function updateNavLinks(brand) {
+  const secLinks = document.querySelector('.nav-section-links');
+  const ids    = BRAND_SECTIONS[brand];
+  const labels = BRAND_NAV_LABELS[brand];
+  secLinks.innerHTML = ids.map((id, i) =>
+    `<a class="nav-section-link" href="#${id}">${labels[i]}</a>`
+  ).join('');
+}
+
+const navLinks = document.querySelectorAll('.nav-section-link');
+
+function updateActiveNav() {
+  const scrollY = window.scrollY + 80;
+  const ids = BRAND_SECTIONS[currentBrand] || [];
+  let current = ids[0] || '';
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollY) current = id;
+  });
+  document.querySelectorAll('.nav-section-link').forEach(link => {
+    const href = link.getAttribute('href').replace('#','');
+    link.classList.toggle('active', href === current);
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+// 패칫 PPT 차트 (p-productChart, p-ageChart)
+let pachetPptChartsInit = false;
+function initPachetPptCharts() {
+  if (pachetPptChartsInit) return;
+  pachetPptChartsInit = true;
+  // 제품별 고객수 — 가로 바
+  const pCtx = document.getElementById('p-productChart');
+  if (pCtx) {
+    new Chart(pCtx, {
+      type: 'bar',
+      data: {
+        labels: ['슬림잇','패칫 세트','드림잇','에너짓','라인잇'],
+        datasets: [{
+          label: '구매 고객수',
+          data: [47523, 2920, 352, 238, 54],
+          backgroundColor: ['#05C072','#3182F6','#F0B429','#7950F2','#F04452'],
+          borderRadius: 6,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { font: { size: 12 } } },
+          y: { ticks: { font: { size: 13, weight: '600' } } }
+        }
+      }
+    });
+  }
+  // 연령대 분포 — 도넛
+  const aCtx = document.getElementById('p-ageChart');
+  if (aCtx) {
+    new Chart(aCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['10대이하','20대','30대','40대','50대','60대이상'],
+        datasets: [{
+          data: [420, 4065, 8998, 16875, 15091, 4372],
+          backgroundColor: ['#74C0FC','#3182F6','#05C072','#F0B429','#F04452','#7950F2'],
+          borderWidth: 2, borderColor: '#fff',
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        cutout: '62%',
+        plugins: {
+          legend: { position: 'right', labels: { font: { size: 12 }, padding: 10 } }
+        }
+      }
+    });
+  }
+}
+
+// ── MAIN TAB SWITCHING ─────────────────────────────────────────────────
+function switchMainTab(tab, btn) {
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const pptView  = document.getElementById('ppt-view');
+  const dashView = document.getElementById('dashboard-view');
+  const kwView   = document.getElementById('keyword-view');
+  const secLinks = document.querySelector('.nav-section-links');
+  const caloPPT  = document.getElementById('ppt-calo');
+  const pachetPPT= document.getElementById('ppt-pachet');
+
+  pptView.style.display  = 'none';
+  dashView.style.display = 'none';
+  kwView.style.display   = 'none';
+  secLinks.style.display = 'none';
+
+  if (tab === 'dashboard') {
+    dashView.style.display = 'block';
+    renderDashboard();
+  } else if (tab === 'keyword') {
+    kwView.style.display = 'block';
+    kwInit();
+  } else {
+    pptView.style.display  = 'block';
+    secLinks.style.display = 'flex';
+    currentBrand = tab;
+    if (tab === 'pachet') {
+      caloPPT.style.display  = 'none';
+      pachetPPT.style.display= 'block';
+      updateNavLinks('pachet');
+      initPachetPptCharts();
+    } else {
+      caloPPT.style.display  = 'block';
+      pachetPPT.style.display= 'none';
+      updateNavLinks('calo');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(updateActiveNav, 100);
+  }
+}
+
+// ── DASHBOARD ──────────────────────────────────────────────────────────
+const DASH_DATA = {};
+let dashBrand = 'calo';
+let dashTab = 'demo';
+const dashCharts = {};
+const dashState = { prodSel:null, optSel:null, seqSel:null, pathLen:2, explorerPath:[], tsProds:null };
+
+const BRAND_FILES = { calo: './data/calo.json', pachet: './data/pachet.json' };
+const D_COLORS = ['#3182F6','#F04452','#05C072','#F0B429','#7950F2','#FA5252','#12B886','#FD7E14','#4C6EF5','#BE4BDB','#20C997','#FCC419','#74C0FC','#FF8787','#63E6BE'];
+
+function dFmt(n) { return Number(n).toLocaleString('ko-KR'); }
+function dFmtPct(n) { return Number(n).toFixed(1)+'%'; }
+function dGC(label) { return label==='남성'||label==='남'?'#3182F6':label==='여성'||label==='여'?'#F04452':'#B0B8C1'; }
+function dHeat(val,max) {
+  if(!max||!val) return '#F8F9FA';
+  const t=val/max, r=Math.round(235-t*186), g=Math.round(235-t*105), b=Math.round(235+t*20);
+  return `rgb(${r},${g},${b})`;
+}
+function destroyChart(id) { if(dashCharts[id]){dashCharts[id].destroy();delete dashCharts[id];} }
+function dChart(id,type,data,options) {
+  destroyChart(id);
+  const el=document.getElementById(id); if(!el) return;
+  return dashCharts[id]=new Chart(el,{type,data,options});
+}
+
+async function loadDashBrand(brand) {
+  if (!DASH_DATA[brand]) {
+    const res = await fetch(BRAND_FILES[brand]);
+    if (!res.ok) throw new Error('JSON 로드 실패: '+BRAND_FILES[brand]);
+    DASH_DATA[brand] = await res.json();
+  }
+  return DASH_DATA[brand];
+}
+
+async function renderDashboard() {
+  let d;
+  try { d = await loadDashBrand(dashBrand); }
+  catch(e) {
+    document.getElementById('db-kpi-area').innerHTML =
+      `<div style="color:#F04452;padding:20px;background:#fff;border-radius:12px;margin-bottom:20px">
+        ⚠️ 데이터 로드 실패: 로컬 서버를 먼저 실행하세요.<br>
+        <code style="font-size:12px;color:#6B7684">터미널에서: python -m http.server 8080</code>
+      </div>`;
+    return;
+  }
+  dbRenderKPI(d);
+  if (dashTab==='demo') dbRenderDemo(d);
+  else if (dashTab==='product') dbRenderProduct(d);
+  else if (dashTab==='options') dbRenderOptions(d);
+  else if (dashTab==='repurchase') dbRenderRepurchase(d);
+  else if (dashTab==='amount') dbRenderAmount(d);
+  else if (dashTab==='timeseries') dbRenderTimeseries(d);
+}
+
+// ── KPI ─────────────────────────────────────────────────────────────────
+function dbRenderKPI(d) {
+  const s=d.summary;
+  document.getElementById('db-kpi-area').innerHTML = `<div class="dash-kpi-grid" style="margin-bottom:24px">
+    <div class="dash-kpi"><div class="dash-kpi-label">고유 구매 고객</div><div class="dash-kpi-value">${dFmt(s.total_customers)}<span style="font-size:16px;font-weight:500">명</span></div><div class="dash-kpi-sub">총 유효 주문 ${dFmt(s.total_valid_orders)}건</div></div>
+    <div class="dash-kpi"><div class="dash-kpi-label">재구매율 (6개월)</div><div class="dash-kpi-value" style="color:#3182F6">${dFmtPct(s.repeat_rate)}</div><div class="dash-kpi-sub">재구매 ${dFmt(s.repeat_customers)}명</div></div>
+    <div class="dash-kpi"><div class="dash-kpi-label">총 매출 (매칭 기준)</div><div class="dash-kpi-value">${dFmt(s.total_revenue_man)}<span style="font-size:16px;font-weight:500">만원</span></div><div class="dash-kpi-sub">매칭율 ${dFmtPct(s.match_rate)}</div></div>
+    <div class="dash-kpi"><div class="dash-kpi-label">회원 매칭 주문</div><div class="dash-kpi-value">${dFmt(s.matched_orders)}<span style="font-size:16px;font-weight:500">건</span></div><div class="dash-kpi-sub">전체 ${dFmt(s.total_valid_orders)}건 중</div></div>
+  </div>`;
+}
+
+// ── 인구통계 ─────────────────────────────────────────────────────────────
+function dbRenderDemo(d) {
+  const age=d.age;
+  dChart('db-ageCountChart','bar',
+    {labels:age.labels,datasets:[{label:'고객수',data:age.customers,backgroundColor:D_COLORS[0],borderRadius:6}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${dFmt(ctx.raw)}명`}}},scales:{y:{grid:{color:'#F2F4F6'},ticks:{callback:v=>dFmt(v)}},x:{grid:{display:false}}}}
+  );
+  dChart('db-ageRevenueChart','bar',
+    {labels:age.labels,datasets:[{label:'매출(만원)',data:age.revenue_man,backgroundColor:D_COLORS[2],borderRadius:6}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${dFmt(ctx.raw)}만원`}}},scales:{y:{grid:{color:'#F2F4F6'},ticks:{callback:v=>dFmt(v)+'만'}},x:{grid:{display:false}}}}
+  );
+  dChart('db-genderChart','doughnut',
+    {labels:d.gender.labels,datasets:[{data:d.gender.customers,backgroundColor:d.gender.labels.map(dGC),borderWidth:2,borderColor:'#fff'}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{tooltip:{callbacks:{label:ctx=>` ${dFmt(ctx.raw)}명 (${dFmtPct(ctx.raw/d.summary.total_customers*100)})`}},legend:{position:'bottom'}}}
+  );
+  const ct=d.cross_age_gender;
+  const thead=`<tr><th>연령대</th>${ct.gender_labels.map(g=>`<th>${g}</th>`).join('')}</tr>`;
+  const tbody=ct.age_labels.map((a,i)=>`<tr><td>${a}</td>${ct.gender_labels.map((_,j)=>`<td style="text-align:center">${dFmt(ct.matrix[i][j])}</td>`).join('')}</tr>`).join('');
+  document.getElementById('db-crossTable').innerHTML=`<table class="d-cross-tbl"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+}
+
+// ── 제품별 ───────────────────────────────────────────────────────────────
+function dbRenderProduct(d) {
+  const prods=d.products;
+  if(!dashState.prodSel||!prods.includes(dashState.prodSel)) dashState.prodSel=prods[0];
+  document.getElementById('db-prodFilter').innerHTML=prods.map(p=>
+    `<button class="dash-filter-btn${p===dashState.prodSel?' active':''}" onclick="dbSelectProd(this,'${p.replace(/'/g,"\\'")}')">${p}</button>`
+  ).join('');
+  dbUpdateProdCharts(d);
+  const maxV=Math.max(...Object.values(d.product_customers));
+  document.getElementById('db-prodRankBars').innerHTML=prods.map((p,i)=>{
+    const v=d.product_customers[p]||0, pct=maxV?v/maxV*100:0;
+    return `<div class="d-rank-row"><div class="d-rank-label">${p}</div><div class="d-rank-bar-wrap"><div class="d-rank-bar" style="width:${pct}%;background:${D_COLORS[i%D_COLORS.length]}"></div></div><div class="d-rank-val" style="color:${D_COLORS[i%D_COLORS.length]}">${dFmt(v)}</div></div>`;
+  }).join('');
+}
+function dbUpdateProdCharts(d) {
+  const ageD=d.product_age[dashState.prodSel], genD=d.product_gender[dashState.prodSel];
+  document.getElementById('db-prodAgeTitle').textContent=dashState.prodSel+' — 연령대 분포';
+  document.getElementById('db-prodGenderTitle').textContent=dashState.prodSel+' — 성별 비율';
+  dChart('db-prodAgeChart','bar',
+    {labels:d.age.labels,datasets:[
+      {label:'고객수',data:ageD.counts,backgroundColor:D_COLORS[0],borderRadius:6,yAxisID:'y'},
+      {label:'비율(%)',data:ageD.pcts,type:'line',borderColor:D_COLORS[1],backgroundColor:'transparent',yAxisID:'y2',tension:0.3,pointRadius:4}
+    ]},
+    {responsive:true,maintainAspectRatio:false,scales:{y:{grid:{color:'#F2F4F6'},ticks:{callback:v=>dFmt(v)}},y2:{position:'right',grid:{display:false},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}},plugins:{tooltip:{mode:'index'}}}
+  );
+  dChart('db-prodGenderChart','doughnut',
+    {labels:genD.labels,datasets:[{data:genD.counts,backgroundColor:genD.labels.map(dGC),borderWidth:2,borderColor:'#fff'}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{tooltip:{callbacks:{label:ctx=>` ${dFmt(ctx.raw)}명`}},legend:{position:'bottom'}}}
+  );
+}
+function dbSelectProd(btn,p) {
+  dashState.prodSel=p;
+  document.querySelectorAll('#db-prodFilter .dash-filter-btn').forEach(b=>b.classList.toggle('active',b===btn));
+  dbUpdateProdCharts(DASH_DATA[dashBrand]);
+}
+
+// ── 옵션 분석 (패칫) ──────────────────────────────────────────────────────
+function dbRenderOptions(d) {
+  if(!d.options) return;
+  const prods=d.products;
+  if(!dashState.optSel||!prods.includes(dashState.optSel)) dashState.optSel=prods[0];
+  document.getElementById('db-optFilter').innerHTML=prods.map(p=>
+    `<button class="dash-filter-btn${p===dashState.optSel?' active':''}" onclick="dbSelectOpt(this,'${p.replace(/'/g,"\\'")}')">${p}</button>`
+  ).join('');
+  dbUpdateOptCharts(d);
+}
+function dbUpdateOptCharts(d) {
+  const opts=(d.options||{})[dashState.optSel]||[];
+  document.getElementById('db-optChartTitle').textContent=dashState.optSel+' — 옵션별 주문 비율';
+  document.getElementById('db-optTableTitle').textContent=dashState.optSel+' — 옵션별 주문 현황';
+  const top8=opts.slice(0,8);
+  dChart('db-optDonutChart','doughnut',
+    {labels:top8.map(o=>o.option),datasets:[{data:top8.map(o=>o.count),backgroundColor:D_COLORS.slice(0,top8.length),borderWidth:2,borderColor:'#fff'}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{tooltip:{callbacks:{label:ctx=>` ${dFmt(ctx.raw)}건 (${top8[ctx.dataIndex].pct}%)`}},legend:{position:'bottom',labels:{font:{size:11},boxWidth:10}}}}
+  );
+  if(!opts.length){document.getElementById('db-optTable').innerHTML='<div style="color:#6B7684;padding:20px">옵션 데이터 없음</div>';return;}
+  const rows=opts.map((o,i)=>`<tr><td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${D_COLORS[i%D_COLORS.length]};margin-right:6px"></span>${o.option}</td><td>${dFmt(o.count)}건</td><td style="font-weight:700;color:${D_COLORS[i%D_COLORS.length]}">${o.pct}%</td><td>${dFmt(Math.round(o.revenue/10000))}만원</td></tr>`).join('');
+  document.getElementById('db-optTable').innerHTML=`<table class="d-opt-tbl"><thead><tr><th>옵션</th><th>주문건수</th><th>비율</th><th>매출</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+function dbSelectOpt(btn,p) {
+  dashState.optSel=p;
+  document.querySelectorAll('#db-optFilter .dash-filter-btn').forEach(b=>b.classList.toggle('active',b===btn));
+  dbUpdateOptCharts(DASH_DATA[dashBrand]);
+}
+
+// ── 재구매 ───────────────────────────────────────────────────────────────
+function dbRenderRepurchase(d) {
+  const fr=d.repurchase;
+  dChart('db-freqDonutChart','doughnut',
+    {labels:fr.freq_labels,datasets:[{data:fr.freq_counts,backgroundColor:D_COLORS.slice(0,5),borderWidth:2,borderColor:'#fff'}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:11}}},tooltip:{callbacks:{label:ctx=>` ${dFmt(ctx.raw)}명 (${fr.freq_pcts[ctx.dataIndex]}%)`}}}}
+  );
+  const freqRows=fr.freq_labels.map((lbl,i)=>`<tr><td style="text-align:left"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${D_COLORS[i]};margin-right:8px"></span>${lbl} 구매</td><td>${dFmt(fr.freq_counts[i])}명</td><td style="font-weight:700;color:${D_COLORS[i]}">${fr.freq_pcts[i]}%</td></tr>`).join('');
+  document.getElementById('db-freqTable').innerHTML=`<table class="d-freq-tbl"><thead><tr><th style="text-align:left">구매 횟수</th><th>고객 수</th><th>비율</th></tr></thead><tbody>${freqRows}</tbody></table>`;
+  const rr=fr.by_product;
+  dChart('db-repeatRateChart','bar',
+    {labels:rr.map(r=>r.product),datasets:[{label:'재구매율(%)',data:rr.map(r=>r.rate),backgroundColor:rr.map((_,i)=>D_COLORS[i%D_COLORS.length]),borderRadius:6}]},
+    {indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.raw}%`}}},scales:{x:{max:Math.max(...rr.map(r=>r.rate))*1.2,grid:{color:'#F2F4F6'},ticks:{callback:v=>v+'%'}},y:{grid:{display:false}}}}
+  );
+  dChart('db-typeAgeChart','bar',
+    {labels:d.age.labels,datasets:Object.entries(fr.type_age).map(([lbl,data],i)=>({label:lbl,data,backgroundColor:D_COLORS[i],borderRadius:4}))},
+    {responsive:true,maintainAspectRatio:false,plugins:{tooltip:{mode:'index'},legend:{position:'top'}},scales:{y:{grid:{color:'#F2F4F6'},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}
+  );
+  const seqProds=Object.keys(fr.sequence||{});
+  if(!dashState.seqSel||!seqProds.includes(dashState.seqSel)) dashState.seqSel=seqProds[0];
+  document.getElementById('db-seqFilter').innerHTML=seqProds.map(p=>
+    `<button class="dash-filter-btn${p===dashState.seqSel?' active':''}" onclick="dbSelectSeq(this,'${p.replace(/'/g,"\\'")}')">${p}</button>`
+  ).join('');
+  dbUpdateSeqViz(d);
+  dbRenderTransition(d);
+  dbRenderCrossHeat(d);
+  dbRenderTopPaths(d);
+  dbInitExplorer(d);
+}
+function dbUpdateSeqViz(d) {
+  const seq=(d.repurchase.sequence||{})[dashState.seqSel]||[];
+  const viz=document.getElementById('db-seqViz');
+  if(!seq.length){viz.innerHTML='<div class="d-seq-empty">재구매 데이터가 없습니다.</div>';return;}
+  const mx=seq[0].count;
+  viz.innerHTML=`<div style="font-size:12px;color:#6B7684;margin-bottom:12px"><strong>${dashState.seqSel}</strong> 구매 후 다음 구매 제품 순위</div>`+
+    seq.map(s=>`<div class="dash-seq-row"><div class="dash-seq-label">${s.product}</div><div class="dash-seq-bar-wrap"><div class="dash-seq-bar" style="width:${s.count/mx*100}%"><span class="dash-seq-bar-text">${s.pct}%</span></div></div><div class="dash-seq-pct">${dFmt(s.count)}건</div></div>`).join('');
+}
+function dbSelectSeq(btn,p) {
+  dashState.seqSel=p;
+  document.querySelectorAll('#db-seqFilter .dash-filter-btn').forEach(b=>b.classList.toggle('active',b===btn));
+  dbUpdateSeqViz(DASH_DATA[dashBrand]);
+}
+function dbRenderTransition(d) {
+  const prods=d.repurchase.transition_products, matrix=d.repurchase.transition_matrix;
+  if(!prods||!prods.length) return;
+  const allV=matrix.flat().filter(v=>v!=null&&v>0), maxV=allV.length?Math.max(...allV):1;
+  const thead=`<tr><th style="min-width:120px;text-align:left">첫 구매 →</th>${prods.map(p=>`<th style="padding:8px 6px;min-width:44px"><div style="writing-mode:vertical-lr;white-space:nowrap;font-size:11px">${p}</div></th>`).join('')}</tr>`;
+  const tbody=prods.map((pa,i)=>{
+    const cells=prods.map((pb,j)=>{
+      const v=matrix[i]?matrix[i][j]:null;
+      if(v==null) return `<td style="background:#F2F4F6;color:#B0B8C1">—</td>`;
+      if(v===0) return `<td style="background:#F8F9FA;color:#D1D6DB">0</td>`;
+      const t=v/maxV,r=Math.round(235-t*186),g=Math.round(235-t*105),b=Math.round(235+t*20);
+      return `<td style="background:rgb(${r},${g},${b});color:${t>0.55?'#fff':'#191F28'};font-weight:${t>0.3?700:400}">${v}%</td>`;
+    }).join('');
+    return `<tr><th style="text-align:left;background:#F8F9FA;white-space:nowrap;font-weight:600;padding:8px 12px">${pa}</th>${cells}</tr>`;
+  }).join('');
+  document.getElementById('db-transitionHeatmap').innerHTML=`<table class="d-heatmap-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+}
+function dbRenderCrossHeat(d) {
+  const prods=d.repurchase.cross_products, matrix=d.repurchase.cross_matrix;
+  if(!prods||!prods.length){document.getElementById('db-crossHeatmap').innerHTML='<div style="color:#6B7684;padding:20px">데이터 없음</div>';return;}
+  const maxV=Math.max(...matrix.flat());
+  const thead=`<tr><th></th>${prods.map(p=>`<th>${p}</th>`).join('')}</tr>`;
+  const tbody=prods.map((p,i)=>`<tr><th style="text-align:left;background:#F8F9FA">${p}</th>${prods.map((_,j)=>{const v=matrix[i]?(matrix[i][j]||0):0;return `<td style="background:${v?dHeat(v,maxV):'#F8F9FA'};color:${v>maxV*0.5?'#fff':'#191F28'}">${v?dFmt(v):''}</td>`;}).join('')}</tr>`).join('');
+  document.getElementById('db-crossHeatmap').innerHTML=`<table class="d-heatmap-table"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+}
+function dbRenderTopPaths(d) {
+  document.getElementById('db-pathLengthTabs').innerHTML=[2,3,4,5].map(n=>
+    `<button class="dash-filter-btn${n===dashState.pathLen?' active':''}" onclick="dbSelectPathLen(${n})">${n}단계</button>`
+  ).join('');
+  dbUpdateTopPaths(d);
+}
+function dbSelectPathLen(n) {
+  dashState.pathLen=n;
+  document.querySelectorAll('#db-pathLengthTabs .dash-filter-btn').forEach(b=>b.classList.toggle('active',b.textContent===n+'단계'));
+  dbUpdateTopPaths(DASH_DATA[dashBrand]);
+}
+function dbUpdateTopPaths(d) {
+  const paths=d.multipath.top_paths[String(dashState.pathLen)]||[];
+  const box=document.getElementById('db-topPathsList');
+  if(!paths.length){box.innerHTML='<div class="d-seq-empty">해당 단계 경로 데이터 부족</div>';return;}
+  const mx=paths[0].count;
+  box.innerHTML=paths.map(p=>{
+    const chips=p.path.map((pr,j)=>`<span style="background:${D_COLORS[j%D_COLORS.length]}22;color:${D_COLORS[j%D_COLORS.length]};border:1.5px solid ${D_COLORS[j%D_COLORS.length]}55;padding:3px 10px;border-radius:20px;font-weight:600;font-size:12px">${pr}</span>`).join(' <span style="color:#B0B8C1">→</span> ');
+    return `<div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;padding:10px 0;border-bottom:1px solid #F2F4F6"><div style="flex:1;display:flex;align-items:center;gap:6px;flex-wrap:wrap">${chips}</div><div style="width:100px;background:#F2F4F6;border-radius:4px;height:6px;overflow:hidden;flex-shrink:0"><div style="width:${Math.round(p.count/mx*100)}%;height:100%;background:#3182F6;border-radius:4px"></div></div><div style="width:40px;text-align:right;font-size:13px;font-weight:700;color:#3182F6;flex-shrink:0">${p.count}건</div></div>`;
+  }).join('');
+}
+function dbInitExplorer(d) { dashState.explorerPath=[]; dbRenderExplorer(d); }
+function dbRenderExplorer(d) {
+  const container=document.getElementById('db-pathExplorer');
+  const key=dashState.explorerPath.join('→');
+  let pathDisplay='';
+  if(dashState.explorerPath.length) {
+    const chips=dashState.explorerPath.map((s,i)=>`<span style="background:${D_COLORS[i%D_COLORS.length]};color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700">${i+1}. ${s}</span>`).join(' <span style="color:#B0B8C1;font-size:16px">→</span> ');
+    pathDisplay=`<div style="margin-bottom:16px;display:flex;align-items:center;flex-wrap:wrap;gap:8px">${chips}</div>`;
+  }
+  let nextHtml='';
+  if(!dashState.explorerPath.length) {
+    nextHtml=`<div style="font-size:13px;font-weight:700;color:#191F28;margin-bottom:12px">1단계 — 첫 구매 제품 선택</div><div style="display:flex;flex-wrap:wrap;gap:8px">${d.products.map(p=>`<button class="dash-filter-btn" onclick="dbExplorerSel('${p.replace(/'/g,"\\'")}')">${p}</button>`).join('')}</div>`;
+  } else {
+    const node=d.multipath.path_tree[key];
+    if(!node||!node.next.length) {
+      nextHtml='<div class="d-seq-empty">이후 구매 데이터 부족 (지지도 미달)</div>';
+    } else {
+      const step=dashState.explorerPath.length+1, mx=node.next[0].count;
+      const bars=node.next.map(n=>`<div class="dash-seq-row" onclick="dbExplorerSel('${n.product.replace(/'/g,"\\'")}')" style="cursor:pointer" onmouseover="this.style.background='#F8F9FA'" onmouseout="this.style.background=''"><div class="dash-seq-label">${n.product}</div><div class="dash-seq-bar-wrap"><div class="dash-seq-bar" style="width:${n.count/mx*100}%"><span class="dash-seq-bar-text">${n.pct}%</span></div></div><div class="dash-seq-pct">${n.count}명</div></div>`).join('');
+      nextHtml=`<div style="font-size:13px;font-weight:700;color:#191F28;margin-bottom:12px">${step}단계 — 다음 구매 확률 (총 ${node.total}명 기준)</div>${bars}`;
+    }
+  }
+  const reset=dashState.explorerPath.length?`<button class="dash-filter-btn" onclick="dbInitExplorer(DASH_DATA[dashBrand])" style="margin-bottom:16px">↺ 초기화</button>`:'';
+  container.innerHTML=pathDisplay+reset+nextHtml;
+}
+function dbExplorerSel(prod) {
+  if(dashState.explorerPath.length<4){dashState.explorerPath.push(prod);dbRenderExplorer(DASH_DATA[dashBrand]);}
+}
+
+// ── 구매금액 ─────────────────────────────────────────────────────────────
+function dbRenderAmount(d) {
+  const amt=d.amount||d.spend; if(!amt) return;
+  const nz=amt.labels.map((_,i)=>amt.counts[i]>0);
+  dChart('db-amountChart','bar',
+    {labels:amt.labels.filter((_,i)=>nz[i]),datasets:[{label:'고객수',data:amt.counts.filter((_,i)=>nz[i]),backgroundColor:D_COLORS[0],borderRadius:6}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${dFmt(ctx.raw)}명`}}},scales:{y:{grid:{color:'#F2F4F6'},ticks:{callback:v=>dFmt(v)}},x:{grid:{display:false},ticks:{maxRotation:30}}}}
+  );
+}
+
+// ── 시계열 ───────────────────────────────────────────────────────────────
+function dbRenderTimeseries(d) {
+  const ts=d.timeseries;
+  if(!dashState.tsProds) dashState.tsProds=new Set(d.products.slice(0,5));
+  document.getElementById('db-tsFilter').innerHTML=d.products.map(p=>
+    `<button class="dash-filter-btn${dashState.tsProds.has(p)?' active':''}" onclick="dbToggleTs(this,'${p.replace(/'/g,"\\'")}')">${p}</button>`
+  ).join('');
+  dbUpdateTsChart(d);
+  dChart('db-newReturnChart','bar',
+    {labels:ts.months,datasets:[{label:'신규 고객',data:ts.new_customers,backgroundColor:D_COLORS[0],borderRadius:4},{label:'재방문 고객',data:ts.returning_customers,backgroundColor:D_COLORS[1],borderRadius:4}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{tooltip:{mode:'index'},legend:{position:'top'}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:'#F2F4F6'}}}}
+  );
+  dChart('db-returnRateChart','line',
+    {labels:ts.months,datasets:[{label:'재방문율(%)',data:ts.returning_rates,borderColor:D_COLORS[2],backgroundColor:D_COLORS[2]+'22',fill:true,tension:0.3,pointRadius:6,borderWidth:2}]},
+    {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.raw}%`}}},scales:{y:{grid:{color:'#F2F4F6'},ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}
+  );
+  const months=ts.months;
+  const thead=`<tr><th>제품</th>${months.map(m=>`<th>${m}</th>`).join('')}</tr>`;
+  const tbody=d.products.map(p=>{const rates=ts.product_monthly_repeat[p]||months.map(()=>0);return `<tr><td>${p}</td>${rates.map(r=>`<td style="color:${r>10?'#F04452':r>5?'#F0B429':'#191F28'};font-weight:${r>5?700:400}">${r>0?r+'%':'—'}</td>`).join('')}</tr>`;}).join('');
+  document.getElementById('db-monthlyRepeatTable').innerHTML=`<table class="d-monthly-tbl"><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+}
+function dbUpdateTsChart(d) {
+  dChart('db-tsLineChart','line',
+    {labels:d.timeseries.months,datasets:[...dashState.tsProds].map((p,i)=>({label:p,data:d.timeseries.by_product[p]||[],borderColor:D_COLORS[i%D_COLORS.length],backgroundColor:'transparent',tension:0.3,pointRadius:5,borderWidth:2}))},
+    {responsive:true,maintainAspectRatio:false,plugins:{tooltip:{mode:'index',intersect:false}},scales:{y:{grid:{color:'#F2F4F6'},beginAtZero:true},x:{grid:{display:false}}}}
+  );
+}
+function dbToggleTs(btn,prod) {
+  if(dashState.tsProds.has(prod)) dashState.tsProds.delete(prod); else dashState.tsProds.add(prod);
+  btn.classList.toggle('active',dashState.tsProds.has(prod));
+  dbUpdateTsChart(DASH_DATA[dashBrand]);
+}
+
+// ── 브랜드/탭 전환 ────────────────────────────────────────────────────────
+function switchDashBrand(brand,btn) {
+  dashBrand=brand;
+  document.querySelectorAll('.dash-brand-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const optTab=document.querySelector('.db-opt-tab');
+  if(optTab) optTab.style.display=brand==='pachet'?'':'none';
+  if(brand==='calo'&&dashTab==='options') {
+    dashTab='demo';
+    document.querySelectorAll('.dash-tab').forEach(b=>b.classList.toggle('active',b.textContent==='인구통계'));
+    document.querySelectorAll('.dash-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('dash-panel-demo').classList.add('active');
+  }
+  Object.assign(dashState,{prodSel:null,optSel:null,seqSel:null,pathLen:2,explorerPath:[],tsProds:null});
+  Object.keys(dashCharts).forEach(destroyChart);
+  renderDashboard();
+}
+
+function switchDashTab(tab,btn) {
+  dashTab=tab;
+  document.querySelectorAll('.dash-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.dash-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('dash-panel-'+tab).classList.add('active');
+  renderDashboard();
+}
+
+// ── KEYWORD VIEW ────────────────────────────────────────────────────────────
+const KW_FILES = { calo: './data/calo_keywords.json', pachet: './data/pachet_keywords.json' };
+const KW_DATA  = {};
+let kwBrand    = 'calo';
+let kwSelected = [];
+let kwChart    = null;
+let kwQuery    = '';
+let kwCatFilter= '전체';
+
+async function kwLoad(brand) {
+  if (KW_DATA[brand]) return KW_DATA[brand];
+  const res = await fetch(KW_FILES[brand]);
+  KW_DATA[brand] = await res.json();
+  return KW_DATA[brand];
+}
+
+async function kwInit() {
+  const data = await kwLoad(kwBrand);
+  kwRenderControls(data);
+  kwRenderList(data);
+  kwRenderSelected();
+  kwRenderChart(data);
+}
+
+function kwSwitchBrand(brand, btn) {
+  kwBrand = brand;
+  kwSelected = [];
+  kwQuery = '';
+  kwCatFilter = '전체';
+  document.querySelectorAll('.kw-brand-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (kwChart) { kwChart.destroy(); kwChart = null; }
+  kwInit();
+}
+
+function kwRenderControls(data) {
+  const cats = ['전체', ...new Set(data.keywords.map(k => k.category))];
+  document.getElementById('kw-keyword-list').innerHTML = `
+    <input id="kw-search" type="text" placeholder="키워드 검색…"
+      value="${kwQuery}"
+      oninput="kwQuery=this.value; kwRenderList(KW_DATA[kwBrand])"
+      style="width:100%;padding:8px 12px;border:1.5px solid #E5E8EB;border-radius:10px;font-size:13px;font-family:inherit;outline:none;margin-bottom:10px;box-sizing:border-box;">
+    <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;" id="kw-cat-tabs">
+      ${cats.map(c => `<button onclick="kwCatFilter='${c}';kwRenderList(KW_DATA[kwBrand]);document.querySelectorAll('#kw-cat-tabs button').forEach(b=>b.classList.toggle('active',b.textContent==='${c}'))"
+        class="dash-filter-btn${c===kwCatFilter?' active':''}" style="font-size:11px;padding:4px 10px;">${c}</button>`).join('')}
+    </div>
+    <div id="kw-chip-list"></div>`;
+  kwRenderList(data);
+}
+
+function kwRenderList(data) {
+  const q   = kwQuery.trim().toLowerCase();
+  const cat = kwCatFilter;
+  let filtered = data.keywords.filter(kw =>
+    (cat === '전체' || kw.category === cat) &&
+    (!q || kw.name.toLowerCase().includes(q))
+  );
+  // 검색량 내림차순, 선택된 항목 상단
+  filtered.sort((a, b) => {
+    const aA = kwSelected.includes(a.name), bA = kwSelected.includes(b.name);
+    if (aA !== bA) return aA ? -1 : 1;
+    return (b.monthly_volume || 0) - (a.monthly_volume || 0);
+  });
+
+  const showing = filtered.slice(0, 200);
+  const more    = filtered.length - showing.length;
+
+  const container = document.getElementById('kw-chip-list');
+  if (!container) return;
+  container.innerHTML = showing.map(kw => {
+    const isActive   = kwSelected.includes(kw.name);
+    const isDisabled = !isActive && kwSelected.length >= 5;
+    const vol  = kw.monthly_volume ? kw.monthly_volume.toLocaleString('ko-KR') : '—';
+    const si   = kwSelected.indexOf(kw.name);
+    return `<button class="kw-chip${isActive ? ' active' : ''}"
+              onclick="kwToggle('${kw.name.replace(/'/g,"\\'")}')"
+              ${isDisabled ? 'disabled' : ''}
+              style="${isActive ? `border-color:${D_COLORS[si]};background:${D_COLORS[si]}18;color:${D_COLORS[si]};` : ''}margin-bottom:5px;">
+              <span class="kw-chip-dot" style="${isActive ? `background:${D_COLORS[si]};` : ''}"></span>
+              <span>${kw.name}</span>
+              <span style="margin-left:auto;font-size:11px;color:${isActive ? D_COLORS[si]+'99' : '#B0B8C1'};">${vol}</span>
+            </button>`;
+  }).join('') + (more > 0 ? `<div style="font-size:12px;color:#B0B8C1;padding:8px 0;">… 외 ${more.toLocaleString()}개 (검색으로 좁혀보세요)</div>` : '');
+}
+
+function kwToggle(name) {
+  if (kwSelected.includes(name)) {
+    kwSelected = kwSelected.filter(n => n !== name);
+  } else {
+    if (kwSelected.length >= 5) return;
+    kwSelected.push(name);
+  }
+  const data = KW_DATA[kwBrand];
+  kwRenderList(data);
+  kwRenderSelected();
+  kwRenderChart(data);
+}
+
+function kwRenderSelected() {
+  const bar = document.getElementById('kw-selected-bar');
+  if (!kwSelected.length) { bar.innerHTML = ''; return; }
+  bar.innerHTML = kwSelected.map((name, i) => `
+    <div style="display:inline-flex;align-items:center;gap:6px;background:${D_COLORS[i]}18;border:1.5px solid ${D_COLORS[i]}66;color:${D_COLORS[i]};padding:5px 14px;border-radius:20px;font-size:13px;font-weight:600;">
+      <span style="width:7px;height:7px;border-radius:50%;background:${D_COLORS[i]};flex-shrink:0;display:inline-block;"></span>
+      ${name}
+      <button onclick="kwToggle('${name.replace(/'/g,"\\'")}')" style="background:none;border:none;cursor:pointer;color:${D_COLORS[i]};font-size:16px;line-height:1;padding:0;margin-left:2px;opacity:0.7;">×</button>
+    </div>
+  `).join('');
+}
+
+function kwRenderChart(data) {
+  const empty  = document.getElementById('kw-empty');
+  const canvas = document.getElementById('kw-line-chart');
+  if (!kwSelected.length) {
+    if (empty) empty.style.display = 'flex';
+    if (kwChart) { kwChart.destroy(); kwChart = null; }
+    return;
+  }
+  if (empty) empty.style.display = 'none';
+
+  const firstKw = data.keywords.find(k => k.name === kwSelected[0]);
+  if (!firstKw || !firstKw.trend.length) return;
+
+  const allPeriods = firstKw.trend.map(w => w.period);
+  // 월별 데이터 — 3개월마다 라벨 표시
+  const xLabels = allPeriods.map((p, i) => i % 3 === 0 ? p : '');
+
+  const datasets = kwSelected.map((name, i) => {
+    const kw = data.keywords.find(k => k.name === name);
+    return {
+      label: name,
+      data: kw ? kw.trend.map(w => w.volume_est) : [],
+      borderColor: D_COLORS[i],
+      backgroundColor: D_COLORS[i] + '12',
+      fill: false,
+      tension: 0.35,
+      pointRadius: 0,
+      pointHoverRadius: 5,
+      borderWidth: 2,
+    };
+  });
+
+  if (kwChart) kwChart.destroy();
+  kwChart = new Chart(canvas, {
+    type: 'line',
+    data: { labels: xLabels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', labels: { usePointStyle: true, padding: 16, font: { size: 12 }, boxWidth: 10 } },
+        tooltip: {
+          callbacks: {
+            title: ctx => allPeriods[ctx[0].dataIndex],
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.raw != null ? ctx.raw.toLocaleString('ko-KR') + '건' : '—'}`
+          }
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: false, font: { size: 11 } } },
+        y: {
+          grid: { color: '#F2F4F6' },
+          beginAtZero: true,
+          ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(v>=10000?0:1)+'k' : v, font: { size: 11 } }
+        }
+      }
+    }
+  });
+}
+
+// sectionIds 스크롤 추적은 ppt-view 활성 시에만 동작
 
 Chart.defaults.font.family = "'Pretendard', -apple-system, 'Malgun Gothic', sans-serif";
 Chart.defaults.font.size = 12;
@@ -885,7 +3005,7 @@ new Chart(document.getElementById('productChart'), {
   data: {
     labels: ['스트랩', '슬림메이커', '트위스터', '리바이크', '슬림코어', '딥샷', '이지슬립', '레깅스'],
     datasets: [{
-      data: [11864, 6753, 5389, 4474, 2654, 898, 494, 377],
+      data: [15380, 8582, 7776, 5036, 3896, 1091, 846, 500],
       backgroundColor: ['#3182F6','#3182F6','#4D9FFF','#B0B8C1','#3182F6','#B0B8C1','#05C072','#B0B8C1'],
       borderRadius: 5,
       barThickness: 20,
@@ -903,24 +3023,26 @@ new Chart(document.getElementById('productChart'), {
   }
 });
 
-// 스트랩 연령 분포
-new Chart(document.getElementById('ageChart'), {
-  type: 'doughnut',
+// 제품별 재구매 고객수 순위
+new Chart(document.getElementById('repeatChart'), {
+  type: 'bar',
   data: {
-    labels: ['20대', '30대', '40대', '50대', '60대+'],
+    labels: ['스트랩', '트위스터', '슬림코어 벨트', '슬림메이커', '딥샷 젤'],
     datasets: [{
-      data: [2.4, 6.5, 26.1, 44.5, 20.4],
-      backgroundColor: ['#D1D6DB', '#8B95A1', '#4D9FFF', '#3182F6', '#1A5ED8'],
-      borderWidth: 3,
-      borderColor: '#fff'
+      data: [1546, 94, 22, 22, 9],
+      backgroundColor: ['#3182F6','#4D9FFF','#4D9FFF','#4D9FFF','#B0B8C1'],
+      borderRadius: 5,
+      barThickness: 20,
     }]
   },
   options: {
+    indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {
-      legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 12, usePointStyle: true } },
-      tooltip: { callbacks: { label: ctx => ' ' + ctx.label + ': ' + ctx.raw + '%' } }
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' ' + ctx.raw.toLocaleString() + '명' } } },
+    scales: {
+      x: { grid: { color: '#F2F4F6' }, ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v } },
+      y: { grid: { display: false } }
     }
   }
 });
