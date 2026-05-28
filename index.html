@@ -407,6 +407,7 @@ body {
   border-radius: 20px;
   padding: 36px;
   border: 1px solid #E5E8EB;
+  margin-top: 24px;
 }
 .table-card-title { font-size: 16px; font-weight: 700; color: #191F28; margin-bottom: 24px; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -748,6 +749,7 @@ tr:last-child td { border-bottom: none; }
 .kw-chip.active { border-color: #3182F6; background: #EAF2FF; color: #3182F6; font-weight: 700; }
 .kw-chip:disabled { opacity: 0.38; cursor: not-allowed; }
 .kw-chip-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
 </style>
 </head>
 <body>
@@ -1727,8 +1729,8 @@ tr:last-child td { border-bottom: none; }
 <!-- ─── 01 DATA SOURCES ─── -->
 <section class="section white" id="p-sources">
   <div class="sec-eyebrow">Data Source</div>
-  <h2 class="sec-title">어떤 데이터를 봤나요</h2>
-  <p class="sec-sub">각 데이터에서 발견한 것이 가설의 근거가 됩니다.</p>
+  <h2 class="sec-title">활용 데이터 목록</h2>
+  <p class="sec-sub">현재 가용가능한 외부 & 내부 데이터를 활용하여<br>마케팅 인사이트를 도출하고 수립가능한 가설을 추출</p>
   <div class="source-grid">
     <div class="source-card">
       <div class="source-icon icon-blue">👥</div>
@@ -1738,8 +1740,8 @@ tr:last-child td { border-bottom: none; }
       <div class="source-findings">
         <div class="source-findings-label">이 데이터에서 발견한 것</div>
         <div class="finding-chip">슬림잇 47,523명 — 압도적 주력 제품, 전체의 95%<span class="finding-tag">H-01·03 근거</span></div>
-        <div class="finding-chip">드림잇 재구매율 4.3% — 슬림잇(13.1%) 대비 낮음, 수면→피부 소구 강화 여지<span class="finding-tag">H-02 근거</span></div>
-        <div class="finding-chip">회원 매칭률 68.0% — 칼로(78.4%) 대비 10%p 낮아 CRM 개선 선행 필요<span class="finding-tag">인프라 과제</span></div>
+        <div class="finding-chip">드림잇 — 슬림잇 다음 판매 2순위 제품 수면 관련 소구 여지 존재<span class="finding-tag">H-02 근거</span></div>
+        <div class="finding-chip">회원 매칭률 68.0% — 칼로(78.4%) 대비 10%p 낮음 회원 혜택 점검 필요할 것<span class="finding-tag">인프라 과제</span></div>
       </div>
       <button class="method-btn" onclick="openModal('modal-p-customer')">
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -1753,9 +1755,9 @@ tr:last-child td { border-bottom: none; }
       <div class="source-desc">슬림잇 구매 리뷰 전수 수집 후 유형 코딩 완료. 1점 리뷰 217건(14.2%) 심층 분석. 효과없음 103건·열감 패턴 추출.</div>
       <div class="source-findings">
         <div class="source-findings-label">이 데이터에서 발견한 것</div>
-        <div class="finding-chip">붓기 니즈 언급 33건 — 살/붓기 구분 못하는 소비자 실재<span class="finding-tag">H-01 근거</span></div>
-        <div class="finding-chip">팔뚝·종아리 부위 언급 다수 — 부위별 소재 공백 확인<span class="finding-tag">H-03 근거</span></div>
-        <div class="finding-chip">1점 리뷰 "효과없음" 103건 — 기대 불일치 패턴 관리 필요<span class="finding-tag">방어 과제</span></div>
+        <div class="finding-chip">붓기 니즈 언급 33건 — 라인잇과 크로스 소구 가능성 발견<span class="finding-tag">H-01 근거</span></div>
+        <div class="finding-chip">팔뚝·종아리 부위 언급 다수 — 부위별 집중 니즈가 존재함<span class="finding-tag">H-03 근거</span></div>
+        <div class="finding-chip">1점 리뷰 "효과없음" 103건<span class="finding-tag">방어 과제</span></div>
       </div>
       <button class="method-btn" onclick="openModal('modal-p-review')">
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -1769,9 +1771,9 @@ tr:last-child td { border-bottom: none; }
       <div class="source-desc">DataLab 트렌드 + 쇼핑인사이트 절대 검색량. 패칫 카테고리 주요 키워드 공백·성장률 분석.</div>
       <div class="source-findings">
         <div class="source-findings-label">이 데이터에서 발견한 것</div>
-        <div class="finding-chip">글루타치온패치 +2,767% YoY — 드림잇 수면→피부 소구 진입 시점<span class="finding-tag">H-02 근거</span></div>
-        <div class="finding-chip">팔뚝살패치 1,310건 — 쇼핑 결과 공백, 선점 가능<span class="finding-tag">H-03 근거</span></div>
-        <div class="finding-chip">종아리보톡스 9,720건 — 시술 탐색자, 라인잇 진입 여지<span class="finding-tag">H-04 근거</span></div>
+        <div class="finding-chip">글루타치온패치 +2,767% YoY — 피부 관련 니즈는 패치에서도 존재(링탭)<span class="finding-tag">H-02 근거</span></div>
+        <div class="finding-chip">팔뚝살 패치 1,310건 — 부위별 니즈에 대한 시장 검증<span class="finding-tag">H-03 근거</span></div>
+        <div class="finding-chip">종아리보톡스 9,720건 — 부위별 니즈에 대한 시장 검증<span class="finding-tag">H-04 근거</span></div>
       </div>
       <button class="method-btn" onclick="openModal('modal-p-keyword')">
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 7v5M8 5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -1785,7 +1787,7 @@ tr:last-child td { border-bottom: none; }
       <div class="source-desc">링탭 굿나잇패치 리뷰 분석 + 허밍테라피 비교 구매 패턴. 피봇 전략 및 카테고리 동향 파악.</div>
       <div class="source-findings">
         <div class="source-findings-label">이 데이터에서 발견한 것</div>
-        <div class="finding-chip">링탭 멜라토닌→글루타치온 피봇 — 동일 소비자를 피부 니즈로 포착<span class="finding-tag">H-02 근거</span></div>
+        <div class="finding-chip">링탭 멜라토닌→글루타치온 동시 상승 — 수면에 대한 니즈도 가능성 존재함<span class="finding-tag">H-02 근거</span></div>
         <div class="finding-chip">허밍테라피 비교 검색 유입 — "패칫 vs 허밍" 비교 콘텐츠 공백<span class="finding-tag">방어 각도</span></div>
       </div>
       <button class="method-btn" onclick="openModal('modal-p-competitor')">
@@ -1814,13 +1816,13 @@ tr:last-child td { border-bottom: none; }
   </div>
 
   <div class="table-card">
-    <div class="table-card-title">회원 매칭률 현황 — CRM 개선 선행 과제</div>
+    <div class="table-card-title">회원 매칭률 현황 — 회원가입에서 락인까지의 전략, 회원 혜택의 점검 필요</div>
     <div class="chips" style="margin-bottom:16px">
       <div class="chip">패칫 매칭률 <strong>68.0%</strong><br><small style="color:#6B7684">칼로 78.4% 대비 10%p 낮음</small></div>
-      <div class="chip">비회원 구매 <strong>~16,000명</strong><br><small style="color:#6B7684">CRM 도달 불가 상태</small></div>
-      <div class="chip">회원 전환 강화 시 <strong>+5,000명</strong> 추가 도달<br><small style="color:#6B7684">재구매 루프의 선행 과제</small></div>
+      <div class="chip">비회원 구매 <strong>~16,000명</strong><br><small style="color:#6B7684">매칭률 하락의 원인</small></div>
+      <div class="chip">회원 전환 강화 시 <strong>+5,000명</strong> 추가 도달<br><small style="color:#6B7684">추후 충성고객 CRM등 활용 가능</small></div>
     </div>
-    <div class="caution">고객 수는 패칫(49,821명)이 칼로(32,266명)보다 <strong>1.5배 많지만</strong> 비회원 비중이 높아 CRM 효율이 낮습니다. 재구매율(14.5%)도 칼로(20.6%)보다 6%p 낮은 구조 — 회원 전환 강화가 재구매 루프의 선행 과제입니다.</div>
+    <div class="caution">고객 수는 패칫(49,821명)이 칼로(32,266명)보다 <strong>1.5배 많지만</strong> 비회원 비중이 높아 매칭률이 낮게 잡힙니다. 재구매율(14.5%)도 칼로(20.6%)보다 6%p 낮은 구조로 회원 혜택에 대한 점검이 필요해 보입니다.</div>
   </div>
 
   <div class="table-card">
@@ -1849,12 +1851,59 @@ tr:last-child td { border-bottom: none; }
       </tbody>
     </table>
   </div>
+
+  <!-- 옵션 구매 통계 -->
+  <div class="table-card">
+    <div class="table-card-title">제품별 옵션 선택 현황</div>
+    <table>
+      <thead>
+        <tr>
+          <th>제품</th>
+          <th>1위 옵션</th>
+          <th>비율</th>
+          <th>2위 옵션</th>
+          <th>비율</th>
+          <th>3위 옵션</th>
+          <th>비율</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tr-highlight">
+          <td><strong>슬림잇</strong></td><td>1+1박스 (4주 플랜)</td><td>48.7%</td><td>1박스 (2주 플랜)</td><td>32.9%</td><td>2+2박스 (8주 플랜)</td><td>18.2%</td>
+        </tr>
+        <tr>
+          <td><strong>드림잇</strong></td><td>1박스</td><td>35.9%</td><td>1박스 (2주 플랜)</td><td>31.2%</td><td>1+1박스 (4주 플랜)</td><td>11.8%</td>
+        </tr>
+        <tr>
+          <td><strong>에너짓</strong></td><td>1박스</td><td>30.3%</td><td>1박스 (2주 플랜)</td><td>25.4%</td><td>1+1박스 (4주 플랜)</td><td>20.8%</td>
+        </tr>
+        <tr>
+          <td><strong>라인잇</strong></td><td>1박스</td><td>51.7%</td><td>1+1박스</td><td>30.0%</td><td>2+2박스</td><td>18.3%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="table-card-title" style="margin-top:24px;margin-bottom:12px">패칫 세트 구성 상위 — 총 3,287건</div>
+    <table>
+      <thead>
+        <tr><th>세트 구성</th><th>건수</th><th>비율</th></tr>
+      </thead>
+      <tbody>
+        <tr class="tr-highlight"><td>슬림잇 + 슬림잇 (동일 제품)</td><td>2,005건</td><td>61.0%</td></tr>
+        <tr><td>슬림잇 + 드림잇</td><td>352건</td><td>10.7%</td></tr>
+        <tr><td>슬림잇 + 에너짓</td><td>350건</td><td>10.6%</td></tr>
+        <tr><td>슬림잇 × 3박스</td><td>124건</td><td>3.8%</td></tr>
+        <tr><td>슬림잇 + 에너짓 + 드림잇</td><td>88건</td><td>2.7%</td></tr>
+        <tr><td>기타</td><td>368건</td><td>11.2%</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- ─── 03 HYPOTHESES ─── -->
 <section class="section white" id="p-hypotheses">
   <div class="sec-eyebrow">Marketing Hypotheses</div>
-  <h2 class="sec-title">데이터 기반 마케팅 가설 5가지</h2>
+  <h2 class="sec-title">분석 기반 인사이트 가설</h2>
   <p class="sec-sub">채점 기준: 데이터 근거(30) + 실행 가능성(25) + 전환 규모(25) + 위험도(20). 70점 미만 기각.</p>
 
   <div class="hyp-intro">
@@ -1968,142 +2017,337 @@ tr:last-child td { border-bottom: none; }
 
 <!-- ─── 패칫 가설 모달 ─── -->
 
+<!-- modal-ph01 -->
 <div class="modal-overlay" id="modal-ph01" onclick="closeModalOnOverlay(event, this)">
   <div class="modal-box modal-hyp-box">
-    <div class="modal-header">
-      <div class="modal-title">H-01 슬림잇 × 라인잇 — "살이냐 붓기냐" 소비자 언어 소구</div>
-      <button class="modal-close" onclick="closeModal('modal-ph01')">✕</button>
-    </div>
-    <div>
-      <div class="body-block-label">근거 데이터</div>
-      <div class="chips">
-        <div class="chip">슬림잇 리뷰 붓기 니즈 <strong>33건</strong><br><small style="color:#6B7684">"붓기인지 살인지 모르겠어요"</small></div>
-        <div class="chip">슬림잇+라인잇 동시구매 <strong>30명</strong></div>
-        <div class="chip">슬림잇→라인잇 자발 전환 <strong>22건</strong></div>
+    <button class="modal-close" onclick="closeModal('modal-ph01')">×</button>
+    <div class="modal-eyebrow">H-01 · 76점</div>
+    <div class="modal-title">슬림잇 × 라인잇 — "살이냐 붓기냐" 소비자 언어 소구</div>
+
+    <div class="kpi-row">
+      <div class="kpi-card accent">
+        <div class="kpi-value">30명</div>
+        <div class="kpi-label">슬림잇+라인잇 동시구매 — 인지도 낮은 상태에서 자발 발생</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">22건</div>
+        <div class="kpi-label">슬림잇 → 라인잇 자발 전환 (0.2%) — 브랜드 주도 없이 발생한 수요</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-value">33건</div>
+        <div class="kpi-label">슬림잇 리뷰 내 붓기 니즈 언급 — 라인잇 소구가 슬림으로 합쳐진 상태</div>
       </div>
     </div>
-    <div style="margin-top:16px">
-      <div class="body-block-label">소비자 진단 소구 각도</div>
+
+    <div class="quote-card" style="margin-top:12px">
+      슬림잇과 라인잇에 대한 구분선이 명확하지 않지만,<strong>소비자가 겪는 상황이 완전히 다르다.</strong><br>
+      "언제, 어디에, 무엇을 붙이는지"를 소비자 일상 언어로 명확히 분리하면<br>
+      라인잇 진입 장벽이 낮아지고 슬림잇과 함께 <strong>업세일링</strong>이 가능할 것이다.
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">상황별 소비자 언어 분리표</div>
+      <table>
+        <thead><tr><th>상황</th><th>부위</th><th>제품</th><th>소비자 실제 언어</th></tr></thead>
+        <tbody>
+          <tr class="tr-highlight"><td>뱃살 잡고 싶다</td><td>복부</td><td><strong>슬림잇</strong></td><td>"배살이 자꾸 잡혀요", "뱃살 집히는 게 싫어요"</td></tr>
+          <tr class="tr-highlight"><td>팔뚝이 눈에 띈다</td><td>팔뚝</td><td><strong>슬림잇</strong></td><td>"반팔 입기 싫어요", "팔뚝살이 흔들려요"</td></tr>
+          <tr><td>아침에 얼굴이 부었다</td><td>얼굴/턱선</td><td><strong>라인잇</strong></td><td>"아침마다 눈이 부어요", "턱선이 없어요"</td></tr>
+          <tr><td>퇴근 후 다리가 퉁퉁</td><td>하체/종아리</td><td><strong>라인잇</strong></td><td>"저녁 되면 다리가 터질 것 같아요"</td></tr>
+          <tr><td>어제 술 마신 날 아침</td><td>얼굴</td><td><strong>라인잇</strong></td><td>"음주 다음날 붓기 필수", "얼굴이 빵빵해요"</td></tr>
+          <tr><td>장거리 비행·여행 후</td><td>하체</td><td><strong>라인잇</strong></td><td>"비행기 타고 나면 발이 부어요"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">크리에이티브 제안</div>
       <div class="quote-card">
         <strong>[살인지 붓기인지 구분법]</strong><br>
-        아침에 생겼다가 저녁에 빠지면 <strong>붓기 → 라인잇</strong><br>
-        꼬집어도 잡히면 <strong>살 → 슬림잇</strong><br><br>
-        아침 라인잇 + 낮 슬림잇 — "2제품 데일리 루틴" 크리에이티브
+        아침에 생겼다가 저녁에 빠지면 → <strong>붓기 (라인잇)</strong><br>
+        꼬집어도 잡히면 → <strong>살 (슬림잇) - 직접적인 언급</strong><br>
       </div>
     </div>
-    <div style="margin-top:16px">
-      <div class="body-block-label">실행 방향</div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">실행 방향</div>
       <div class="action-list">
         <div class="action-item"><span class="action-arrow">→</span><span>상세페이지: 살/붓기 진단 소구 추가 + 라인잇 크로스셀 배너</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇 구매자 CRM — "혹시 붓기도 고민이셨나요?" 라인잇 안내</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>Meta 광고: 진단형 카피 + 아침/낮 루틴 2컷 크리에이티브</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇 구매자 CRM — "혹시 붓기도 고민이셨나요? 라인잇 소개드려요"</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>패칫 세트 광고: "붓기인지 살인지 모르겠어요 → 슬림 라인잇으로 동시에!"</span></div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- modal-ph02 -->
 <div class="modal-overlay" id="modal-ph02" onclick="closeModalOnOverlay(event, this)">
   <div class="modal-box modal-hyp-box">
-    <div class="modal-header">
-      <div class="modal-title">H-02 드림잇 — 수면이 피부를 만든다 소구</div>
-      <button class="modal-close" onclick="closeModal('modal-ph02')">✕</button>
-    </div>
-    <div>
-      <div class="body-block-label">근거 데이터</div>
-      <div class="chips">
-        <div class="chip">드림잇 구매자 여성 <strong>69.6%</strong></div>
-        <div class="chip">글루타치온패치 <strong>+2,767%</strong> YoY<br><small style="color:#6B7684">동일 여성 소비자 포착 경쟁 중</small></div>
-        <div class="chip">기미제거패치 <strong>+1,511%</strong> YoY</div>
+    <button class="modal-close" onclick="closeModal('modal-ph02')">×</button>
+    <div class="modal-eyebrow">H-02 · 74점</div>
+    <div class="modal-title">드림잇 — 수면이 피부를 만든다 소구</div>
+
+    <div class="kpi-row">
+      <div class="kpi-card accent">
+        <div class="kpi-value">69.6%</div>
+        <div class="kpi-label">드림잇 구매자 여성 비율 — 피부 관심층과 높은 겹침</div>
+      </div>
+      <div class="kpi-card warn">
+        <div class="kpi-value">+2,767%</div>
+        <div class="kpi-label">글루타치온패치 YoY 성장 — 수면패치가 식으면서 피부 기능성 패치가 그 자리를 채우는 중</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-value">7,690건</div>
+        <div class="kpi-label">링탭 2026-04 월간 검색량 — 2025-04 대비 폭발적 상승, 피봇 성공 신호</div>
       </div>
     </div>
-    <div style="margin-top:16px">
-      <div class="body-block-label">경쟁사 동향</div>
-      <div class="quote-card">링탭이 멜라토닌(수면) → 글루타치온(피부) 패치로 피봇 중. <strong>같은 소비자를 피부 니즈로 재포착하는 전략</strong>과 동일 구조. 드림잇도 동일 각도 선제 소구 가능.</div>
+
+    <div class="quote-card" style="margin-top:12px">
+      글루타치온패치 카테고리가 폭발하면서 <strong>수면패치 시즌 트렌드는 꺾였지만, 수면 패치 자체 수요는 다시 살아나고 있다.</strong><br>
+      링탭이 멜라토닌 → 글루타치온으로 피봇해 성장하는 것이 바로 이 흐름의 증거다.<br>
+      드림잇이 "수면 → 피부 회복" 소구로 올라타면 <strong>이 트렌드 파동에 동승</strong>할 수 있다.
     </div>
-    <div style="margin-top:16px">
-      <div class="body-block-label">소구 전환 방향</div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">기미제거패치 × 링탭 × 드림잇 검색량 추이 (2024-05 ~ 2026-04)</div>
+      <div class="modal-chart-wrap" style="height:200px"><canvas id="ch-ph02-trend"></canvas></div>
+      <div style="font-size:11px;color:#8B95A1;margin-top:6px">* 기미제거패치: 피부 기능성 패치 카테고리 대표 지표 | 링탭: 수면→피부 피봇 경쟁사 | 드림잇: 자사</div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">수면 → 피부 인과 구조</div>
+      <div style="display:flex;align-items:center;gap:8px;margin:12px 0;flex-wrap:wrap">
+        <div style="background:#FFF5F5;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#E53E3E;text-align:center;flex:1;min-width:90px">수면 부족<br>·뒤척임</div>
+        <div style="font-size:18px;color:#B0B8C1">→</div>
+        <div style="background:#FFF8E1;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#B7791F;text-align:center;flex:1;min-width:90px">성장호르몬<br>분비 감소</div>
+        <div style="font-size:18px;color:#B0B8C1">→</div>
+        <div style="background:#FFF5F5;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#E53E3E;text-align:center;flex:1;min-width:90px">피부 재생<br>방해</div>
+        <div style="font-size:18px;color:#B0B8C1">→</div>
+        <div style="background:#EFF3FF;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#1A5ED8;text-align:center;flex:1;min-width:90px">드림잇으로<br>깊은 수면 확보</div>
+        <div style="font-size:18px;color:#B0B8C1">→</div>
+        <div style="background:#EDFCF4;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#0C7A43;text-align:center;flex:1;min-width:90px">밤사이<br>피부 회복</div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">경쟁사 동향 — 링탭 피봇이 시사하는 것</div>
+      <div class="quote-card">링탭은 멜라토닌(수면) → 글루타치온(피부) 패치로 전환하며 검색량이 2025년 중반부터 폭발적으로 상승했다.<br>이는 <strong>수면 패치를 쓰던 소비자가 피부 베네핏을 원하기 시작했다</strong>는 신호다.<br>드림잇이 "수면→피부" 소구를 선점하지 않으면 이 포지션은 링탭이 굳힌다.</div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">소비자 실제 언어 — 수면·피부 연결</div>
+      <div class="review-chip-list" style="flex-direction:column;gap:5px">
+        <span class="review-chip-q">"잠을 못 자면 다음날 피부가 달라요"</span>
+        <span class="review-chip-q">"자고 일어나도 피부가 칙칙해요"</span>
+        <span class="review-chip-q">"수면이 최고의 피부 관리라더니"</span>
+        <span class="review-chip-q">"글루타치온 먹어도 피부가 그대로예요 — 수면이 문제인 걸까요?"</span>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">크리에이티브 컨셉</div>
+      <div class="quote-card">
+        "밤사이 피부 회복, 드림잇이 황금 수면 시간을 만들어요"<br>
+        "글루타치온 먹어도 피부가 그대로라면? 수면부터 고쳐야 해요" — <strong>역접 소구</strong><br>
+        여름 시즌: "더위에 수면 방해 → 피부 문제 악화 → 드림잇으로 해결"
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">실행 방향</div>
       <div class="action-list">
-        <div class="action-item"><span class="action-arrow">→</span><span>"밤사이 피부 회복, 드림잇이 황금 수면 시간을 만들어요"</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>"글루타치온 먹어도 피부 그대로라면? 수면부터 고쳐야 해요" — 역접 소구</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>선행 과제: 드림잇 상품명·태그에 "수면패치" 추가 후 쇼핑 노출 확인</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span><strong>[선행]</strong> 드림잇 상품명·태그에 "수면패치" 추가 → 쇼핑 노출 확인 후 광고 집행</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>타겟 키워드 연결: 수면 피부, 잠 피부, 피부 칙칙해요, 수면 부족 피부</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇+드림잇 기획세트 연결: "낮엔 슬림잇, 밤엔 드림잇 — 하루 루틴 완성"</span></div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- modal-ph03 -->
 <div class="modal-overlay" id="modal-ph03" onclick="closeModalOnOverlay(event, this)">
   <div class="modal-box modal-hyp-box">
-    <div class="modal-header">
-      <div class="modal-title">H-03 팔뚝살 × 종아리 — 부위별 광고 소재 전략</div>
-      <button class="modal-close" onclick="closeModal('modal-ph03')">✕</button>
-    </div>
-    <div>
-      <div class="body-block-label">키워드 공백 근거</div>
-      <div class="chips">
-        <div class="chip">팔뚝살패치 <strong>1,310건</strong> — 쇼핑 공백<br><small style="color:#6B7684">압박복·해외직구만 상위, 패치 브랜드 없음</small></div>
-        <div class="chip">종아리보톡스 <strong>9,720건</strong></div>
-        <div class="chip">다리붓기빼는법 <strong>4,380건</strong></div>
+    <button class="modal-close" onclick="closeModal('modal-ph03')">×</button>
+    <div class="modal-eyebrow">H-03 · 72점</div>
+    <div class="modal-title">팔뚝살 × 종아리 — 부위별 광고 소재 전략</div>
+
+    <div class="kpi-row">
+      <div class="kpi-card warn">
+        <div class="kpi-value">1,310건</div>
+        <div class="kpi-label">팔뚝살패치 월간 검색량 — 패치 브랜드 쇼핑 공백 상태</div>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-value">9,720건</div>
+        <div class="kpi-label">종아리보톡스 월간 검색 — 라인잇 쇼핑 전혀 미노출</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-value">4,380건</div>
+        <div class="kpi-label">다리붓기빼는법 검색량 — 봄~여름 피크 시즌</div>
       </div>
     </div>
-    <div style="margin-top:16px">
-      <div class="body-block-label">즉시 실행 항목</div>
+
+    <div class="quote-card" style="margin-top:12px">
+      "다이어트"가 아닌 <strong>특정 부위 소구</strong>는 더 즉각적인 구매 결정으로 연결된다.<br>
+      팔뚝과 종아리는 각각 다른 계절성·소비자 감정을 가지며,<br>
+      두 부위에 대한 별도 광고 소재를 만들면 <strong>슬림잇과 라인잇을 동시에 부각</strong>할 수 있다.
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">팔뚝 소구 (슬림잇) vs 종아리 소구 (라인잇)</div>
+      <table>
+        <thead><tr><th>항목</th><th>팔뚝살 — 슬림잇</th><th>종아리 — 라인잇</th></tr></thead>
+        <tbody>
+          <tr><td>시즌</td><td>봄~여름 (반팔·민소매 시즌)</td><td>연중 + 여름 피크</td></tr>
+          <tr><td>소비자 언어</td><td>"반팔 입기 싫어요", "팔뚝살이 흔들려요"</td><td>"종아리 알이 배겨요", "스키니 못 입는 이유"</td></tr>
+          <tr><td>검색 키워드</td><td>팔뚝살패치 1,310건, 팔뚝살빼는운동 13,920건</td><td>종아리보톡스 9,720건, 종아리알빼는법 4,630건</td></tr>
+          <tr class="tr-highlight"><td>쇼핑 현황</td><td>❌ 패치 브랜드 공백 — 압박복·해외직구만 상위</td><td>❌ 라인잇 미노출 — 진입 여지 있음</td></tr>
+          <tr><td>즉시 실행</td><td>슬림잇 상품명·태그: "팔뚝살패치" 추가</td><td>라인잇 태그: "종아리관리, 종아리알" 추가</td></tr>
+          <tr><td>광고 소재</td><td>"민소매 입고 싶은데 팔뚝이 문제예요?"</td><td>"보톡스 전에 이거 먼저 2주 해봤어요"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">크로스 광고 아이디어</div>
+      <div class="quote-card">
+        "팔뚝(슬림잇) + 종아리(라인잇) — 부위별 패칫 루틴"<br>
+        여름 시즌 한 컷 크리에이티브: <strong>팔뚝에 슬림잇, 종아리에 라인잇</strong> — 붙이는 곳이 다른 이유를 설명
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">즉시 실행 항목</div>
       <div class="action-list">
-        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇 상품명·태그: <strong>"팔뚝살패치"</strong> 즉시 추가</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>라인잇 태그: <strong>"종아리관리, 다리붓기"</strong> 추가</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>"팔뚝(슬림잇) + 종아리(라인잇)" 부위별 패칫 루틴 광고 크리에이티브</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span><strong>[이번 주]</strong> 슬림잇 상품명·태그에 "팔뚝살패치" 즉시 추가 후 쇼핑 노출 확인</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span><strong>[이번 주]</strong> 라인잇 태그: "종아리관리, 다리붓기, 종아리알" 추가</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>Meta 광고 소재: 팔뚝살·종아리 부위별 별도 소재 2세트 제작</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇 상세페이지: 팔뚝 부착 사용 예시 이미지 추가</span></div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- modal-ph04 -->
 <div class="modal-overlay" id="modal-ph04" onclick="closeModalOnOverlay(event, this)">
   <div class="modal-box modal-hyp-box">
-    <div class="modal-header">
-      <div class="modal-title">H-04 라인잇 — 시술 전 준비 or 시술 후 관리템 소구</div>
-      <button class="modal-close" onclick="closeModal('modal-ph04')">✕</button>
-    </div>
-    <div>
-      <div class="body-block-label">근거 데이터</div>
-      <div class="chips">
-        <div class="chip">종아리보톡스 <strong>9,720건</strong></div>
-        <div class="chip">종아리보톡스후기 <strong>3,380건</strong></div>
-        <div class="chip">엔더몰로지 <strong>3,980건</strong><br><small style="color:#6B7684">시술 탐색 → 라인잇 쇼핑 미노출</small></div>
+    <button class="modal-close" onclick="closeModal('modal-ph04')">×</button>
+    <div class="modal-eyebrow">H-04 · 72점</div>
+    <div class="modal-title">라인잇 — 시술 전 준비 or 시술 후 관리템 소구</div>
+
+    <div class="kpi-row">
+      <div class="kpi-card accent">
+        <div class="kpi-value">9,720건</div>
+        <div class="kpi-label">종아리보톡스 월간 검색 — 시술 전 탐색자 풀</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">3,380건</div>
+        <div class="kpi-label">종아리보톡스후기 — 시술 완료 후 관리 검색자</div>
+      </div>
+      <div class="kpi-card warn">
+        <div class="kpi-value">공백</div>
+        <div class="kpi-label">엔더몰로지(3,980건)·지방분해주사(2,160건) 탐색 → 라인잇 쇼핑 미노출</div>
       </div>
     </div>
-    <div style="margin-top:16px">
-      <div class="body-block-label">소구 앵글 2가지</div>
+
+    <div class="quote-card" style="margin-top:12px">
+      종아리보톡스·지방흡입 등 시술을 검토하거나 이미 받은 소비자에게 라인잇을 연결한다.<br>
+      <strong>"시술 전 준비"</strong> 또는 <strong>"시술 후 붓기 관리"</strong> 두 가지 프레임 중 하나로 진입하면<br>
+      고단가 시술 탐색자를 자연스럽게 라인잇으로 유입시킬 수 있다.
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">소구 앵글 2가지</div>
+      <div class="modal-two-col">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:#3182F6;margin-bottom:8px">앵글 A — 시술 전 "먼저 해봐요"</div>
+          <div class="review-chip-list" style="flex-direction:column;gap:5px;margin-bottom:12px">
+            <span class="review-chip-q">"보톡스 예약 전에 이거 먼저 써봤어요"</span>
+            <span class="review-chip-q">"시술 결정 전 2주 붙여봤더니"</span>
+          </div>
+          <div style="font-size:13px;color:#191F28">타겟: 아직 시술 결정 안 한 탐색 단계<br>소구: "병원 가기 전에 2주만 먼저 해보세요"</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:#05C072;margin-bottom:8px">앵글 B — 시술 후 "붓기 케어 필수"</div>
+          <div class="review-chip-list" style="flex-direction:column;gap:5px;margin-bottom:12px">
+            <span class="review-chip-q">"보톡스 맞고 붓기 빠지는 게 걱정이었는데"</span>
+            <span class="review-chip-q">"시술 후 관리 어떻게 해요?"</span>
+          </div>
+          <div style="font-size:13px;color:#191F28">타겟: 시술 완료 후 사후 관리 검색자<br>소구: "시술 후 붓기 관리, 라인잇으로 시작하세요"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">실행 방향</div>
       <div class="action-list">
-        <div class="action-item"><span class="action-arrow">→</span><span><strong>[앵글A]</strong> "보톡스 예약 전에 이거 먼저 써봤어요" — 시술 결정 전 탐색자 타겟</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span><strong>[앵글B]</strong> "시술 후 붓기 관리, 라인잇으로 시작하세요" — 시술 완료 후 관리 검색자</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>네이버 블로그: "종아리 보톡스 후기 — 시술 후 붓기 관리 꿀팁" → 라인잇 연결 (SEO 유입)</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>라인잇 상품 태그: "종아리관리, 시술후관리, 종아리알, 붓기케어" 추가</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>상세페이지: 브로멜라인 성분 + "시술 후 관리" 언어 노출</span></div>
       </div>
     </div>
-    <div class="caution" style="margin-top:16px">⚠️ "의학적 효능" 표현 금지 → "케어", "관리 루틴" 수준으로 유지</div>
+
+    <div class="caution" style="margin-top:4px">⚠️ "의학적 효능" 표현 금지 → "케어", "관리 루틴" 수준으로 유지. 시술 직접 언급 시 광고 규제 검토 필요.</div>
   </div>
 </div>
 
+<!-- modal-ph06 -->
 <div class="modal-overlay" id="modal-ph06" onclick="closeModalOnOverlay(event, this)">
   <div class="modal-box modal-hyp-box">
-    <div class="modal-header">
-      <div class="modal-title">H-06 에너짓 — "집중력"보다 와닿는 소비자 언어 발굴</div>
-      <button class="modal-close" onclick="closeModal('modal-ph06')">✕</button>
-    </div>
-    <div>
-      <div class="body-block-label">근거 데이터</div>
-      <div class="chips">
-        <div class="chip">에너짓 카테고리 검색량 <strong>하락 중</strong></div>
-        <div class="chip">마그네슘패치 <strong>연중 안정 수요</strong><br><small style="color:#6B7684">대체 키워드 포지션 가능</small></div>
+    <button class="modal-close" onclick="closeModal('modal-ph06')">×</button>
+    <div class="modal-eyebrow">H-06 · 71점</div>
+    <div class="modal-title">에너짓 — "집중력"보다 와닿는 소비자 언어 발굴</div>
+
+    <div class="kpi-row">
+      <div class="kpi-card warn">
+        <div class="kpi-value">하락 중</div>
+        <div class="kpi-label">에너짓 카테고리 검색량 추이 — 소구 언어 재설계 필요</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">3.4%</div>
+        <div class="kpi-label">에너짓 재구매율 — 전 제품 최저, 체감 설득 실패</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-value">안정 수요</div>
+        <div class="kpi-label">마그네슘패치 연중 수요 — 대체 키워드 포지션 가능</div>
       </div>
     </div>
-    <div style="margin-top:16px">
-      <div class="body-block-label">소비자 실제 언어</div>
-      <div class="quote-card">"점심 먹고 눈이 감겨요", "2시에 책상에서 졸아요" — 집중력이 아닌 <strong>시간+상황</strong>으로 말하는 소비자</div>
+
+    <div class="quote-card" style="margin-top:12px">
+      <strong>"집중력패치"는 카테고리명이지 소비자 언어가 아니다.</strong><br>
+      실제 소비자가 "집중이 안 될 때" 느끼는 감각과 상황으로 소구하면<br>
+      에너짓의 사용 시점이 즉각적으로 와닿는다.
     </div>
-    <div style="margin-top:16px">
-      <div class="body-block-label">소구 전환 방향</div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">상황별 소비자 언어 매핑</div>
+      <table>
+        <thead><tr><th>상황</th><th>소비자 실제 언어</th><th>소구 각도</th></tr></thead>
+        <tbody>
+          <tr class="tr-highlight"><td>점심 후 졸음</td><td>"점심 먹고 나면 눈이 감겨요", "2시에 책상에서 졸아요"</td><td>오후 집중력 루틴</td></tr>
+          <tr><td>업무 중 멍함</td><td>"멍하니 화면만 봐요", "머리가 안 돌아가요"</td><td>브레인 포그 해소</td></tr>
+          <tr><td>야근·마감</td><td>"야근인데 집중이 안 돼요", "마감 전날 버티기"</td><td>지속 에너지</td></tr>
+          <tr><td>수험·공부</td><td>"공부가 손에 안 잡혀요", "시험 전 집중력"</td><td>시험 루틴</td></tr>
+          <tr><td>피로+업무</td><td>"몸은 피곤한데 일해야 해요", "커피도 안 들어요"</td><td>카페인 대체</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">크리에이티브 컨셉</div>
+      <div class="quote-card">
+        "오후 2시, 눈이 감길 때 붙이는 에너짓" — <strong>시간+상황 결합 소구</strong><br>
+        "커피 대신 붙이는 집중력 패치" — 대체재 포지셔닝<br>
+        "마그네슘 먹기 귀찮으면 붙이세요" — 연중 안정 수요 포착
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">실행 방향</div>
       <div class="action-list">
-        <div class="action-item"><span class="action-arrow">→</span><span>"오후 2시, 눈이 감길 때 붙이는 에너짓" — 시간+상황 결합 소구</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>"커피 대신 붙이는 집중력 패치" — 대체재 포지셔닝</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>선행 과제: 점심후졸음·식곤증·브레인포그 키워드 DataLab 조회 후 방향 확정</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span><strong>[선행 과제]</strong> 점심후졸음·식곤증·브레인포그·집중력높이는법 키워드 DataLab 조회 후 볼륨 확인</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>에너짓 상품 태그: "마그네슘패치, 집중력패치, 오후집중" 추가</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>Meta 광고: 점심시간/야근 상황 크리에이티브 2세트 A/B 테스트</span></div>
+        <div class="action-item"><span class="action-arrow">→</span><span>부착 위치 구체화 — "귀 뒤에 붙여요" vs "손목에 붙여요" 설명 추가</span></div>
       </div>
     </div>
   </div>
@@ -2793,6 +3037,19 @@ function _initModalChart(id) {
       options:{ ...defOpts(), plugins:{ legend:{ display:true, labels:{ font:{size:11} } }, tooltip:{mode:'index',intersect:false} } }
     });
   }
+  if (id === 'modal-ph02') {
+    const P_MONTHS = ['24-05','24-06','24-07','24-08','24-09','24-10','24-11','24-12','25-01','25-02','25-03','25-04','25-05','25-06','25-07','25-08','25-09','25-10','25-11','25-12','26-01','26-02','26-03','26-04'];
+    mk('ch-ph02-trend', { type:'line', data:{ labels: P_MONTHS,
+      datasets:[
+        { label:'기미제거패치', data:[1042,1266,1002,1588,1068,996,918,1208,993,1106,1209,1319,1500,1205,1083,1257,957,800,496,3821,12310,15562,19505,21250],
+          borderColor:'#7C4DFF', backgroundColor:'rgba(124,77,255,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'링탭', data:[0,0,0,0,0,0,0,0,0,0,0,0,63,2147,5756,7260,3737,3399,2094,2003,1777,5264,5893,7690],
+          borderColor:red, backgroundColor:'rgba(229,62,62,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'드림잇', data:[122,163,266,334,160,256,318,259,170,145,175,219,122,159,224,272,234,207,305,236,257,259,300,350],
+          borderColor:blue, backgroundColor:'rgba(49,130,246,0.07)', borderWidth:2.5, pointRadius:2, tension:0.3, fill:false, borderDash:[5,3] }
+      ]}, options:{ ...defOpts(), plugins:{ legend:{ display:true, labels:{ font:{size:11}, boxWidth:14 } }, tooltip:{ mode:'index', intersect:false } } }
+    });
+  }
   if (id === 'modal-h09') {
     mk('ch-h09-cross', { type:'bar', data:{
       labels:['딥샷→슬림메이커','딥샷→슬림코어','슬림메이커→딥샷','슬림코어→딥샷','딥샷→레깅스','슬림메이커→슬림코어'],
@@ -2923,6 +3180,7 @@ function initPachetPptCharts() {
 
 // ── MAIN TAB SWITCHING ─────────────────────────────────────────────────
 function switchMainTab(tab, btn) {
+  localStorage.setItem('activeTab', tab);
   document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   const pptView  = document.getElementById('ppt-view');
@@ -3523,6 +3781,17 @@ new Chart(document.getElementById('repeatChart'), {
     }
   }
 });
+
+// 마지막 탭 복원 — 모든 초기화 완료 후 실행
+(function restoreTab() {
+  const saved = localStorage.getItem('activeTab');
+  if (!saved || saved === 'calo') return;
+  const btn = [...document.querySelectorAll('.nav-tab')].find(b =>
+    b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${saved}'`)
+  );
+  if (btn) switchMainTab(saved, btn);
+})();
+
 </script>
 
 </body>
