@@ -769,6 +769,7 @@ tr:last-child td { border-bottom: none; }
     <button class="nav-tab" onclick="switchMainTab('pachet',this)">패칫</button>
     <button class="nav-tab" onclick="switchMainTab('dashboard',this)">대시보드</button>
     <button class="nav-tab" onclick="switchMainTab('keyword',this)">키워드</button>
+    <button class="nav-tab" onclick="switchMainTab('review',this)">리뷰 분석</button>
   </div>
 </nav>
 
@@ -2001,12 +2002,12 @@ tr:last-child td { border-bottom: none; }
         <div class="hyp-num">H-06</div>
         <div class="score-badge score-yellow">71</div>
         <div class="hyp-info">
-          <div class="hyp-title">에너짓 — "집중력"보다 와닿는 소비자 언어 발굴</div>
-          <div class="hyp-liner">"집중력패치"는 카테고리명, 실제 소비자 감각·상황으로 소구 전환 필요</div>
+          <div class="hyp-title">에너짓 — 집중력 소구로 신규 수요 선점</div>
+          <div class="hyp-liner">집중력높이는법 3,050건·집중력영양제 2,230건 — "집중력패치"는 40건, 패치 제형 공백 선점 기회</div>
         </div>
         <div class="tag-row">
           <span class="tag tag-blue">에너짓</span>
-          <span class="tag tag-orange">검증 필요</span>
+          <span class="tag tag-red">즉시 실행</span>
         </div>
         <button class="hyp-detail-btn" onclick="openModal('modal-ph06')">자세히 보기 →</button>
       </div>
@@ -2094,7 +2095,7 @@ tr:last-child td { border-bottom: none; }
       </div>
       <div class="kpi-card warn">
         <div class="kpi-value">+2,767%</div>
-        <div class="kpi-label">글루타치온패치 YoY 성장 — 수면패치가 식으면서 피부 기능성 패치가 그 자리를 채우는 중</div>
+        <div class="kpi-label">글루타치온패치 YoY 성장 — 링탭의 성장, 수면패치와 동시 피봇</div>
       </div>
       <div class="kpi-card green">
         <div class="kpi-value">7,690건</div>
@@ -2103,23 +2104,23 @@ tr:last-child td { border-bottom: none; }
     </div>
 
     <div class="quote-card" style="margin-top:12px">
-      글루타치온패치 카테고리가 폭발하면서 <strong>수면패치 시즌 트렌드는 꺾였지만, 수면 패치 자체 수요는 다시 살아나고 있다.</strong><br>
+      글루타치온패치 카테고리가 폭발하면서 <strong>링탭의 수면패치가 같이 업세일링 되는것으로 추측</strong>원래는 시즌성 키워드.<br>
       링탭이 멜라토닌 → 글루타치온으로 피봇해 성장하는 것이 바로 이 흐름의 증거다.<br>
-      드림잇이 "수면 → 피부 회복" 소구로 올라타면 <strong>이 트렌드 파동에 동승</strong>할 수 있다.
+      피부에 대한 니즈가 존재하기 때문에 드림잇이 "수면 → 피부 회복" 소구로 <strong>수면의 베네핏을 통한 트렌드 동승 </strong>가능성이 보인다.
     </div>
 
     <div class="modal-section">
-      <div class="modal-section-title">기미제거패치 × 링탭 × 드림잇 검색량 추이 (2024-05 ~ 2026-04)</div>
+      <div class="modal-section-title">링탭 × 글루타치온패치 × 수면패치 검색량 추이 (2024-05 ~ 2026-04)</div>
       <div class="modal-chart-wrap" style="height:200px"><canvas id="ch-ph02-trend"></canvas></div>
-      <div style="font-size:11px;color:#8B95A1;margin-top:6px">* 기미제거패치: 피부 기능성 패치 카테고리 대표 지표 | 링탭: 수면→피부 피봇 경쟁사 | 드림잇: 자사</div>
+      <div style="font-size:11px;color:#8B95A1;margin-top:6px">* 글루타치온패치: 피부 기능성 패치 카테고리 대표 | 링탭: 수면→피부 피봇 경쟁사 | 수면패치: 수면 카테고리 전체</div>
     </div>
 
     <div class="modal-section">
       <div class="modal-section-title">수면 → 피부 인과 구조</div>
       <div style="display:flex;align-items:center;gap:8px;margin:12px 0;flex-wrap:wrap">
-        <div style="background:#FFF5F5;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#E53E3E;text-align:center;flex:1;min-width:90px">수면 부족<br>·뒤척임</div>
+        <div style="background:#FFF5F5;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#E53E3E;text-align:center;flex:1;min-width:90px">수면 부족<br>뒤척임</div>
         <div style="font-size:18px;color:#B0B8C1">→</div>
-        <div style="background:#FFF8E1;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#B7791F;text-align:center;flex:1;min-width:90px">성장호르몬<br>분비 감소</div>
+        <div style="background:#FFF8E1;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#B7791F;text-align:center;flex:1;min-width:90px">수면 에러<br></div>
         <div style="font-size:18px;color:#B0B8C1">→</div>
         <div style="background:#FFF5F5;border-radius:10px;padding:10px 14px;font-size:12px;font-weight:600;color:#E53E3E;text-align:center;flex:1;min-width:90px">피부 재생<br>방해</div>
         <div style="font-size:18px;color:#B0B8C1">→</div>
@@ -2131,7 +2132,8 @@ tr:last-child td { border-bottom: none; }
 
     <div class="modal-section">
       <div class="modal-section-title">경쟁사 동향 — 링탭 피봇이 시사하는 것</div>
-      <div class="quote-card">링탭은 멜라토닌(수면) → 글루타치온(피부) 패치로 전환하며 검색량이 2025년 중반부터 폭발적으로 상승했다.<br>이는 <strong>수면 패치를 쓰던 소비자가 피부 베네핏을 원하기 시작했다</strong>는 신호다.<br>드림잇이 "수면→피부" 소구를 선점하지 않으면 이 포지션은 링탭이 굳힌다.</div>
+      <div class="quote-card">링탭은 멜라토닌(수면) → 글루타치온(피부) 패치로 전환하며 검색량이 2025년 중반부터 폭발적으로 상승했다.<br>이는 <strong>피부에 대한 니즈가 더 큰 시장이라는</strong>는 증거다.<br>다만 수면패치 키워드의 상승처럼 업세일링 기회가 있기 때문에
+      <strong> 수면으로 얻을 수 있는 피부 효과</strong>를 소구할 가능성이 보인다.</div>
     </div>
 
     <div class="modal-section">
@@ -2140,7 +2142,6 @@ tr:last-child td { border-bottom: none; }
         <span class="review-chip-q">"잠을 못 자면 다음날 피부가 달라요"</span>
         <span class="review-chip-q">"자고 일어나도 피부가 칙칙해요"</span>
         <span class="review-chip-q">"수면이 최고의 피부 관리라더니"</span>
-        <span class="review-chip-q">"글루타치온 먹어도 피부가 그대로예요 — 수면이 문제인 걸까요?"</span>
       </div>
     </div>
 
@@ -2148,17 +2149,7 @@ tr:last-child td { border-bottom: none; }
       <div class="modal-section-title">크리에이티브 컨셉</div>
       <div class="quote-card">
         "밤사이 피부 회복, 드림잇이 황금 수면 시간을 만들어요"<br>
-        "글루타치온 먹어도 피부가 그대로라면? 수면부터 고쳐야 해요" — <strong>역접 소구</strong><br>
         여름 시즌: "더위에 수면 방해 → 피부 문제 악화 → 드림잇으로 해결"
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">실행 방향</div>
-      <div class="action-list">
-        <div class="action-item"><span class="action-arrow">→</span><span><strong>[선행]</strong> 드림잇 상품명·태그에 "수면패치" 추가 → 쇼핑 노출 확인 후 광고 집행</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>타겟 키워드 연결: 수면 피부, 잠 피부, 피부 칙칙해요, 수면 부족 피부</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇+드림잇 기획세트 연결: "낮엔 슬림잇, 밤엔 드림잇 — 하루 루틴 완성"</span></div>
       </div>
     </div>
   </div>
@@ -2174,11 +2165,11 @@ tr:last-child td { border-bottom: none; }
     <div class="kpi-row">
       <div class="kpi-card warn">
         <div class="kpi-value">1,310건</div>
-        <div class="kpi-label">팔뚝살패치 월간 검색량 — 패치 브랜드 쇼핑 공백 상태</div>
+        <div class="kpi-label">팔뚝살패치 월간 검색량 — 여름 트렌드 키워드</div>
       </div>
       <div class="kpi-card accent">
         <div class="kpi-value">9,720건</div>
-        <div class="kpi-label">종아리보톡스 월간 검색 — 라인잇 쇼핑 전혀 미노출</div>
+        <div class="kpi-label">종아리보톡스 월간 검색 — 시술에 대한 큰 볼륨과 니즈</div>
       </div>
       <div class="kpi-card green">
         <div class="kpi-value">4,380건</div>
@@ -2187,9 +2178,17 @@ tr:last-child td { border-bottom: none; }
     </div>
 
     <div class="quote-card" style="margin-top:12px">
-      "다이어트"가 아닌 <strong>특정 부위 소구</strong>는 더 즉각적인 구매 결정으로 연결된다.<br>
+      "다이어트"가 아닌 <strong>특정 부위 소구</strong>는 시즌마다 더 매력적인 소구로 연결된다.<br>
       팔뚝과 종아리는 각각 다른 계절성·소비자 감정을 가지며,<br>
-      두 부위에 대한 별도 광고 소재를 만들면 <strong>슬림잇과 라인잇을 동시에 부각</strong>할 수 있다.
+      두 부위에 대한 별도 광고 소재를 만들면 <strong>슬림잇과 라인잇을 동시에 부각</strong>할 수 있다.<br>
+      특히 여름철 <strong>외부로 보이게 되는 신체 부위</strong>가 트렌드를 강하게 탄다고 판단된다.<br>
+      시술과 관련된 니즈 검색 키워드가 볼륨이 대체적으로 크기에 <strong>시술 대신, 전 사용으로</strong> 소구할 가능성도 보인다.
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">팔뚝살패치 × 종아리보톡스 × 다리붓기빼는법 검색량 추이 (2024-05 ~ 2026-04)</div>
+      <div class="modal-chart-wrap" style="height:200px"><canvas id="ch-ph03-trend"></canvas></div>
+      <div style="font-size:11px;color:#8B95A1;margin-top:6px">* 팔뚝살패치: 여름 시즌 급등 — 패치 브랜드 공백 진입 기회 | 종아리보톡스: 시술 탐색자 연결 | 다리붓기빼는법: 봄~여름 피크 계절성</div>
     </div>
 
     <div class="modal-section">
@@ -2200,9 +2199,6 @@ tr:last-child td { border-bottom: none; }
           <tr><td>시즌</td><td>봄~여름 (반팔·민소매 시즌)</td><td>연중 + 여름 피크</td></tr>
           <tr><td>소비자 언어</td><td>"반팔 입기 싫어요", "팔뚝살이 흔들려요"</td><td>"종아리 알이 배겨요", "스키니 못 입는 이유"</td></tr>
           <tr><td>검색 키워드</td><td>팔뚝살패치 1,310건, 팔뚝살빼는운동 13,920건</td><td>종아리보톡스 9,720건, 종아리알빼는법 4,630건</td></tr>
-          <tr class="tr-highlight"><td>쇼핑 현황</td><td>❌ 패치 브랜드 공백 — 압박복·해외직구만 상위</td><td>❌ 라인잇 미노출 — 진입 여지 있음</td></tr>
-          <tr><td>즉시 실행</td><td>슬림잇 상품명·태그: "팔뚝살패치" 추가</td><td>라인잇 태그: "종아리관리, 종아리알" 추가</td></tr>
-          <tr><td>광고 소재</td><td>"민소매 입고 싶은데 팔뚝이 문제예요?"</td><td>"보톡스 전에 이거 먼저 2주 해봤어요"</td></tr>
         </tbody>
       </table>
     </div>
@@ -2212,16 +2208,6 @@ tr:last-child td { border-bottom: none; }
       <div class="quote-card">
         "팔뚝(슬림잇) + 종아리(라인잇) — 부위별 패칫 루틴"<br>
         여름 시즌 한 컷 크리에이티브: <strong>팔뚝에 슬림잇, 종아리에 라인잇</strong> — 붙이는 곳이 다른 이유를 설명
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">즉시 실행 항목</div>
-      <div class="action-list">
-        <div class="action-item"><span class="action-arrow">→</span><span><strong>[이번 주]</strong> 슬림잇 상품명·태그에 "팔뚝살패치" 즉시 추가 후 쇼핑 노출 확인</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span><strong>[이번 주]</strong> 라인잇 태그: "종아리관리, 다리붓기, 종아리알" 추가</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>Meta 광고 소재: 팔뚝살·종아리 부위별 별도 소재 2세트 제작</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>슬림잇 상세페이지: 팔뚝 부착 사용 예시 이미지 추가</span></div>
       </div>
     </div>
   </div>
@@ -2241,18 +2227,24 @@ tr:last-child td { border-bottom: none; }
       </div>
       <div class="kpi-card">
         <div class="kpi-value">3,380건</div>
-        <div class="kpi-label">종아리보톡스후기 — 시술 완료 후 관리 검색자</div>
+        <div class="kpi-label">종아리보톡스후기 — 시술 전 탐색자 풀</div>
       </div>
       <div class="kpi-card warn">
         <div class="kpi-value">공백</div>
-        <div class="kpi-label">엔더몰로지(3,980건)·지방분해주사(2,160건) 탐색 → 라인잇 쇼핑 미노출</div>
+        <div class="kpi-label">엔더몰로지(3,980건)·지방분해주사(2,160건) 탐색 → 시술 관리에 대한 니즈의 증거</div>
       </div>
     </div>
 
+    <div class="modal-section">
+      <div class="modal-section-title">종아리지방흡입 × 종아리지방분해주사 × 다이어트클리닉 검색량 추이 (2024-05 ~ 2026-04)</div>
+      <div class="modal-chart-wrap" style="height:200px"><canvas id="ch-ph04-trend"></canvas></div>
+      <div style="font-size:11px;color:#8B95A1;margin-top:6px">* 종아리지방흡입: 수술급 탐색자 | 종아리지방분해주사: 비수술 주사 탐색자 | 다이어트클리닉: 병원 방문 의향 — 라인잇 연결 타겟</div>
+    </div>
+
     <div class="quote-card" style="margin-top:12px">
-      종아리보톡스·지방흡입 등 시술을 검토하거나 이미 받은 소비자에게 라인잇을 연결한다.<br>
-      <strong>"시술 전 준비"</strong> 또는 <strong>"시술 후 붓기 관리"</strong> 두 가지 프레임 중 하나로 진입하면<br>
-      고단가 시술 탐색자를 자연스럽게 라인잇으로 유입시킬 수 있다.
+      시술을 검토하는 사람들은 즉각적인 효과를 원하는 심리가 있을 것이라 생각된다. <strong>시술 효과 극대화</strong>의 컨셉으로 연결할 수 있을 것 같다.<br>
+      <strong>"시술 전"</strong> 또는 <strong>"시술 후"</strong> 두 가지 프레임 중 하나로 진입하면<br>
+      다이어트라는 본원적 심리를 가진 타겟에게 도달, 유입할 수 있을 것이다.
     </div>
 
     <div class="modal-section">
@@ -2261,7 +2253,7 @@ tr:last-child td { border-bottom: none; }
         <div>
           <div style="font-size:12px;font-weight:700;color:#3182F6;margin-bottom:8px">앵글 A — 시술 전 "먼저 해봐요"</div>
           <div class="review-chip-list" style="flex-direction:column;gap:5px;margin-bottom:12px">
-            <span class="review-chip-q">"보톡스 예약 전에 이거 먼저 써봤어요"</span>
+            <span class="review-chip-q">"종아리 보톡스 예약 전에 이거 먼저 써봤어요"</span>
             <span class="review-chip-q">"시술 결정 전 2주 붙여봤더니"</span>
           </div>
           <div style="font-size:13px;color:#191F28">타겟: 아직 시술 결정 안 한 탐색 단계<br>소구: "병원 가기 전에 2주만 먼저 해보세요"</div>
@@ -2269,7 +2261,7 @@ tr:last-child td { border-bottom: none; }
         <div>
           <div style="font-size:12px;font-weight:700;color:#05C072;margin-bottom:8px">앵글 B — 시술 후 "붓기 케어 필수"</div>
           <div class="review-chip-list" style="flex-direction:column;gap:5px;margin-bottom:12px">
-            <span class="review-chip-q">"보톡스 맞고 붓기 빠지는 게 걱정이었는데"</span>
+            <span class="review-chip-q">"종아리 보톡스 맞고 효과 어떻게 빨리보나요"</span>
             <span class="review-chip-q">"시술 후 관리 어떻게 해요?"</span>
           </div>
           <div style="font-size:13px;color:#191F28">타겟: 시술 완료 후 사후 관리 검색자<br>소구: "시술 후 붓기 관리, 라인잇으로 시작하세요"</div>
@@ -2277,16 +2269,7 @@ tr:last-child td { border-bottom: none; }
       </div>
     </div>
 
-    <div class="modal-section">
-      <div class="modal-section-title">실행 방향</div>
-      <div class="action-list">
-        <div class="action-item"><span class="action-arrow">→</span><span>네이버 블로그: "종아리 보톡스 후기 — 시술 후 붓기 관리 꿀팁" → 라인잇 연결 (SEO 유입)</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>라인잇 상품 태그: "종아리관리, 시술후관리, 종아리알, 붓기케어" 추가</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>상세페이지: 브로멜라인 성분 + "시술 후 관리" 언어 노출</span></div>
-      </div>
-    </div>
-
-    <div class="caution" style="margin-top:4px">⚠️ "의학적 효능" 표현 금지 → "케어", "관리 루틴" 수준으로 유지. 시술 직접 언급 시 광고 규제 검토 필요.</div>
+    <div class="caution" style="margin-top:20px">⚠️ "의학적 효능" 표현 금지 → "케어", "관리 루틴" 수준으로 유지. 시술 직접 언급 시 광고 규제 검토 필요.</div>
   </div>
 </div>
 
@@ -2295,31 +2278,37 @@ tr:last-child td { border-bottom: none; }
   <div class="modal-box modal-hyp-box">
     <button class="modal-close" onclick="closeModal('modal-ph06')">×</button>
     <div class="modal-eyebrow">H-06 · 71점</div>
-    <div class="modal-title">에너짓 — "집중력"보다 와닿는 소비자 언어 발굴</div>
+    <div class="modal-title">에너짓 — 집중력 소구로 신규 수요 선점</div>
 
     <div class="kpi-row">
-      <div class="kpi-card warn">
-        <div class="kpi-value">하락 중</div>
-        <div class="kpi-label">에너짓 카테고리 검색량 추이 — 소구 언어 재설계 필요</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-value">3.4%</div>
-        <div class="kpi-label">에너짓 재구매율 — 전 제품 최저, 체감 설득 실패</div>
+      <div class="kpi-card accent">
+        <div class="kpi-value">3,050건</div>
+        <div class="kpi-label">집중력높이는법 월간 검색 — 연중 3,000~5,000건 안정 수요</div>
       </div>
       <div class="kpi-card green">
-        <div class="kpi-value">안정 수요</div>
-        <div class="kpi-label">마그네슘패치 연중 수요 — 대체 키워드 포지션 가능</div>
+        <div class="kpi-value">2,230건</div>
+        <div class="kpi-label">집중력영양제 월간 검색 — 영양제로 찾는 수요, 패치로 전환 가능</div>
+      </div>
+      <div class="kpi-card warn">
+        <div class="kpi-value">40건</div>
+        <div class="kpi-label">집중력패치 월간 검색 — 패치 제형으로 아무도 공략 안 한 공백</div>
       </div>
     </div>
 
     <div class="quote-card" style="margin-top:12px">
-      <strong>"집중력패치"는 카테고리명이지 소비자 언어가 아니다.</strong><br>
-      실제 소비자가 "집중이 안 될 때" 느끼는 감각과 상황으로 소구하면<br>
-      에너짓의 사용 시점이 즉각적으로 와닿는다.
+      집중력 수요는 <strong>월간 수천 건 수준으로 연중 안정적으로 존재</strong>한다.<br>
+      그런데 "집중력패치"는 고작 40건 — 패치 제형으로 이 포지션을 잡은 브랜드가 없다.<br>
+      에너짓이 먼저 진입하면 <strong>집중력패치 카테고리의 첫 번째 브랜드</strong>가 될 수 있다.
     </div>
 
     <div class="modal-section">
-      <div class="modal-section-title">상황별 소비자 언어 매핑</div>
+      <div class="modal-section-title">집중력 × 집중력영양제 × 집중력높이는법 검색량 추이 (2024-05 ~ 2026-04)</div>
+      <div class="modal-chart-wrap" style="height:200px"><canvas id="ch-ph06-trend"></canvas></div>
+      <div style="font-size:11px;color:#8B95A1;margin-top:6px">* 집중력높이는법: 3,000~5,500건 연중 안정 수요 | 집중력영양제: 성장 추세, 패치 전환 타겟 | 집중력: 기반 수요</div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">상황별 소비자 언어 — 집중력 소구 진입점</div>
       <table>
         <thead><tr><th>상황</th><th>소비자 실제 언어</th><th>소구 각도</th></tr></thead>
         <tbody>
@@ -2327,27 +2316,19 @@ tr:last-child td { border-bottom: none; }
           <tr><td>업무 중 멍함</td><td>"멍하니 화면만 봐요", "머리가 안 돌아가요"</td><td>브레인 포그 해소</td></tr>
           <tr><td>야근·마감</td><td>"야근인데 집중이 안 돼요", "마감 전날 버티기"</td><td>지속 에너지</td></tr>
           <tr><td>수험·공부</td><td>"공부가 손에 안 잡혀요", "시험 전 집중력"</td><td>시험 루틴</td></tr>
-          <tr><td>피로+업무</td><td>"몸은 피곤한데 일해야 해요", "커피도 안 들어요"</td><td>카페인 대체</td></tr>
+          <tr><td>영양제 대체</td><td>"집중력 영양제 매일 챙기기 귀찮아요"</td><td>붙이는 편의 소구</td></tr>
         </tbody>
       </table>
     </div>
+
+    <div class="caution" style="margin-top:16px">⚠️ 카페인·타우린 함량 확인됨 — 해당 성분 용량 등 검토 후 적절한 소구 방향 설정 필요할 것으로 예상</div>
 
     <div class="modal-section">
       <div class="modal-section-title">크리에이티브 컨셉</div>
       <div class="quote-card">
         "오후 2시, 눈이 감길 때 붙이는 에너짓" — <strong>시간+상황 결합 소구</strong><br>
-        "커피 대신 붙이는 집중력 패치" — 대체재 포지셔닝<br>
-        "마그네슘 먹기 귀찮으면 붙이세요" — 연중 안정 수요 포착
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">실행 방향</div>
-      <div class="action-list">
-        <div class="action-item"><span class="action-arrow">→</span><span><strong>[선행 과제]</strong> 점심후졸음·식곤증·브레인포그·집중력높이는법 키워드 DataLab 조회 후 볼륨 확인</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>에너짓 상품 태그: "마그네슘패치, 집중력패치, 오후집중" 추가</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>Meta 광고: 점심시간/야근 상황 크리에이티브 2세트 A/B 테스트</span></div>
-        <div class="action-item"><span class="action-arrow">→</span><span>부착 위치 구체화 — "귀 뒤에 붙여요" vs "손목에 붙여요" 설명 추가</span></div>
+        "집중력 영양제 매일 챙기기 귀찮으면? 그냥 붙이세요" — <strong>영양제 대체재 포지셔닝</strong><br>
+        "커피 말고 붙이는 집중력 — 에너짓" — 카페인 대안
       </div>
     </div>
   </div>
@@ -2516,6 +2497,69 @@ tr:last-child td { border-bottom: none; }
 
   </div><!-- /inner -->
 </div><!-- /#dashboard-view -->
+
+<!-- ─── REVIEW VIEW ─── -->
+<div id="review-view" style="display:none; background:#F2F4F6; min-height:calc(100vh - 60px); padding:60px 80px 80px;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="sec-eyebrow" style="margin-bottom:8px">Review Analysis</div>
+    <h2 class="sec-title" style="margin-bottom:8px">리뷰 분석</h2>
+    <p style="font-size:14px;color:#6B7684;margin-bottom:32px">자사·경쟁사 리뷰 데이터 기반 니즈·베네핏·불만 분석</p>
+
+    <!-- 브랜드 탭 -->
+    <div class="dash-brand-tabs" id="rv-brand-tabs"></div>
+
+    <!-- 제품 선택 -->
+    <div id="rv-product-tabs" style="display:flex;gap:8px;margin:16px 0 24px;flex-wrap:wrap;"></div>
+
+    <!-- 로딩 -->
+    <div id="rv-loading" style="text-align:center;padding:60px;color:#6B7684;font-size:14px">로딩 중...</div>
+
+    <!-- 메인 콘텐츠 -->
+    <div id="rv-content" style="display:none">
+
+      <!-- 헤더 KPI -->
+      <div id="rv-kpi-row" style="display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;"></div>
+
+      <!-- 데이터 품질 경고 -->
+      <div id="rv-quality-note" style="display:none;margin-bottom:20px"></div>
+
+      <!-- 차트 3열 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:24px" id="rv-chart-grid">
+        <div class="dash-card">
+          <div class="dash-card-title">구매 동기 · 니즈 Top 7</div>
+          <div style="height:220px;position:relative"><canvas id="rv-motive-chart"></canvas></div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">실제 베네핏 Top 7</div>
+          <div style="height:220px;position:relative"><canvas id="rv-benefit-chart"></canvas></div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">불만 Top 7</div>
+          <div style="height:220px;position:relative"><canvas id="rv-complaint-chart"></canvas></div>
+        </div>
+      </div>
+
+      <!-- 별점 + 인사이트 -->
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:20px;margin-bottom:24px">
+        <div class="dash-card">
+          <div class="dash-card-title">별점 분포</div>
+          <div id="rv-score-bars" style="margin-top:12px"></div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-title">핵심 인사이트</div>
+          <div id="rv-insights" style="margin-top:12px"></div>
+        </div>
+      </div>
+
+      <!-- 소비자 실제 언어 -->
+      <div class="dash-card" style="margin-bottom:8px">
+        <div class="dash-card-title">소비자 실제 언어</div>
+        <div id="rv-quotes" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px"></div>
+      </div>
+
+    </div><!-- /rv-content -->
+  </div>
+</div><!-- /#review-view -->
 
 <!-- ─── KEYWORD VIEW ─── -->
 <div id="keyword-view" style="display:none; background:#F2F4F6; min-height:calc(100vh - 60px); padding:60px 80px 80px;">
@@ -3041,12 +3085,12 @@ function _initModalChart(id) {
     const P_MONTHS = ['24-05','24-06','24-07','24-08','24-09','24-10','24-11','24-12','25-01','25-02','25-03','25-04','25-05','25-06','25-07','25-08','25-09','25-10','25-11','25-12','26-01','26-02','26-03','26-04'];
     mk('ch-ph02-trend', { type:'line', data:{ labels: P_MONTHS,
       datasets:[
-        { label:'기미제거패치', data:[1042,1266,1002,1588,1068,996,918,1208,993,1106,1209,1319,1500,1205,1083,1257,957,800,496,3821,12310,15562,19505,21250],
-          borderColor:'#7C4DFF', backgroundColor:'rgba(124,77,255,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
         { label:'링탭', data:[0,0,0,0,0,0,0,0,0,0,0,0,63,2147,5756,7260,3737,3399,2094,2003,1777,5264,5893,7690],
           borderColor:red, backgroundColor:'rgba(229,62,62,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
-        { label:'드림잇', data:[122,163,266,334,160,256,318,259,170,145,175,219,122,159,224,272,234,207,305,236,257,259,300,350],
-          borderColor:blue, backgroundColor:'rgba(49,130,246,0.07)', borderWidth:2.5, pointRadius:2, tension:0.3, fill:false, borderDash:[5,3] }
+        { label:'글루타치온패치', data:[896,1074,742,847,817,657,639,651,624,695,719,686,512,583,8810,17339,6977,2972,1288,686,385,419,9847,20310],
+          borderColor:'#7C4DFF', backgroundColor:'rgba(124,77,255,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'수면패치', data:[1974,293,174,597,355,309,522,407,341,461,363,338,387,1083,2341,1752,1646,1628,1246,902,877,3062,2716,2260],
+          borderColor:blue, backgroundColor:'rgba(49,130,246,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false, borderDash:[5,3] }
       ]}, options:{ ...defOpts(), plugins:{ legend:{ display:true, labels:{ font:{size:11}, boxWidth:14 } }, tooltip:{ mode:'index', intersect:false } } }
     });
   }
@@ -3057,6 +3101,45 @@ function _initModalChart(id) {
         backgroundColor:[blue,lightBlue,red,red,gray,gray], borderRadius:6, barThickness:18 }]},
       options:{ ...defOpts(), indexAxis:'y',
         scales:{ y:{grid:{display:false}, ticks:{font:{size:10}}}, x:{ grid:{color:'#F2F4F6'}, ticks:{ callback:v=>v+'%', font:{size:10} }, max:60 } } }
+    });
+  }
+  if (id === 'modal-ph04') {
+    const P_MONTHS = ['24-05','24-06','24-07','24-08','24-09','24-10','24-11','24-12','25-01','25-02','25-03','25-04','25-05','25-06','25-07','25-08','25-09','25-10','25-11','25-12','26-01','26-02','26-03','26-04'];
+    mk('ch-ph04-trend', { type:'line', data:{ labels: P_MONTHS,
+      datasets:[
+        { label:'종아리지방흡입', data:[2488,3180,3043,2937,2427,2015,1483,1550,1452,1603,2010,2412,2667,3104,2935,2505,2280,1985,1683,1697,1579,1610,1743,3700],
+          borderColor:red, backgroundColor:'rgba(229,62,62,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'종아리지방분해주사', data:[1913,2157,2152,1579,1266,933,816,731,732,785,1372,1491,2423,2282,2102,1716,1126,885,686,654,563,677,911,2160],
+          borderColor:'#7C4DFF', backgroundColor:'rgba(124,77,255,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'다이어트클리닉', data:[416,360,312,283,327,280,271,239,327,331,450,379,390,355,255,331,241,266,301,352,433,375,395,1380],
+          borderColor:blue, backgroundColor:'rgba(49,130,246,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false, borderDash:[5,3] }
+      ]}, options:{ ...defOpts(), plugins:{ legend:{ display:true, labels:{ font:{size:11}, boxWidth:14 } }, tooltip:{ mode:'index', intersect:false } } }
+    });
+  }
+  if (id === 'modal-ph03') {
+    const P_MONTHS = ['24-05','24-06','24-07','24-08','24-09','24-10','24-11','24-12','25-01','25-02','25-03','25-04','25-05','25-06','25-07','25-08','25-09','25-10','25-11','25-12','26-01','26-02','26-03','26-04'];
+    mk('ch-ph03-trend', { type:'line', data:{ labels: P_MONTHS,
+      datasets:[
+        { label:'팔뚝살패치', data:[7,6,35,30,7,6,0,9,91,556,1495,1712,3632,3923,5563,7262,1747,669,530,586,638,815,1208,1310],
+          borderColor:'#7C4DFF', backgroundColor:'rgba(124,77,255,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'종아리보톡스', data:[18243,18140,16990,13253,10849,8406,6465,6983,7421,8554,11920,12866,16401,18371,14603,10163,6905,5757,5141,4645,4762,5264,7458,9720],
+          borderColor:red, backgroundColor:'rgba(229,62,62,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'다리붓기빼는법', data:[3928,3495,2856,2615,2406,1652,1434,1207,1453,1380,1861,2440,4112,4002,3000,2481,2022,1476,1340,1150,1133,2343,3751,4380],
+          borderColor:blue, backgroundColor:'rgba(49,130,246,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false, borderDash:[5,3] }
+      ]}, options:{ ...defOpts(), plugins:{ legend:{ display:true, labels:{ font:{size:11}, boxWidth:14 } }, tooltip:{ mode:'index', intersect:false } } }
+    });
+  }
+  if (id === 'modal-ph06') {
+    const P_MONTHS = ['24-05','24-06','24-07','24-08','24-09','24-10','24-11','24-12','25-01','25-02','25-03','25-04','25-05','25-06','25-07','25-08','25-09','25-10','25-11','25-12','26-01','26-02','26-03','26-04'];
+    mk('ch-ph06-trend', { type:'line', data:{ labels: P_MONTHS,
+      datasets:[
+        { label:'집중력높이는법', data:[4913,5505,4444,3804,4532,5260,4229,3893,3758,4084,4537,5101,3395,4226,3268,3115,3535,3116,2881,2737,2625,2179,2780,3050],
+          borderColor:red, backgroundColor:'rgba(229,62,62,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'집중력영양제', data:[1592,1667,1452,1639,2109,1909,1521,1517,1878,2971,3177,4009,2997,3111,2459,2732,3149,2125,1986,2046,2252,1790,2633,2230],
+          borderColor:'#7C4DFF', backgroundColor:'rgba(124,77,255,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false },
+        { label:'집중력', data:[3742,3419,4270,3725,3363,3422,3784,2971,2347,2143,2794,2333,2184,2014,2086,2275,2341,1913,1868,1520,1330,1177,1845,1680],
+          borderColor:blue, backgroundColor:'rgba(49,130,246,0.07)', borderWidth:2, pointRadius:2, tension:0.3, fill:false, borderDash:[5,3] }
+      ]}, options:{ ...defOpts(), plugins:{ legend:{ display:true, labels:{ font:{size:11}, boxWidth:14 } }, tooltip:{ mode:'index', intersect:false } } }
     });
   }
 }
@@ -3186,6 +3269,7 @@ function switchMainTab(tab, btn) {
   const pptView  = document.getElementById('ppt-view');
   const dashView = document.getElementById('dashboard-view');
   const kwView   = document.getElementById('keyword-view');
+  const rvView   = document.getElementById('review-view');
   const secLinks = document.querySelector('.nav-section-links');
   const caloPPT  = document.getElementById('ppt-calo');
   const pachetPPT= document.getElementById('ppt-pachet');
@@ -3193,6 +3277,7 @@ function switchMainTab(tab, btn) {
   pptView.style.display  = 'none';
   dashView.style.display = 'none';
   kwView.style.display   = 'none';
+  rvView.style.display   = 'none';
   secLinks.style.display = 'none';
 
   if (tab === 'dashboard') {
@@ -3201,6 +3286,9 @@ function switchMainTab(tab, btn) {
   } else if (tab === 'keyword') {
     kwView.style.display = 'block';
     kwInit();
+  } else if (tab === 'review') {
+    rvView.style.display = 'block';
+    rvInit();
   } else {
     pptView.style.display  = 'block';
     secLinks.style.display = 'flex';
@@ -3727,6 +3815,146 @@ function kwRenderChart(data) {
       }
     }
   });
+}
+
+// ── REVIEW TAB ──────────────────────────────────────────────────────────────
+let RV_DATA = null;
+let rvBrand = 0, rvProduct = 0;
+const rvCharts = {};
+
+async function rvInit() {
+  if (!RV_DATA) {
+    document.getElementById('rv-loading').style.display = 'block';
+    document.getElementById('rv-content').style.display = 'none';
+    const res = await fetch('./data/review_summary.json');
+    RV_DATA = await res.json();
+    rvBuildBrandTabs();
+  }
+  rvRender(rvBrand, rvProduct);
+}
+
+function rvBuildBrandTabs() {
+  const wrap = document.getElementById('rv-brand-tabs');
+  wrap.innerHTML = '';
+  RV_DATA.brands.forEach((b, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'dash-brand-tab' + (i === 0 ? ' active' : '');
+    const badge = b.type === '경쟁사'
+      ? `<span style="font-size:10px;background:#FFF0F0;color:#E53E3E;border-radius:4px;padding:1px 6px;margin-left:6px">경쟁사</span>`
+      : `<span style="font-size:10px;background:#EAF2FF;color:#3182F6;border-radius:4px;padding:1px 6px;margin-left:6px">자사</span>`;
+    btn.innerHTML = b.brand + badge;
+    btn.onclick = () => {
+      wrap.querySelectorAll('.dash-brand-tab').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      rvBrand = i; rvProduct = 0;
+      rvRender(rvBrand, rvProduct);
+    };
+    wrap.appendChild(btn);
+  });
+}
+
+function rvBuildProductTabs(brandIdx, activePi = 0) {
+  const wrap = document.getElementById('rv-product-tabs');
+  wrap.innerHTML = '';
+  const prods = RV_DATA.brands[brandIdx].products;
+  if (prods.length <= 1) { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'flex';
+  prods.forEach((p, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'nav-tab' + (i === activePi ? ' active' : '');
+    btn.style.cssText = 'font-size:13px;padding:6px 16px';
+    btn.textContent = p.product;
+    btn.onclick = () => {
+      wrap.querySelectorAll('.nav-tab').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      rvProduct = i;
+      rvRender(rvBrand, rvProduct);
+    };
+    wrap.appendChild(btn);
+  });
+}
+
+function rvRender(bi, pi) {
+  const brand = RV_DATA.brands[bi];
+  const prod  = brand.products[pi];
+  document.getElementById('rv-loading').style.display = 'none';
+  document.getElementById('rv-content').style.display = 'block';
+  rvBuildProductTabs(bi, pi);
+
+  // KPI row
+  const total = prod.total_reviews;
+  const avg   = prod.avg_score;
+  const star5pct = prod.score_pct?.['5'] ?? '--';
+  const star1pct = prod.score_pct?.['1'] ?? '--';
+  document.getElementById('rv-kpi-row').innerHTML = `
+    <div class="kpi-card" style="flex:1;min-width:140px"><div class="kpi-value">${total.toLocaleString()}</div><div class="kpi-label">총 리뷰 수</div></div>
+    <div class="kpi-card${avg >= 4 ? ' green' : avg >= 3 ? '' : ' warn'}" style="flex:1;min-width:140px"><div class="kpi-value">${avg ?? '--'}</div><div class="kpi-label">평균 별점</div></div>
+    <div class="kpi-card green" style="flex:1;min-width:140px"><div class="kpi-value">${star5pct}%</div><div class="kpi-label">5점 비율</div></div>
+    <div class="kpi-card warn" style="flex:1;min-width:140px"><div class="kpi-value">${star1pct}%</div><div class="kpi-label">1점 비율</div></div>
+    ${prod.trusted_reviews ? `<div class="kpi-card" style="flex:1;min-width:140px"><div class="kpi-value">${prod.trusted_reviews}</div><div class="kpi-label">진성 리뷰(추정)</div></div>` : ''}
+  `;
+
+  // 데이터 품질 경고
+  const qNote = document.getElementById('rv-quality-note');
+  if (prod.data_quality_note) {
+    qNote.style.display = 'block';
+    qNote.innerHTML = `<div class="caution">⚠️ ${prod.data_quality_note}</div>`;
+  } else { qNote.style.display = 'none'; }
+
+  // 별점 바
+  const scoreWrap = document.getElementById('rv-score-bars');
+  const scoreKeys = ['5','4','3','2','1'];
+  const scoreColors = {'5':'#05C072','4':'#3182F6','3':'#F0B429','2':'#F6AD55','1':'#E53E3E'};
+  scoreWrap.innerHTML = scoreKeys.map(k => {
+    const cnt = prod.score_dist?.[k] ?? 0;
+    const p   = prod.score_pct?.[k]  ?? 0;
+    return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <span style="font-size:12px;font-weight:600;color:#191F28;width:20px">${k}★</span>
+      <div style="flex:1;background:#F2F4F6;border-radius:4px;height:12px;overflow:hidden">
+        <div style="width:${p}%;background:${scoreColors[k]};height:100%;border-radius:4px;transition:width .4s"></div>
+      </div>
+      <span style="font-size:11px;color:#6B7684;width:52px;text-align:right">${cnt.toLocaleString()}건 (${p}%)</span>
+    </div>`;
+  }).join('');
+
+  // 인사이트
+  document.getElementById('rv-insights').innerHTML = (prod.insights || [])
+    .map(t => `<div style="display:flex;gap:8px;margin-bottom:10px;font-size:13px;color:#191F28;line-height:1.5">
+      <span style="color:${brand.color};font-weight:700;flex-shrink:0">→</span><span>${t}</span></div>`)
+    .join('');
+
+  // 소비자 언어
+  document.getElementById('rv-quotes').innerHTML = (prod.consumer_quotes || [])
+    .map(q => `<span class="review-chip-q">"${q}"</span>`).join('');
+
+  // 차트
+  const bColor = brand.color;
+  const mkHBar = (id, items, color) => {
+    if (rvCharts[id]) rvCharts[id].destroy();
+    const ctx = document.getElementById(id);
+    if (!ctx || !items.length) return;
+    rvCharts[id] = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: items.map(x => x.label.length > 14 ? x.label.slice(0,14)+'…' : x.label),
+        datasets: [{ data: items.map(x => x.count),
+          backgroundColor: color + 'CC', borderRadius: 4, barThickness: 14 }]
+      },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false },
+          tooltip: { callbacks: { label: ctx => ` ${ctx.raw.toLocaleString()}건`,
+            title: (items2) => { const orig = prod.top_motives || prod.top_benefits || prod.top_complaints || []; return items2[0].label; } } } },
+        scales: {
+          x: { grid: { color: '#F2F4F6' }, ticks: { font: { size: 10 } } },
+          y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+        }
+      }
+    });
+  };
+  mkHBar('rv-motive-chart',    prod.top_motives    || [], bColor);
+  mkHBar('rv-benefit-chart',   prod.top_benefits   || [], '#05C072');
+  mkHBar('rv-complaint-chart', prod.top_complaints || [], '#E53E3E');
 }
 
 // sectionIds 스크롤 추적은 ppt-view 활성 시에만 동작
